@@ -1,0 +1,17 @@
+{
+  "name": "wizardstanoff",
+  "version": "0.0.1",
+  "description": "Coding Duell",
+  "author": "Sven Hecht, Marcel Ochs",
+  "private": true,
+  "scripts": {
+    "build": "browserify --bundle=index.js -o ./static/bundle.js",
+    "start": "node server.js",
+    "open": "google-chrome localhost:8080"
+  },
+  "dependencies": {
+    "browserify" : "~2.25.1",
+    "ecstatic" : "~0.4.5",
+    "through" : "~2.3.4"
+  }
+}

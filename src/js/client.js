@@ -2,11 +2,11 @@ if (typeof(MF) === "undefined") {
 	window.MF = {};
 }
 
-MF.Communication.Client = {
+MF.Client = {
 	events: {
-		player_connected: 'player_connected', 
-		player_ready: 'player_ready', 
+		player_connected: 'player_connected',
 		player_disconnected: 'player_disconnected', 
+		player_code: 'player_code', 
 		client_connected: 'client_connected',
 		client_disconnected: 'client_disconnected',
 		channel_list: 'channel_list'
@@ -14,7 +14,7 @@ MF.Communication.Client = {
 
 	eventHandler: {},
 
-	host: "ws://localhost:8000/",
+	host: "ws://localhost:81/",
 
 	_socket: null,
 	_channel: null,
@@ -29,18 +29,17 @@ MF.Communication.Client = {
     	try {
 			me._socket = new WebSocket(me.host);
 
-			socket.onopen = function() {
-			    me.trigger(me.events.player_connected, me);
+			me._socket.onopen = function() {
+			    me.trigger(me.events.client_connected, me);
 			};
 
-			socket.onmessage = me._message_received.bind(me);
+			me._socket.onmessage = me._message_received.bind(me);
 	  
-	        socket.onclose = function() {
+	        me._socket.onclose = function() {
 			    me.trigger(me.events.client_disconnected, me);
 	        };
 
 			console.log("... connected.");
-	        me.trigger(me.events.client_connected, me);
 
 	    	result = true;
 	    } catch(e) {
@@ -57,11 +56,22 @@ MF.Communication.Client = {
 		}
 	},
 
-	setChannel: function(channel) {
+	set_channel: function(channel) {
+		var me = this;
+
 		me._channel = channel;
 	},
 
-	sendReady: function(username, code) {
+	request_channels: function() {
+		var me = this;
+
+		var msg = {
+			event_name: me.events.channel_list
+		};
+		return me._send(msg);
+	},
+
+	send_code: function(username, code) {
 		var me = this;
 
 		var msg = {
@@ -78,23 +88,29 @@ MF.Communication.Client = {
 	},
 
 	on: function(event_name, func) {
-		if (!eventHandler[event_name]) {
-			eventHandler[event_name] = [];
+		var me = this;
+
+		if (!me.eventHandler[event_name]) {
+			me.eventHandler[event_name] = [];
 		}
 
-		eventHandler[event_name].push(func);
+		me.eventHandler[event_name].push(func);
 	},
 
 	un: function(event_name, func) {
-		if (eventHandler[event_name]) {
-			var index = eventHandler[event_name].indexOf(func);
-			eventHandler[event_name].splice(index, 1);
+		var me = this;
+
+		if (me.eventHandler[event_name]) {
+			var index = me.eventHandler[event_name].indexOf(func);
+			me.eventHandler[event_name].splice(index, 1);
 		}
 	},
 
 	trigger: function(event_name, data) {
-		for (var i in eventHandler[event_name]) {
-			var func = eventHandler[event_name][i];
+		var me = this;
+
+		for (var i in me.eventHandler[event_name]) {
+			var func = me.eventHandler[event_name][i];
 
 			if (func) {
 				func(data);
@@ -102,8 +118,35 @@ MF.Communication.Client = {
 		}
 	},
 
+	_message_handler: {
+		player_connected: function(msg) {
+
+		},
+
+		player_disconnected: function(msg) {
+
+		},
+
+		player_code: function(msg) {
+
+		},
+
+		channel_list: function(msg) {
+			console.log("channel_list",msg);
+		}
+	},
+
 	_message_received: function(msg) {
-		console.log(msg);
+		var me = this;
+
+		var msgData = JSON.parse(msg.data);
+		console.log("Message received: ", msgData);
+
+		if (me._message_handler[msgData.event_name]) {
+			me._message_handler[msgData.event_name].apply(me, msgData);
+		} else {
+			console.warn('No handler for event "' + msgData.event_name);
+		}
 	},
 
 	_send: function(obj) {
@@ -111,7 +154,7 @@ MF.Communication.Client = {
 
 		var result = false;
 
-		if (me._channel) {
+		if (me._channel || obj.event_name == 'channel_list') {
 			if (me._socket) {
 				obj.channel = me._channel;
 

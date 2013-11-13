@@ -1,0 +1,1385 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"eng",
+				"engine"
+			],
+			[
+				"trans",
+				"translate"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"delt",
+				"deltaY"
+			],
+			[
+				"scr",
+				"scrolldistance"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"scre",
+				"screenHeight"
+			],
+			[
+				"play",
+				"playSound"
+			],
+			[
+				"sTil",
+				"sTilewidth"
+			],
+			[
+				"curre",
+				"currentLevelName"
+			],
+			[
+				"input-group",
+				"input-group-addon"
+			],
+			[
+				"part",
+				"particleList"
+			],
+			[
+				"to",
+				"toPixelPos"
+			],
+			[
+				"ex",
+				"explosions"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"lev",
+				"levelContainer"
+			],
+			[
+				"ground",
+				"groundLayer"
+			],
+			[
+				"res",
+				"resources"
+			],
+			[
+				"typ",
+				"typeText"
+			],
+			[
+				"text",
+				"textIndex"
+			],
+			[
+				"noise",
+				"noiseLevel"
+			],
+			[
+				"noi",
+				"noiseLevel"
+			],
+			[
+				"Get",
+				"GetPosition"
+			],
+			[
+				"se",
+				"secondsActors"
+			],
+			[
+				"new",
+				"newTimeUntilInDays"
+			],
+			[
+				"h",
+				"hidden"
+			],
+			[
+				"sc",
+				"screenWidth"
+			],
+			[
+				"d",
+				"dt	Tag"
+			],
+			[
+				"dec",
+				"decompress_zlib(in_str)	(global, function)"
+			],
+			[
+				"tiles",
+				"tilesetNode"
+			],
+			[
+				"tile",
+				"TilesetName"
+			],
+			[
+				"world",
+				"worldBody"
+			],
+			[
+				"si",
+				"_size"
+			],
+			[
+				"isL",
+				"_isLanding"
+			],
+			[
+				"anim",
+				"animData"
+			],
+			[
+				"cha",
+				"character"
+			],
+			[
+				"data",
+				"dataType"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"chara",
+				"characterAnimations"
+			],
+			[
+				"c",
+				"_character"
+			],
+			[
+				"main",
+				"_main"
+			],
+			[
+				"key",
+				"keyHandler"
+			],
+			[
+				"PI",
+				"PIXEL_DIM_X	(imported, instance)"
+			],
+			[
+				"inter",
+				"internalButtons	(attribute, instance)"
+			],
+			[
+				"vFinger",
+				"vFingerDir"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"col",
+				"color_red"
+			],
+			[
+				"num",
+				"num_leds"
+			],
+			[
+				"Score",
+				"ScoreEffectOffset"
+			],
+			[
+				"get",
+				"getDirVector()	(attribute, function)"
+			],
+			[
+				"pos",
+				"positionCache	(attribute, instance)"
+			],
+			[
+				"toIn",
+				"toIntArr()	(attribute, function)"
+			],
+			[
+				"secon",
+				"secondJoint	(local, instance)"
+			],
+			[
+				"firs",
+				"firstJoint	(local, instance)"
+			],
+			[
+				"Robo",
+				"RoboController	(global, class)"
+			],
+			[
+				"PIXEL",
+				"PIXEL_DIM_Y	(global, instance)"
+			],
+			[
+				"PXI",
+				"PIXEL_DIM_Y-1"
+			],
+			[
+				"PIX",
+				"PIXEL_DIM_Y	(global, instance)"
+			],
+			[
+				"vector_",
+				"vector_imul"
+			],
+			[
+				"vector",
+				"vector_sub"
+			],
+			[
+				"onTouch",
+				"onTouchBegan"
+			],
+			[
+				"zoom",
+				"zoommanager"
+			],
+			[
+				"HA",
+				"HALF_HEIGHT"
+			],
+			[
+				"x",
+				"xScale"
+			],
+			[
+				"gr",
+				"graphic"
+			],
+			[
+				"drawnT",
+				"drawnTile"
+			],
+			[
+				"t",
+				"tilesToDraw"
+			],
+			[
+				"Wor",
+				"WorldTile"
+			],
+			[
+				"wor",
+				"worldManager"
+			],
+			[
+				"wo",
+				"worldManager"
+			],
+			[
+				"grap",
+				"graphicGroup"
+			],
+			[
+				"game",
+				"gameobjects"
+			],
+			[
+				"obj",
+				"object2"
+			],
+			[
+				"ob",
+				"object1"
+			],
+			[
+				"aster",
+				"asteroid"
+			],
+			[
+				"graphic",
+				"graphicFile"
+			],
+			[
+				"input_vel",
+				"input_velocity_correction_factor"
+			],
+			[
+				"ve",
+				"vector_sub"
+			],
+			[
+				"rot",
+				"rotationSpeed"
+			],
+			[
+				"MOTO",
+				"MOTOR_SMOOTHING_FULL"
+			],
+			[
+				"MOT",
+				"MOTOR_SMOOTHING_FULL"
+			],
+			[
+				"mov",
+				"movementSmoothing"
+			],
+			[
+				"input_velocity_",
+				"input_velocity_pin"
+			],
+			[
+				"po",
+				"position	(attribute, instance)"
+			],
+			[
+				"HALF",
+				"HALF_HEIGHT"
+			],
+			[
+				"parti",
+				"particleSystemOffsets"
+			],
+			[
+				"graphi",
+				"graphicFile"
+			],
+			[
+				"config",
+				"configOverwrite"
+			],
+			[
+				"target",
+				"targetPos"
+			],
+			[
+				"vec",
+				"vector_dist"
+			],
+			[
+				"foreg",
+				"foregroundGroup"
+			],
+			[
+				"rock",
+				"rocketSystem"
+			],
+			[
+				"ma",
+				"maxTargetDistance"
+			],
+			[
+				"targ",
+				"targetVector"
+			],
+			[
+				"vect",
+				"vector_imul"
+			],
+			[
+				"vecto",
+				"vector_add"
+			],
+			[
+				"touchst",
+				"touchstartPos"
+			],
+			[
+				"wod",
+				"currentWorldOffset"
+			],
+			[
+				"tileD",
+				"tileDefinition"
+			],
+			[
+				"level",
+				"levelFile"
+			],
+			[
+				"fireb",
+				"fireButtonSize"
+			],
+			[
+				"conten",
+				"contentHeight"
+			],
+			[
+				"content",
+				"contentWidth"
+			],
+			[
+				"particles",
+				"particleSizeRandom"
+			],
+			[
+				"init",
+				"randomInitialSize"
+			],
+			[
+				"con",
+				"contentWidth"
+			],
+			[
+				"ini",
+				"initialEmitterSizeRandom	(attribute, instance)"
+			],
+			[
+				"particle",
+				"particleSystem"
+			],
+			[
+				"vEC",
+				"Vector"
+			],
+			[
+				"from",
+				"fromRatio	(local, instance)"
+			],
+			[
+				"index",
+				"indexB	(local, instance)"
+			],
+			[
+				"ind",
+				"indexB	(local, instance)"
+			],
+			[
+				"Colo",
+				"colorB"
+			],
+			[
+				"clor",
+				"colorB	(local, instance)"
+			],
+			[
+				"age",
+				"ageRatio	(local, instance)"
+			],
+			[
+				"par",
+				"particles	(attribute, instance)"
+			],
+			[
+				"VE",
+				"Vector	(imported, class)"
+			],
+			[
+				"U",
+				"update"
+			],
+			[
+				"Gue",
+				"GuyStateTypes	(global, class)"
+			],
+			[
+				"Guy",
+				"GuyState	(global, class)"
+			],
+			[
+				"D",
+				"Dying	(attribute, instance)"
+			],
+			[
+				"Gu",
+				"GuyStateTypes	(global, class)"
+			],
+			[
+				"G",
+				"GuyStateTypes"
+			],
+			[
+				"Gy",
+				"GuyState"
+			],
+			[
+				"Att",
+				"AttackingThing"
+			],
+			[
+				"At",
+				"AttackingGuy"
+			],
+			[
+				"searchNew",
+				"searchNewHome"
+			],
+			[
+				"sear",
+				"searchNextEnemy"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "client.js",
+			"settings":
+			{
+				"buffer_size": 290,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 537,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.js",
+			"settings":
+			{
+				"buffer_size": 290,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 410,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "compile.bat",
+			"settings":
+			{
+				"buffer_size": 68,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/compileBat.sublime-build",
+	"command_palette":
+	{
+		"height": 380.0,
+		"selected_items":
+		[
+			[
+				"ssxml",
+				"Set Syntax: XML"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"sshtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"ssop",
+				"Set Syntax: OpenSCAD"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"upp",
+				"Convert Case: Upper Case"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"ssphp",
+				"Set Syntax: PHP"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ind",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ssless",
+				"Set Syntax: LESS"
+			],
+			[
+				"gist",
+				"Gist: Open Gist"
+			],
+			[
+				"ssjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ssj",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"view",
+				"View In Browser"
+			],
+			[
+				"Package Control: lis",
+				"Package Control: List Packages"
+			],
+			[
+				"set py",
+				"Set Syntax: Python"
+			],
+			[
+				"setspr",
+				"Set Syntax: Processing"
+			],
+			[
+				"setja",
+				"Set Syntax: Java Properties"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"set sy ja",
+				"Set Syntax: Java Properties"
+			],
+			[
+				"disco",
+				"Package Control: Discover Packages"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Pack",
+				"Package Control: Install Package"
+			],
+			[
+				"rope",
+				"Rope: New Project"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"base",
+				"Web encoder: Base 64 decode selection"
+			],
+			[
+				"Package Control: list",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: l",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: List",
+				"Package Control: List Packages"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"fetch",
+				"Fetch: Manage remote files"
+			],
+			[
+				"pc",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Discover Packages"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 237.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": true,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/compile.bat",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/start.bat",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/xclient.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/xapp.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/static/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/index.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/static/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/compile.bat",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/package.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/server.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/index.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/static/index.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/package.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/Makefile",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/client.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/browser.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/app.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/main.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/server2.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/Makefile",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/examples/wizardstandoff/package.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/examples/wizardstandoff/.gitignore",
+		"/C/Users/Sven Hecht/AppData/Roaming/Sublime Text 2/Packages/User/compileBat.sublime-build",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/bundle.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/bundle.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/packages.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/npm-debug.log",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
+		"/D/Program Files/MongoDB/README",
+		"/D/Program Files/MongoDB/mongod.cfg",
+		"/C/mongodb/logs/mongo.log.2013-11-13T19-05-45",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/server/controllers/training.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/server/controllers/analysis.js",
+		"/C/Users/Sven Hecht/Desktop/Steam Keys Leftovers.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/server.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/Gruntfile.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/gruntfile.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/routes.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/passport.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/express.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/config.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/package.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/package.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/middlewares/authorization.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/env/all.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/env/development.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/env/production.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/env/test.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/config/env/travis.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/views/training.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/views/main.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/.bowerrc",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/Procfile",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/app/controllers/articles.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/app/controllers/index.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/.slugignore",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/.travis.yml",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/.travis.yml",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/bower.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/bower.json",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/pax_global_header",
+		"/C/Users/Sven Hecht/Downloads/mongodb-win32-x86_64-2008plus-2.4.8/mongodb-win32-x86_64-2008plus-2.4.8/README",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/scripts/controllers/main.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/scripts/controllers/training.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/scripts/controllers/analysis.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/.gitignore",
+		"/Z/tracker/Readme.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/S3Mount/s3mount.scad",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/README.md",
+		"/C/Chocolatey/lib/XSockets.Windows.Service.2.7.6/tools/XSockets.Windows.Service.exe.config",
+		"/D/Program Files (x86)/Microsoft/XSockets.2.0.1.Service.Installer/XSockets.NET.Hosting.Service.exe.config",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Didgeridoo Mount/DidgeridooMount.scad",
+		"/D/Lokale Daten/DropBox/Dropbox/sites/SHDev/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/TrackingServer/gitignore",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/INSTALL",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/index.html",
+		"/F/INSTRUCTIONS-README.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/RpiTracker/Makefile",
+		"/C/Users/Sven Hecht/Downloads/create_mail/create_mail.php",
+		"/C/Users/Sven Hecht/.ssh/id_rsa.ppk",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/testdata/single/intrinsics.yml",
+		"/D/aruco-1.2.4/aruco/utils/aruco_simple.cpp",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/include/cameraparameters.h",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/createAllMarkers.bat",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/createMarker.bat",
+		"/D/aruco-1.2.4/arcuco_clean/testdata/single/README",
+		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_simple_board.vcxproj",
+		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_selectoptimalmarkers.vcxproj",
+		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_board_pix2meters.vcxproj",
+		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_create_marker.vcxproj",
+		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_create_board.vcxproj",
+		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_test_board.vcxproj",
+		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/INSTALL.vcxproj",
+		"/D/aruco-1.2.4/arcuco_clean/aruco/src/aruco.vcxproj",
+		"/D/Lokale Daten/DropBox/Dropbox/sites/scrollracer/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/include/aruco.h",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/include/markerdetector.h",
+		"/C/Users/Sven Hecht/.ssh/id_rsa.pub",
+		"/D/Lokale Daten/DropBox/Dropbox/sites/scrollracer/js/jquery.mousewheel.js",
+		"/C/Users/Sven Hecht/Downloads/bootstrap-3.0.0/bootstrap-3.0.0/examples/starter-template/index.html",
+		"/C/Users/Sven Hecht/Downloads/bootstrap-3.0.0/bootstrap-3.0.0/examples/starter-template/starter-template.css",
+		"/C/Users/Sven Hecht/Downloads/bootstrap-3.0.0/bootstrap-3.0.0/_layouts/default.html",
+		"/C/Users/Sven Hecht/Downloads/bootstrap-3.0.0/bootstrap-3.0.0/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/sites/scrollracer/js/jquery.mousewheel",
+		"/D/Lokale Daten/DropBox/Dropbox/Resharper.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/createAllMarkers",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/testdata/single/README",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/simple.bat",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/test.bat",
+		"/D/aruco-1.2.4/arcuco_clean/aruco/aruco.sln",
+		"/D/Lokale Daten/DropBox/Dropbox/sites/DaianeRibeiro/contact.php",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/arm.scad",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/screw.scad",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/screw_pin.scad",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/Roar/Data/ics.uci.edu/source.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/Roar/Data/ics.uci.edu/parkinsons_updrs.data",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/python/eTrainingTracker/detect.py",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/aruco-1.2.4/aruco-1.2.4/utils/aruco_simple.cpp",
+		"/D/aruco-1.2.4/opencv/README",
+		"/D/Lokale Daten/DropBox/Dropbox/sites/DaianeRibeiro/css/style.css",
+		"/D/Lokale Daten/DropBox/Dropbox/sites/DaianeRibeiro/mailhandler.php",
+		"/C/Users/Sven Hecht/Desktop/Minecraft/server.properties"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"D:\\Lokale Daten\\DropBox\\Dropbox\\sites\\DaianeRibeiro\\",
+			"D:\\Lokale Daten\\DropBox\\Dropbox\\sites\\DaianeRibeiro\\less"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"stat",
+			"pause",
+			"boot",
+			"9474",
+			"jade",
+			"port",
+			"connect",
+			"nodemon",
+			"awesomeThings",
+			"mysql_pass",
+			"where",
+			"local_sender_blacklist",
+			",",
+			") (",
+			"Txyz.*",
+			"sharing",
+			"mousewheel",
+			"mousew",
+			"cm",
+			"far",
+			"html",
+			"5",
+			"[^/]*?([^ ./]*)\\.pdf:PDF\\},",
+			"[^/]*([^ ./]*)\\.pdf:PDF\\},",
+			"[^/]*([^ .]*)\\.pdf:PDF\\},",
+			"[^/]*([^ ]*)\\.pdf:PDF\\},",
+			"[^/]*([^ ]*\\.pdf:PDF\\},)",
+			"D:\\aruco-1.2.4\\aruco\\bin",
+			"D:",
+			"ArucoTracker",
+			"input",
+			"page3-img2",
+			"this.ground.position.x",
+			"playSound",
+			"explode",
+			"createLayer",
+			"removechild",
+			"position",
+			"currentLevelName",
+			"interact",
+			"click",
+			"attackAt",
+			"dl-horizontal",
+			"/font/",
+			"tilewidth",
+			"toPixelPos",
+			"console",
+			"largeParticleTiles",
+			"particleList",
+			"shots[i].",
+			"shots",
+			".call",
+			"call",
+			"addition",
+			"getSmallParticleMovieClip",
+			"getLargeParticleMovieClip",
+			"avatar",
+			"currentPlayerPosition",
+			"tilewidth",
+			"stage",
+			"Dangerbert.game",
+			"this.avatar",
+			"this.avatar.velocity",
+			"poll",
+			"creature",
+			"{\n",
+			"createLayer",
+			"creatureLayer",
+			"scale",
+			"velocity",
+			"sca",
+			"click",
+			"isInUnwalkable",
+			"explosions",
+			"path",
+			"smallParticleTiles",
+			"attackAt",
+			"targets",
+			",",
+			"getCreatureMovieClip",
+			"targets",
+			"getCreatureMovieClip",
+			"shots",
+			"\n\nfunction movePlayerTo(pos) {\n    Game.currentPlayerPath = findPath({ x: Math.floor(Game.currentPlayerPosition.x), y: Math.floor(Game.currentPlayerPosition.y) }, pos);\n    //console.log(Game.currentPlayerPath);\n    Game.currentPlayerPath.splice(0,1);\n    //for (var i in Game.currentPlayerPath) { console.log(i + \" - \" + Game.currentPlayerPath[i][0] + \" \" + Game.currentPlayerPath[i][1]); }\n}",
+			"velocity",
+			"scale",
+			":[^:\\n]*$",
+			":.*",
+			"currentPlayerPosition",
+			"assetsLoaded",
+			"build",
+			"4098",
+			"1657",
+			".twitter",
+			"<?php i18n(",
+			"i18n\\('(.*)'\\)",
+			"_(",
+			"\n	/*",
+			"aaa",
+			"html",
+			"Peterson",
+			"Michael",
+			"Peterson",
+			"Michael",
+			"Ribeiro",
+			"Michael Peterson",
+			"@import \"style.less\"",
+			"import",
+			"mich",
+			"#",
+			"michael",
+			"kHistogramSize",
+			"kImageSize",
+			"kHistogramSize",
+			"153",
+			"histo",
+			"kHistogramSize",
+			"histogram",
+			"drawbar",
+			"histogram_",
+			"DrawBar",
+			"DrawHistogram",
+			"graphic",
+			"..",
+			"hello",
+			"hello_tutorial",
+			"MAKE",
+			"hello_tutorial"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": true,
+		"regex": false,
+		"replace_history":
+		[
+			";",
+			", ",
+			",",
+			"",
+			"$1.pdf:PDF},",
+			"[^ ]*\\.pdf:PDF\\},",
+			"\\1",
+			"\\2",
+			"\\1",
+			"$1",
+			"/fonts/",
+			"this.sprite",
+			"this.velocity",
+			"<?php echo i18n(",
+			"<?php i18n\\('$1'\\) ?>",
+			"i18n(",
+			"Ribeiro",
+			"Daiane",
+			"Ribeiro",
+			"Daiane",
+			"Daiane Ribeiro",
+			"kHistogramSize",
+			"kImageSize",
+			"image_",
+			"index",
+			"Index",
+			"IndexInstance",
+			"MyUser",
+			"\\t",
+			"",
+			"me.",
+			") {",
+			"(",
+			"",
+			"_figure",
+			"me",
+			"_velocity",
+			"",
+			"#",
+			"1",
+			"null",
+			"},",
+			"{",
+			"}",
+			"{",
+			".",
+			";\\n",
+			"self",
+			"_G.HALF_WIDTH",
+			"_G.HALF_HEIGHT",
+			"HALF_HEIGHT",
+			"HALF_WIDTH",
+			"ParticleSystemConstants",
+			"1",
+			"0",
+			"2",
+			"1",
+			"0",
+			"1",
+			"0",
+			" isinstance(other, tuple) or isinstance(other, list)",
+			" or isinstance(other, list)",
+			"},\\n{",
+			"$menuSlideoutItem-font-family",
+			"\"corbel\", \"tahoma\", \"arial\", \"verdana\", \"sans-serif\"",
+			"",
+			"input_cancel_pin",
+			"input_ok_pin",
+			"input_cancel_state",
+			"input_ok_state",
+			";",
+			"\\n",
+			";",
+			";\\n",
+			"C:\\\\inetpub\\\\wwwroot\\\\Web.Frontend",
+			"width: 300px;",
+			"Gorba_Center",
+			"Gorba_Center_Test",
+			"Gorba_Center",
+			"Fruit &#39;Em Up",
+			"",
+			"\\n",
+			"\"",
+			"\\\"",
+			"}",
+			"",
+			"\"",
+			"ext-4",
+			"Gorba_Center_Test",
+			"Gorba_Center",
+			"[Gorba_ICenter_Test]",
+			"Gorba_ICenter",
+			"Gorba_ICenter_Test",
+			"h2",
+			"Gorba_Center_Test",
+			"Gorba_Center",
+			"Gorba_Center_Test",
+			"Gorba_Center",
+			"Gorba_Center_Test",
+			"Gorba_Center",
+			"Gorba_Center_Test",
+			"Gorba_Center",
+			"Gorba_Center_Test",
+			"Gorba_Center",
+			"[gorba_web_media_test]",
+			"Gorba_Center",
+			"[gorba_web_media]",
+			"[gorba_web_media_test]",
+			"[$1]",
+			"",
+			"[datetime2]",
+			">\\n<",
+			"<ActualValue>",
+			"<Name>",
+			"<string>",
+			"<DatabaseName>",
+			"<PublicationName>",
+			">\\n",
+			"Ext.regModel",
+			"AVL_Tact_Design2",
+			">\\n<"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "client.js",
+					"settings":
+					{
+						"buffer_size": 290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								290,
+								290
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "server.js",
+					"settings":
+					{
+						"buffer_size": 537,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								63,
+								67
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.js",
+					"settings":
+					{
+						"buffer_size": 290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								290,
+								290
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								408,
+								408
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "compile.bat",
+					"settings":
+					{
+						"buffer_size": 68,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59,
+								59
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Batch File/Batch File.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 262.0
+	},
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"view",
+				"app/controller/View.js"
+			],
+			[
+				"treec",
+				"app/view/tree/TreeCombo.js"
+			],
+			[
+				"esumm",
+				"app/view/event/EventSummary.js"
+			],
+			[
+				"ec",
+				"app/view/event/EventControls.js"
+			],
+			[
+				"vip",
+				"/E/Lokale Daten/Projekte/OrderedArchive/seven2one/VP4Prototype/app/view/Viewport.js"
+			],
+			[
+				"treecom",
+				"/E/Lokale Daten/Projekte/OrderedArchive/seven2one/VP4Prototype/app/view/tree/TreeCombo.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 161.0,
+	"status_bar_visible": true
+}
