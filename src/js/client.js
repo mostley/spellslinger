@@ -120,19 +120,27 @@ MF.Client = {
 
 	_message_handler: {
 		player_connected: function(msg) {
-
+			var me = this;
+			
+		    me.trigger(me.events.player_connected, msg.data);
 		},
 
 		player_disconnected: function(msg) {
-
+			var me = this;
+			
+		    me.trigger(me.events.player_disconnected, msg.data);
 		},
 
 		player_code: function(msg) {
-
+			var me = this;
+			
+		    me.trigger(me.events.player_code, msg.data);
 		},
 
 		channel_list: function(msg) {
-			console.log("channel_list",msg);
+			var me = this;
+			
+		    me.trigger(me.events.channel_list, msg.data);
 		}
 	},
 
@@ -143,7 +151,7 @@ MF.Client = {
 		console.log("Message received: ", msgData);
 
 		if (me._message_handler[msgData.event_name]) {
-			me._message_handler[msgData.event_name].apply(me, msgData);
+			me._message_handler[msgData.event_name].apply(me, [msgData]);
 		} else {
 			console.warn('No handler for event "' + msgData.event_name);
 		}

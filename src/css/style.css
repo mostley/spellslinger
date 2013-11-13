@@ -1,11 +1,67 @@
-body{		margin: 0;
-			padding: 0;
-			background-color: #8C8C8C;}
+html,
+body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+}
+body {
+        padding-top: 50px;
+}
 
-div{}
+#wrap {
+        min-height: 100%;
+        height: auto;
+        margin: 0 auto -60px;
+        padding: 0 0 60px;
+        position: relative;
+}
 
-#container{}
+#footer {
+        height: 60px;
+        background-color: #f5f5f5;
+        padding-top: 20px;
+}
 
-#game{}
+.screenpane {
+        height: 100%;
+        padding-top: 10px;
+}
 
-form{}
+.screenpane h2 {
+        width: 200px
+}
+
+.main {
+        height: 100%; 
+        width: 100%;
+        min-height: 100%;
+        position: absolute;
+        top: 0;
+        margin: 0;
+        padding-bottom: 60px;
+}
+.main .main-inner {
+        height: 100%; 
+        width: 100%;
+        min-height: 100%;
+}
+
+#log {
+}
+
+#game {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+}
+
+#code {
+
+}
+
+#usernamebox {
+        margin-top: 10px;
+        width: 150px;
+}
+#usernameboxbtn {
+        margin-top: 10px;
+}

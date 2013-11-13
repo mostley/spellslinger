@@ -6,9 +6,8 @@ var databaseUrl = "localhost";
 var collections = ["channels"]
 var db = require("mongojs").connect(databaseUrl, collections);
 
-var connectedClients = [];
-var channels = [];
-
+var connectedClients = {};
+var channels = {};
 
 var wsPort = 81;
 var port = 8080;
@@ -27,10 +26,22 @@ wss.broadcast = function(data, except) {
     }
 };
 
+wss.broadcastChannel = function(channel, data, except) {
+    var client_list = channels[channel_name];
+    if (client_list) {
+        for(var i in client_list) {
+            var client = client_list[i];
+            if (!except || client != except) {
+                client.send(data);
+            }
+        }
+    }
+};
+
 wss.on('connection', function(socket) {
     var thisId = ++clientId;
 
-    connectedClients.push(socket);
+    connectedClients[thisId] = socket;
 
     console.log('Client #%d connected', thisId);
     
@@ -46,13 +57,31 @@ wss.on('connection', function(socket) {
             socket.send(JSON.stringify({ event_name: 'channel_list', data: channels }));
         } else if (obj.event_name.toLowerCase() == 'player_code') {
 
-            wss.broadcast(JSON.stringify({ event_name: 'player_code', data: thisId }), socket);
-        };
+            var channel = obj.data.channel;
+            var code = obj.data.code;
+
+            wss.wss.broadcastChannel(channel, JSON.stringify({ event_name: 'player_code', data: { code: code, userId: thisId } }), socket);
+
+        } else if (obj.event_name.toLowerCase() == 'set_channel') {
+            var channel = obj.data;
+
+            if (socket.channel) {
+                var index = channels[socket.channel].indexOf(thisId);
+                channels[socket.channel].splice(index, 1);
+            }
+
+            if (!channels[channel]) {
+                channels[channel] = [];
+            }
+
+            channels[channel].push(thisId);
+            socket.channel = channel;
+        }
     });
     
     socket.on('close', function() {
         console.log('Connection closed');
-        connectedClients.splice(connectedClients.indexOf(socket), 1);
+        delete connectedClients[thisId];
 
         wss.broadcast(JSON.stringify({ event_name: 'player_disconnected', data: thisId }), socket);
     });
@@ -62,8 +91,4 @@ wss.on('connection', function(socket) {
     });
 });
 
-//app.use(express.logger());
-//app.use(express.static('/src'));
-//app.listen(8080);
-
-console.log('Express server started on port %s with websocket server running at %s', port, wsPort);
+console.log('Server started on port %s with websocket server running at %s', port, wsPort);
