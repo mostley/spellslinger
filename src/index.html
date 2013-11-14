@@ -43,21 +43,38 @@
 
 	    	<div class="main">
 		    	<div class="main-inner">
-			        <div id="log" class="screenpane col-xs-12 col-sm-3">
-			        	<h2 class="center-block">Server Log</h2>
-			        	<div id="serverlog"></div>
+			        <div class="log screenpane col-xs-12 col-sm-3">
+						<div class="well">
+				        	<h2 class="center-block">Server Log</h2>
+
+				        	<ul class="nav nav-tabs" id="log_tabs">
+								<li class="active"><a href="#serverlog">Server</a></li>
+								<li><a href="#log_player_0">Player 0</a></li>
+							</ul>
+
+							<div class="tab-content fullsize-content">
+								<div class="tab-pane fade in active" id="serverlog">
+					        	</div>
+								<div class="tab-pane fade" id="log_player_0">
+								</div>
+							</div>
+			        	</div>
 			        </div>
 			        
-			        <div id="game" class="screenpane col-xs-12 col-sm-6">
-			        	<h2 class="center-block">Game View</h2>
+			        <div class="game screenpane col-xs-12 col-sm-6">
+						<div class="well">
+				        	<h2 class="center-block">Game View</h2>
 
-			        	<div id="gamecontainer"></div>
+				        	<div id="gamecontainer" class="fullsize-content"></div>
+			        	</div>
 			        </div>
 			        
-			        <div id="code" class="screenpane col-xs-12 col-sm-3">
-			        	<h2 class="center-block">Code Editor</h2>
-
-					    <textarea></textarea>
+			        <div class="code screenpane col-xs-12 col-sm-3">
+						
+						<div class="well">
+			        		<h2 class="center-block">Code Editor</h2>
+					    	<div id="codeditor" class="fullsize-content"></div>
+					    </div>
 			        </div>
 			    </div>
 		    </div>
@@ -65,14 +82,13 @@
 	    </div>
 
 		<footer id="footer">
-			<div class="container">
-				<p class="text-muted credit">Copyright 2013 - <a href="http://shdev.de">Sven Hecht</a> and <a href="#">Marcel Ochs</a>.</p>
-			</div>
+			<p class="text-muted credit">Copyright 2013 - <a href="http://shdev.de">Sven Hecht</a> and <a href="#">Marcel Ochs</a>.</p>
 		</footer>
 
     	<script src="https://code.jquery.com/jquery.js"></script>
         <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/libs/tinymce/tinymce.min.js"></script>
+
+		<script type="text/javascript" src="js/libs/ace/ace.js"></script>
 		<script type="text/javascript" src="js/libs/pixi.js"></script>
 
         <script type="text/javascript" src="js/magicfight.js"></script>

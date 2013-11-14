@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"cha",
+				"channels"
+			],
+			[
+				"z-i",
+				"z-index"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"this",
+				"thisId"
+			],
+			[
+				"event",
+				"event_name"
+			],
+			[
 				"eng",
 				"engine"
 			],
@@ -142,10 +162,6 @@
 			[
 				"anim",
 				"animData"
-			],
-			[
-				"cha",
-				"character"
 			],
 			[
 				"data",
@@ -498,64 +514,40 @@
 			[
 				"Gy",
 				"GuyState"
-			],
-			[
-				"Att",
-				"AttackingThing"
-			],
-			[
-				"At",
-				"AttackingGuy"
-			],
-			[
-				"searchNew",
-				"searchNewHome"
-			],
-			[
-				"sear",
-				"searchNextEnemy"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "client.js",
+			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 290,
+				"buffer_size": 2757,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "server.js",
+			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 537,
+				"buffer_size": 3364,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "index.js",
+			"file": "src/js/main.js",
 			"settings":
 			{
-				"buffer_size": 290,
+				"buffer_size": 2240,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "package.json",
+			"file": "src/js/client.js",
 			"settings":
 			{
-				"buffer_size": 410,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "compile.bat",
-			"settings":
-			{
-				"buffer_size": 68,
+				"buffer_size": 3427,
 				"line_ending": "Windows"
 			}
 		}
@@ -563,16 +555,16 @@
 	"build_system": "Packages/User/compileBat.sublime-build",
 	"command_palette":
 	{
-		"height": 380.0,
+		"height": 58.0,
 		"selected_items":
 		[
 			[
-				"ssxml",
-				"Set Syntax: XML"
-			],
-			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"ssxml",
+				"Set Syntax: XML"
 			],
 			[
 				"sshtml",
@@ -727,7 +719,7 @@
 				"Package Control: Discover Packages"
 			]
 		],
-		"width": 400.0
+		"width": 512.0
 	},
 	"console":
 	{
@@ -744,21 +736,25 @@
 	},
 	"file_history":
 	[
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/server.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/node_modules/ws/examples/fileapi/server.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/node_modules/ws/index.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/index.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/compile.bat",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/bundle.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/client.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/package.json",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/start.bat",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/xclient.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/xapp.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/static/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/index.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/static/index.html",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/compile.bat",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/package.json",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/server.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/index.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/static/index.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/package.json",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/stream-chat-master/Makefile",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/client.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/browser.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/app.js",
@@ -770,7 +766,6 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/examples/wizardstandoff/package.json",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/examples/wizardstandoff/.gitignore",
 		"/C/Users/Sven Hecht/AppData/Roaming/Sublime Text 2/Packages/User/compileBat.sublime-build",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/bundle.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/bundle.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/packages.json",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/npm-debug.log",
@@ -868,10 +863,7 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/Roar/Data/ics.uci.edu/parkinsons_updrs.data",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/python/eTrainingTracker/detect.py",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/aruco-1.2.4/aruco-1.2.4/utils/aruco_simple.cpp",
-		"/D/aruco-1.2.4/opencv/README",
-		"/D/Lokale Daten/DropBox/Dropbox/sites/DaianeRibeiro/css/style.css",
-		"/D/Lokale Daten/DropBox/Dropbox/sites/DaianeRibeiro/mailhandler.php",
-		"/C/Users/Sven Hecht/Desktop/Minecraft/server.properties"
+		"/D/aruco-1.2.4/opencv/README"
 	],
 	"find":
 	{
@@ -891,6 +883,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"html",
+			"5",
+			"MF.Controller",
+			"MF.Client",
+			".Communication",
 			"stat",
 			"pause",
 			"boot",
@@ -1013,12 +1010,7 @@
 			"histogram_",
 			"DrawBar",
 			"DrawHistogram",
-			"graphic",
-			"..",
-			"hello",
-			"hello_tutorial",
-			"MAKE",
-			"hello_tutorial"
+			"graphic"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1026,6 +1018,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
 			";",
 			", ",
 			",",
@@ -1161,70 +1154,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "client.js",
+					"file": "app.js",
 					"settings":
 					{
-						"buffer_size": 290,
+						"buffer_size": 2757,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								290,
-								290
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "server.js",
-					"settings":
-					{
-						"buffer_size": 537,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								63,
-								67
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "index.js",
-					"settings":
-					{
-						"buffer_size": 290,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								290,
-								290
+								1137,
+								1137
 							]
 						],
 						"settings":
@@ -1234,61 +1175,87 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+						"translation.y": 28.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/index.html",
+					"settings":
+					{
+						"buffer_size": 3364,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2090,
+								2099
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/js/main.js",
+					"settings":
+					{
+						"buffer_size": 2240,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								557,
+								557
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 353.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "package.json",
+					"file": "src/js/client.js",
 					"settings":
 					{
-						"buffer_size": 410,
+						"buffer_size": 3427,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								408,
-								408
+								609,
+								609
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "compile.bat",
-					"settings":
-					{
-						"buffer_size": 68,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								59,
-								59
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Batch File/Batch File.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 84.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

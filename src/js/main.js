@@ -18,20 +18,26 @@ MF.Controller = {
 	init: function() {
 		var me = this;
 
-		me.stage = new PIXI.Stage(0x000000);
-
-		me.renderer = PIXI.autoDetectRenderer(width, height);
+		me.stage = new PIXI.Stage(0xdddddd);
 		
-		$(me.gameContainer).append(renderer.view);
+		me.width = $('#gamecontainer').width();
+		me.height = $('#gamecontainer').height();
+		me.renderer = PIXI.autoDetectRenderer(me.width, me.height);
+		
+		$(me.gameContainer).append(me.renderer.view);
 
 		requestAnimFrame(me.animate.bind(me));
+
+		$("#log_tabs a").click(function (e) { e.preventDefault(); $(this).tab('show'); return false; })
 	},
 
 	// loop
 	animate: function ()
 	{
+		var me = this;
+
 	    me.update();
-	    me.renderer.render(stage);
+	    me.renderer.render(me.stage);
 
 		requestAnimFrame(me.animate.bind(me));
 	},
@@ -75,9 +81,9 @@ MF.Controller = {
 
 $(function() {
 
-	tinymce.init({
-	    selector: "textarea"
-	});
+    var editor = ace.edit("codeditor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
 
 	var client = MF.Client;
 	var controller = MF.Controller;
@@ -103,4 +109,6 @@ $(function() {
 		controller.player_disconnected.bind(controller));
 
 	client.connect();
+
+	controller.init();
 });
