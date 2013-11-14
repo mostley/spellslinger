@@ -70,19 +70,37 @@ body {
         padding-right: 0;
 }
 
-.log .tab-content {
+.log #serverlog_container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+}
+
+.log #serverlog {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0px;
+        border: 1px solid #ccc;
         padding: 10px;
-        border-left: 1px solid #ddd;
-        border-right: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
+        background-color: #ddd;
+        overflow-y: scroll;
+        font-family: courier;
+
 }
 
 .game #gamecontainer {
-        border: 1px solid #ddd;
+        border: 1px solid #ccc;
 }
 
 .code {
         padding-left: 0;
+}
+
+.code #codeditor {
+        width: 100%;
+        height: 100%;
 }
 
 #usernamebox {
@@ -98,4 +116,15 @@ body {
 .well {
         background-color: #fff;
         border: 1px solid #e3e3e3;
+}
+
+.nav .badge {
+        /*background-color: #428bca;*/
+}
+
+.tab-content {
+        padding: 10px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
 }

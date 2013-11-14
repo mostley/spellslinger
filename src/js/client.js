@@ -9,7 +9,9 @@ MF.Client = {
 		player_code: 'player_code', 
 		client_connected: 'client_connected',
 		client_disconnected: 'client_disconnected',
-		channel_list: 'channel_list'
+		channel_list: 'channel_list',
+		set_channel: 'set_channel',
+		error: 'error'
 	},
 
 	eventHandler: {},
@@ -56,10 +58,33 @@ MF.Client = {
 		}
 	},
 
-	set_channel: function(channel) {
+	set_channel: function(name, is_private) {
 		var me = this;
 
-		me._channel = channel;
+		var msg = {
+			event_name: me.events.set_channel,
+			data: {
+				name: name,
+				is_private: is_private
+			}
+		};
+
+		return me._send(msg);
+
+	},
+
+	select_channel: function(id) {
+		var me = this;
+
+		var msg = {
+			event_name: me.events.set_channel,
+			data: {
+				id: id
+			}
+		};
+
+		return me._send(msg);
+
 	},
 
 	request_channels: function() {
@@ -141,6 +166,22 @@ MF.Client = {
 			var me = this;
 			
 		    me.trigger(me.events.channel_list, msg.data);
+		},
+
+		set_channel: function(msg) {
+			var me = this;
+			
+		    me.trigger(me.events.set_channel, msg.data);
+
+			me._channel = msg.data.id;
+		},
+
+		error: function(msg) {
+			var me = this;
+
+			console.error("Error Message received for '" + msg.data.event_name + "' event. Reason: '" + msg.data.reason + "'");
+			
+		    me.trigger(me.events.error, msg.data);
 		}
 	},
 
@@ -162,7 +203,7 @@ MF.Client = {
 
 		var result = false;
 
-		if (me._channel || obj.event_name == 'channel_list') {
+		if (me._channel || obj.event_name == 'channel_list' || obj.event_name == 'set_channel') {
 			if (me._socket) {
 				obj.channel = me._channel;
 
@@ -175,10 +216,10 @@ MF.Client = {
 					console.error(e);
 				}
 			} else {
-				console.error("not connected");
+				console.error("clienterror: not connected");
 			}
 		} else {
-			console.error("no channel selected.");
+			console.error("clienterror: no channel selected for '" + obj.event_name + "' event.");
 		}
 
 		return result;

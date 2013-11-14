@@ -14,7 +14,8 @@ var port = 8080;
 var server = http.createServer(ecstatic);
 server.listen(port);
 
-var clientId = 0;
+var _clientId = 0;
+var _channelsId = 0;
 var wss = new WebsocketServer({ port: wsPort });
 
 
@@ -27,7 +28,7 @@ wss.broadcast = function(data, except) {
 };
 
 wss.broadcastChannel = function(channel, data, except) {
-    var client_list = channels[channel_name];
+    var client_list = channels[channel_name].clients;
     if (client_list) {
         for(var i in client_list) {
             var client = client_list[i];
@@ -39,7 +40,7 @@ wss.broadcastChannel = function(channel, data, except) {
 };
 
 wss.on('connection', function(socket) {
-    var thisId = ++clientId;
+    var thisId = ++_clientId;
 
     connectedClients[thisId] = socket;
 
@@ -55,27 +56,64 @@ wss.on('connection', function(socket) {
         if(obj.event_name.toLowerCase() == 'channel_list') {
             
             socket.send(JSON.stringify({ event_name: 'channel_list', data: channels }));
+
         } else if (obj.event_name.toLowerCase() == 'player_code') {
 
-            var channel = obj.data.channel;
+            var channelId = obj.data.channel;
             var code = obj.data.code;
 
-            wss.wss.broadcastChannel(channel, JSON.stringify({ event_name: 'player_code', data: { code: code, userId: thisId } }), socket);
+            wss.wss.broadcastChannel(channelId, JSON.stringify({ event_name: 'player_code', data: { code: code, userId: thisId } }), socket);
 
         } else if (obj.event_name.toLowerCase() == 'set_channel') {
-            var channel = obj.data;
+            var channelId = obj.data.id;
+            var channelName = obj.data.name;
+            var is_private = obj.data.is_private;
+
+            if (!channelName && !channelId) {
+                console.error("Client #"+thisId+": Tried to set null channel");
+                socket.send(JSON.stringify({ event_name: 'error', data: { event_name: 'set_channel', reason: 'channelName or channelId is required.' } }));
+                return;
+            }
 
             if (socket.channel) {
-                var index = channels[socket.channel].indexOf(thisId);
-                channels[socket.channel].splice(index, 1);
+                var index = channels[socket.channel.id].clients.indexOf(thisId);
+                channels[socket.channel.id].clients.splice(index, 1);
             }
 
-            if (!channels[channel]) {
-                channels[channel] = [];
+            if (!channelId) {
+                for (var id in channels) {
+                    if (channels[id].name.toLowerCase() == channelName.toLowerCase()) {
+                        channelId = id;
+                        break;
+                    }
+                }
+
+                if (!channelId) {
+                    channelId = ++_channelsId;
+                    console.log("Client #"+thisId+": Created new channel with id '" + channelId + "' and name "+ channelName +"'.");
+                    channels[channelId] = {
+                        id: channelId,
+                        name: channelName,
+                        is_private: is_private,
+                        clients: []
+                    };
+                } else {
+                    console.error("Client #"+thisId+": Channel '" + channelName + "' already exists.");
+                    socket.send(JSON.stringify({ event_name: 'error', data: { event_name: 'set_channel', reason: "Channel '" + channelName + "' already exists." } }));
+                    return;
+                }
             }
 
-            channels[channel].push(thisId);
-            socket.channel = channel;
+            if (!channels[channelId]) {
+                console.error("Client #"+thisId+": Channel with id '" + channelId + "' does not exist.");
+                socket.send(JSON.stringify({ event_name: 'error', data: { event_name: 'set_channel', reason: "Channel with id '" + channelId + "' does not exist." } }));
+                return;
+            }
+
+            channels[channelId].clients.push(thisId);
+            socket.channel = channels[channelId];
+
+            socket.send(JSON.stringify({ event_name: 'set_channel', data: socket.channel }));
         }
     });
     

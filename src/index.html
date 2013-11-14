@@ -47,15 +47,21 @@
 						<div class="well">
 				        	<h2 class="center-block">Server Log</h2>
 
-				        	<ul class="nav nav-tabs" id="log_tabs">
-								<li class="active"><a href="#serverlog">Server</a></li>
-								<li><a href="#log_player_0">Player 0</a></li>
+				        	<ul id="log_tabs" class="nav nav-tabs">
+								<li class="active"><a href="#serverlog_container"><span class="glyphicon glyphicon-flash"></span></a></li>
+								<li><a href="#playerstats"><span class="glyphicon glyphicon-tasks"></span> Stats</a></li>
+								<li><a href="#log_players">Players <span class="badge" id="log_player_count">0</span></a></li>
 							</ul>
 
-							<div class="tab-content fullsize-content">
-								<div class="tab-pane fade in active" id="serverlog">
-					        	</div>
-								<div class="tab-pane fade" id="log_player_0">
+							<div id="log_tab_contents" class="tab-content fullsize-content">
+								<div class="tab-pane fade" id="playerstats">
+									TODO: show player health and some statistics
+								</div>
+								<div class="tab-pane fade in active" id="serverlog_container">
+									<div id="serverlog"></div>
+								</div>
+								<div class="tab-pane fade" id="log_players">
+									<ul class="list-group"></ul>
 								</div>
 							</div>
 			        	</div>
@@ -73,7 +79,18 @@
 						
 						<div class="well">
 			        		<h2 class="center-block">Code Editor</h2>
-					    	<div id="codeditor" class="fullsize-content"></div>
+
+				        	<ul class="nav nav-tabs" id="code_tabs">
+								<li class="active"><a href="#codeditor"><span class="glyphicon glyphicon-fire"></span></a></li>
+								<li><a href="#docviewer"><span class="glyphicon glyphicon-question-sign"></span></a></li>
+							</ul>
+
+							<div class="tab-content fullsize-content">
+					    		<div id="codeditor" class="tab-pane fade in active"></div>
+								<div id="docviewer" class="tab-pane fade">
+									TODO: show some documentation about the game, code reference e.g.
+								</div>
+							</div>
 					    </div>
 			        </div>
 			    </div>
@@ -85,8 +102,91 @@
 			<p class="text-muted credit">Copyright 2013 - <a href="http://shdev.de">Sven Hecht</a> and <a href="#">Marcel Ochs</a>.</p>
 		</footer>
 
+		<!-- ========== Dialogs ========== -->
+
+		<div class="modal fade" id="dialog-channel-selection" tabindex="-1" role="dialog" aria-labelledby="dialog-channel-selection-label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="dialog-channel-selection-label">Select Channel</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="list-group"></div >
+		      </div>
+		      <div class="modal-footer">
+		      	<button class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#dialog-channel-creation">Create New Channel</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="modal fade" id="dialog-channel-creation" tabindex="-1" role="dialog" aria-labelledby="dialog-channel-creation-label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="dialog-channel-creation-label">Create New Channel</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form role="form" id="channel-creation-form">
+					<div class="form-group">
+						<label for="channel_name">Name</label>
+						<input type="email" class="form-control" id="channel_name" placeholder="Channel Name">
+						<p class="help-block">You need to name your channel, so others can join you.</p>
+					</div>
+
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="channel_is_private" id="channel_is_private"> Is Private
+						</label>
+						<p class="help-block">Private will not be listed publicly.</p>
+					</div>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		      	<button class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#dialog-channel-selection">Select Existing</button>
+		        <button type="button" class="btn btn-primary" id="channel_dialog_create_button">Create</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<!-- ========== Templates ========== -->
+
+		<script id="player-box-template" type="text/x-handlebars-template">
+			<li id="log_header_player_{{id}}" class="list-group-item">
+				<span class="badge">{{count}}</span>
+
+				<h4 class="list-group-item-heading"><span class="glyphicon glyphicon-user"></span> Player #{{id}}</h4>
+				<p class="list-group-item-text">TODO: stats, code, activity</p>
+			</li>
+		</script>
+
+		<script id="channel-list-item" type="text/x-handlebars-template">
+			<a href="#channel_{{id}}" class="list-group-item" id="list_channel_{{id}}" data-channel-id="{{id}}">
+				<span class="badge">{{count}}</span>
+				{{name}}
+			</a>
+		</script>
+
+		<script id="alert-warning" type="text/x-handlebars-template">
+        	<div class="alert alert-warning fade in">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<span class="message">{{text}}</span>
+			</div>
+		</script>
+
+		<script id="alert-error" type="text/x-handlebars-template">
+        	<div class="alert alert-danger fade in">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<span class="message">{{text}}</span>
+			</div>
+		</script>
+
+
+		<!-- ========== Scripts ========== -->
     	<script src="https://code.jquery.com/jquery.js"></script>
         <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
 
 		<script type="text/javascript" src="js/libs/ace/ace.js"></script>
 		<script type="text/javascript" src="js/libs/pixi.js"></script>
