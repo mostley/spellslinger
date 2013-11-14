@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"cl",
+				"clients"
+			],
+			[
+				"channel",
+				"channelId"
+			],
+			[
+				"pl",
+				"player_tabheader"
+			],
+			[
+				"backgroun",
+				"background-color"
+			],
+			[
 				"cha",
 				"channels"
 			],
@@ -498,22 +514,6 @@
 			[
 				"Guy",
 				"GuyState	(global, class)"
-			],
-			[
-				"D",
-				"Dying	(attribute, instance)"
-			],
-			[
-				"Gu",
-				"GuyStateTypes	(global, class)"
-			],
-			[
-				"G",
-				"GuyStateTypes"
-			],
-			[
-				"Gy",
-				"GuyState"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 2757,
+				"buffer_size": 5050,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 3364,
+				"buffer_size": 8253,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,7 +539,15 @@
 			"file": "src/js/main.js",
 			"settings":
 			{
-				"buffer_size": 2240,
+				"buffer_size": 5369,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/css/style.css",
+			"settings":
+			{
+				"buffer_size": 2079,
 				"line_ending": "Windows"
 			}
 		},
@@ -547,7 +555,7 @@
 			"file": "src/js/client.js",
 			"settings":
 			{
-				"buffer_size": 3427,
+				"buffer_size": 4221,
 				"line_ending": "Windows"
 			}
 		}
@@ -736,6 +744,7 @@
 	},
 	"file_history":
 	[
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/server.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/node_modules/ws/examples/fileapi/server.js",
@@ -769,7 +778,6 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/bundle.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/packages.json",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/npm-debug.log",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
 		"/D/Program Files/MongoDB/README",
 		"/D/Program Files/MongoDB/mongod.cfg",
 		"/C/mongodb/logs/mongo.log.2013-11-13T19-05-45",
@@ -883,6 +891,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"length",
+			"player ",
+			"join",
+			"channel_list_item",
+			"channel_list_received",
+			"set_channel_result",
 			"html",
 			"5",
 			"MF.Controller",
@@ -1004,13 +1018,7 @@
 			"kHistogramSize",
 			"153",
 			"histo",
-			"kHistogramSize",
-			"histogram",
-			"drawbar",
-			"histogram_",
-			"DrawBar",
-			"DrawHistogram",
-			"graphic"
+			"kHistogramSize"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1150,6 +1158,7 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1157,15 +1166,15 @@
 					"file": "app.js",
 					"settings":
 					{
-						"buffer_size": 2757,
+						"buffer_size": 5050,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1137,
-								1137
+								4301,
+								4301
 							]
 						],
 						"settings":
@@ -1175,7 +1184,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 28.0,
+						"translation.y": 1512.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1185,23 +1194,24 @@
 					"file": "src/index.html",
 					"settings":
 					{
-						"buffer_size": 3364,
+						"buffer_size": 8253,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2090,
-								2099
+								2472,
+								2472
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 269.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1211,15 +1221,15 @@
 					"file": "src/js/main.js",
 					"settings":
 					{
-						"buffer_size": 2240,
+						"buffer_size": 5369,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								557,
-								557
+								3449,
+								3449
 							]
 						],
 						"settings":
@@ -1228,25 +1238,53 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 353.0,
+						"translation.y": 1249.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "src/js/client.js",
+					"file": "src/css/style.css",
 					"settings":
 					{
-						"buffer_size": 3427,
+						"buffer_size": 2079,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								609,
-								609
+								1894,
+								1894
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1218.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/js/client.js",
+					"settings":
+					{
+						"buffer_size": 4221,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1327,
+								1341
 							]
 						],
 						"settings":
@@ -1255,7 +1293,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 84.0,
+						"translation.y": 336.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

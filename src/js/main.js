@@ -141,6 +141,7 @@ MF.Controller = {
 		$('#serverlog').append('<div class="message">Player #'+ playerId +' joined</div>');
 
 		me.add_player(playerId);
+		$('#log_player_count').text(parseInt($('#log_player_count').text())++);
 	},
 
 	player_disconnected: function(playerId) {
@@ -148,6 +149,7 @@ MF.Controller = {
 
 		$('#log_header_player_' + playerId).remove();
 		$('#log_player_' + playerId).remove();
+		$('#log_player_count').text(parseInt($('#log_player_count').text())--);
 	},
 
 	request_error: function(data) {

@@ -78,6 +78,7 @@ wss.on('connection', function(socket) {
             if (socket.channel) {
                 var index = channels[socket.channel.id].clients.indexOf(thisId);
                 channels[socket.channel.id].clients.splice(index, 1);
+                socket.channel = null;
             }
 
             if (!channelId) {
@@ -122,6 +123,15 @@ wss.on('connection', function(socket) {
         delete connectedClients[thisId];
 
         wss.broadcast(JSON.stringify({ event_name: 'player_disconnected', data: thisId }), socket);
+
+        if (socket.channel) {
+            var index = channels[socket.channel.id].clients.indexOf(thisId);
+            channels[socket.channel.id].clients.splice(index, 1);
+
+            if (channels[socket.channel.id].clients.length <= 0) {
+                delete channels[socket.channel.id];
+            }
+        }
     });
 
     socket.on('error', function(e) {
