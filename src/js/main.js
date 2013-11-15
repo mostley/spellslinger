@@ -35,10 +35,12 @@ MF.Controller = {
 
 		requestAnimFrame(me.animate.bind(me));
 
-		$(".nav-tabs a").click(function (e) { e.preventDefault(); $(this).tab('show'); return false; });
+		$(".nav-tabs li:not(.ignore) a").click(function (e) { e.preventDefault(); $(this).tab('show'); return false; });
 
 		$('#channel_dialog_create_button').click(me.on_create_channel.bind(me));
 		$('#dialog-channel-selection .modal-body .list-group').on('click', 'a', me.on_select_channel.bind(me));
+
+		$('#code-send-content').click(me.on_send_code.bind(me));
 
 		me.init_templates();
 	},
@@ -74,6 +76,10 @@ MF.Controller = {
 		// Game Code
 	},
 
+	validateCode: function(code) {
+		return true;
+	},
+
 	add_player: function(playerId) {
 		var me = this;
 
@@ -84,6 +90,8 @@ MF.Controller = {
 	//Network events
 	channel_list_received: function(channels) {
 		var me = this;
+
+		$('body').removeClass('loading');
 
 		var count = Object.size(channels);
 		$('#serverlog').append('<div class="message">'+ count +' Channels found</div>');
@@ -101,10 +109,34 @@ MF.Controller = {
 			$('#dialog-channel-selection .modal-body .list-group').append(html);
 		}
 
-		if (count > 0) {
-			$('#dialog-channel-selection').modal();
+		var channelId = null;
+		if (window.location.hash.length > 1) {
+			channelId = base64.decode(window.location.hash.substr(1));
+
+			var foundChannel = false;
+			for (var key in channels) {
+				if (channels[key].id == channelId) {
+					foundChannel = true;
+					break;
+				}
+			}
+
+			if (!foundChannel) {
+				channelId = null;
+			}
+		}
+
+
+		if (channelId == null) {
+			window.location.hash = '';
+
+			if (count > 0) {
+				$('#dialog-channel-selection').modal();
+			} else {
+				$('#dialog-channel-creation').modal();
+			}
 		} else {
-			$('#dialog-channel-creation').modal();
+			MF.Client.select_channel(channelId);
 		}
 	},
 
@@ -123,6 +155,7 @@ MF.Controller = {
 		}
 
 		$('#log_player_count').text(channel.clients.length);
+		window.location.hash = '#' + base64.encode(channel.id+'');
 	},
 	
 	client_connected: function(client) {
@@ -141,7 +174,7 @@ MF.Controller = {
 		$('#serverlog').append('<div class="message">Player #'+ playerId +' joined</div>');
 
 		me.add_player(playerId);
-		$('#log_player_count').text(parseInt($('#log_player_count').text())++);
+		$('#log_player_count').text(parseInt($('#log_player_count').text())+1);
 	},
 
 	player_disconnected: function(playerId) {
@@ -149,7 +182,7 @@ MF.Controller = {
 
 		$('#log_header_player_' + playerId).remove();
 		$('#log_player_' + playerId).remove();
-		$('#log_player_count').text(parseInt($('#log_player_count').text())--);
+		$('#log_player_count').text(parseInt($('#log_player_count').text())-1);
 	},
 
 	request_error: function(data) {
@@ -179,14 +212,36 @@ MF.Controller = {
 		MF.Client.select_channel($(e.target).data('channel-id'));
 
 		return false;
+	},
+
+	on_send_code: function() {
+		var me = this;
+
+		var editor = ace.edit("codeditor");
+		var code = editor.getValue();
+		console.log(code);
+
+		if (me.validateCode(code)) {
+			var username = $('#usernamebox').val();
+			MF.Client.send_code(username, code);
+		} else {
+			//TODO better messages
+			$('#codeditor').prepend(me.Templates.alert_warning({ text: "code not valid!" }));
+		}
 	}
 };
 
 $(function() {
 
+	// Init ACE Editor
     var editor = ace.edit("codeditor");
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/javascript");
+
+	// Init Base64 for use in urls
+    base64.settings.char62 = "-";
+	base64.settings.char63 = "_";
+	base64.settings.pad = null;
 
 	var client = MF.Client;
 	var controller = MF.Controller;

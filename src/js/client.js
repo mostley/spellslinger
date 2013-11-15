@@ -100,9 +100,11 @@ MF.Client = {
 		var me = this;
 
 		var msg = {
-			event_name: me.events.player_ready,
-			username: username,
-			code: code
+			event_name: me.events.player_code,
+			data: {
+				username: username,
+				code: code
+			}
 		};
 		return me._send(msg);
 	},

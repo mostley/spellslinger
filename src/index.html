@@ -19,7 +19,7 @@
 	      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	    <![endif]-->
     </head>
-    <body>
+    <body class="loading">
 
 	    <div id="wrap">
 		    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -35,7 +35,7 @@
 		        </div>
 
 		        <div class="navbar-collapse collapse">
-					<a id="usernameboxbtn" class="btn btn-small navbar-right" href="#" role="button">Change »</a>
+					<!--<a id="usernameboxbtn" class="btn btn-small navbar-right" href="#" role="button">Change »</a>-->
 					<input id="usernamebox" type="text" placeholder="Username" class="navbar-right form-control"/>
 		        </div><!--/.navbar-collapse -->
 		      </div>
@@ -43,7 +43,10 @@
 
 	    	<div class="main">
 		    	<div class="main-inner">
+			        
+			        <!-- ======== Log ======== -->
 			        <div class="log screenpane col-xs-12 col-sm-3">
+
 						<div class="well">
 				        	<h2 class="center-block">Server Log</h2>
 
@@ -67,7 +70,9 @@
 			        	</div>
 			        </div>
 			        
+			        <!-- ======== Game ======== -->
 			        <div class="game screenpane col-xs-12 col-sm-5">
+
 						<div class="well">
 				        	<h2 class="center-block">Game Field</h2>
 
@@ -75,6 +80,8 @@
 			        	</div>
 			        </div>
 			        
+
+			        <!-- ======== Code ======== -->
 			        <div class="code screenpane col-xs-12 col-sm-4">
 						
 						<div class="well">
@@ -83,6 +90,7 @@
 				        	<ul class="nav nav-tabs" id="code_tabs">
 								<li class="active"><a href="#codeditor"><span class="glyphicon glyphicon-fire"></span></a></li>
 								<li><a href="#docviewer"><span class="glyphicon glyphicon-question-sign"></span></a></li>
+								<li class="navbar-right ignore"><a href="#" id="code-send-content">Send <span class="glyphicon glyphicon-send"></span></a></li>
 							</ul>
 
 							<div class="tab-content fullsize-content">
@@ -130,7 +138,7 @@
 		        <form role="form" id="channel-creation-form">
 					<div class="form-group">
 						<label for="channel_name">Name</label>
-						<input type="email" class="form-control" id="channel_name" placeholder="Channel Name">
+						<input type="text" class="form-control" id="channel_name" placeholder="Channel Name">
 						<p class="help-block">You need to name your channel, so others can join you.</p>
 					</div>
 
@@ -190,6 +198,7 @@
 
 		<script type="text/javascript" src="js/libs/ace/ace.js"></script>
 		<script type="text/javascript" src="js/libs/pixi.js"></script>
+		<script type="text/javascript" src="js/libs/base64.js"></script>
 
         <script type="text/javascript" src="js/magicfight.js"></script>
         <script type="text/javascript" src="js/extensions.js"></script>
