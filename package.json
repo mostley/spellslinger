@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "browserify --bundle=index.js -o ./static/bundle.js",
-    "start": "node server.js",
+    "start": "node app.js",
     "open": "google-chrome localhost:8080"
   },
   "dependencies": {

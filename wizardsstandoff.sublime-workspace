@@ -523,7 +523,7 @@
 			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 5050,
+				"buffer_size": 5897,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 8253,
+				"buffer_size": 8621,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,7 +539,15 @@
 			"file": "src/js/main.js",
 			"settings":
 			{
-				"buffer_size": 5369,
+				"buffer_size": 6579,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 407,
 				"line_ending": "Windows"
 			}
 		},
@@ -547,7 +555,7 @@
 			"file": "src/css/style.css",
 			"settings":
 			{
-				"buffer_size": 2079,
+				"buffer_size": 3047,
 				"line_ending": "Windows"
 			}
 		},
@@ -555,7 +563,7 @@
 			"file": "src/js/client.js",
 			"settings":
 			{
-				"buffer_size": 4221,
+				"buffer_size": 4238,
 				"line_ending": "Windows"
 			}
 		}
@@ -1158,7 +1166,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1166,15 +1174,15 @@
 					"file": "app.js",
 					"settings":
 					{
-						"buffer_size": 5050,
+						"buffer_size": 5897,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4301,
-								4301
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1194,15 +1202,15 @@
 					"file": "src/index.html",
 					"settings":
 					{
-						"buffer_size": 8253,
+						"buffer_size": 8621,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2472,
-								2472
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1221,15 +1229,15 @@
 					"file": "src/js/main.js",
 					"settings":
 					{
-						"buffer_size": 5369,
+						"buffer_size": 6579,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3449,
-								3449
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1245,18 +1253,46 @@
 				},
 				{
 					"buffer": 3,
-					"file": "src/css/style.css",
+					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 2079,
+						"buffer_size": 407,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1894,
-								1894
+								246,
+								246
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/css/style.css",
+					"settings":
+					{
+						"buffer_size": 3047,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1272,19 +1308,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "src/js/client.js",
 					"settings":
 					{
-						"buffer_size": 4221,
+						"buffer_size": 4238,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1327,
-								1341
+								0,
+								0
 							]
 						],
 						"settings":
