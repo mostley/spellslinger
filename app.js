@@ -9,8 +9,8 @@ var db = require("mongojs").connect(databaseUrl, collections);
 var connectedClients = {};
 var channels = {};
 
-var wsPort = 81;
-var port = port = process.env.PORT || 8080;
+var wsPort = process.env.PORT || 8181;
+var port = process.env.PORT || 8080;
 
 console.log("Starting Webserver...");
 var server = http.createServer(ecstatic);
