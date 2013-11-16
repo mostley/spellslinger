@@ -10,7 +10,7 @@ var connectedClients = {};
 var channels = {};
 
 var wsPort = 81;
-var port = 8080;
+var port = 80;
 var server = http.createServer(ecstatic);
 server.listen(port);
 
