@@ -16,8 +16,6 @@ MF.Client = {
 
 	eventHandler: {},
 
-	host: "ws://localhost:81/",
-
 	_socket: null,
 	_channel: null,
 
@@ -26,10 +24,12 @@ MF.Client = {
 
 		var result = false;
 
-		console.log("connecting to '" + me.host + "' ...");
+		var host = "ws://" + window.location.hostname + ":" + window.location.port  + "/";
+
+		console.log("connecting to '" + host + "' ...");
 
     	try {
-			me._socket = new WebSocket(me.host);
+			me._socket = new WebSocket(host);
 
 			me._socket.onopen = function() {
 			    me.trigger(me.events.client_connected, me);

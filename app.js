@@ -20,7 +20,8 @@ var _clientId = 0;
 var _channelsId = 0;
 
 console.log("Starting WebSocketServer...");
-var wss = new WebsocketServer({ port: wsPort });
+var wss = new WebsocketServer({ server: server,
+    autoAcceptConnections: false }); //port: wsPort });
 
 
 wss.broadcast = function(data, except) {
