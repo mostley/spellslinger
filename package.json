@@ -5,7 +5,6 @@
   "author": "Sven Hecht, Marcel Ochs",
   "private": true,
   "scripts": {
-    "build": "browserify --bundle=index.js -o ./static/bundle.js",
     "start": "node app.js",
     "open": "google-chrome localhost:8080"
   },
@@ -13,5 +12,9 @@
     "browserify" : "~2.25.1",
     "ecstatic" : "~0.4.5",
     "through" : "~2.3.4"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
   }
 }
