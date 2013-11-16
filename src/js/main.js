@@ -111,7 +111,8 @@ MF.Controller = {
 
 		var channelId = null;
 		if (window.location.hash.length > 1) {
-			channelId = base64.decode(window.location.hash.substr(1));
+			var channelcode = base64.decode(window.location.hash.substr(1));
+			channelId = channelcode.substr(channelcode.lastIndexOf("_")+1)
 
 			var foundChannel = false;
 			for (var key in channels) {
@@ -155,7 +156,7 @@ MF.Controller = {
 		}
 
 		$('#log_player_count').text(channel.clients.length);
-		window.location.hash = '#' + base64.encode(channel.id+'');
+		window.location.hash = '#' + base64.encode(channel.name + "_" + parseInt(channel.id));
 	},
 	
 	client_connected: function(client) {

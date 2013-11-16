@@ -11,6 +11,8 @@ MF.Client = {
 		client_disconnected: 'client_disconnected',
 		channel_list: 'channel_list',
 		set_channel: 'set_channel',
+		send_status: 'send_status',
+		get_status: 'get_status',
 		error: 'error'
 	},
 
@@ -208,6 +210,8 @@ MF.Client = {
 		if (me._channel || obj.event_name == 'channel_list' || obj.event_name == 'set_channel') {
 			if (me._socket) {
 				obj.channel = me._channel;
+
+				console.log("Message sent: ", obj);
 
 				var msg = JSON.stringify(obj);
 				try {
