@@ -10,12 +10,16 @@ var connectedClients = {};
 var channels = {};
 
 var wsPort = 81;
-var port = 80;
+var port = port = process.env.PORT || 8080;
+
+console.log("Starting Webserver...");
 var server = http.createServer(ecstatic);
 server.listen(port);
 
 var _clientId = 0;
 var _channelsId = 0;
+
+console.log("Starting WebSocketServer...");
 var wss = new WebsocketServer({ port: wsPort });
 
 
