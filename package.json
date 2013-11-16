@@ -9,9 +9,10 @@
     "open": "google-chrome localhost:8080"
   },
   "dependencies": {
-    "browserify" : "~2.25.1",
+    "http" : "*",
+    "ws" : "*",
     "ecstatic" : "~0.4.5",
-    "through" : "~2.3.4"
+    "mongojs" : "*"
   },
   "engines": {
     "node": "0.10.x",
