@@ -9,7 +9,6 @@
     "open": "google-chrome localhost:8080"
   },
   "dependencies": {
-    "http" : "*",
     "ws" : "*",
     "ecstatic" : "~0.4.5",
     "mongojs" : "*"
