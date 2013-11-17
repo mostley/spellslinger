@@ -87,7 +87,11 @@ body {
         background-color: #ddd;
         overflow-y: scroll;
         font-family: courier;
+}
 
+#log_players {
+        overflow-y: scroll;
+        height: 100%;
 }
 
 .game #gamecontainer {
@@ -109,6 +113,13 @@ body {
 }
 #usernameboxbtn {
         margin-top: 10px;
+}
+
+.playeccr_log pre {
+        -webkit-transition: opacity 0.4s ease-in;  
+        -moz-transition: opacity 0.4s ease-in;  
+        -o-transition: opacity 0.4s ease-in;  
+        transition: opacity 0.4s ease-in;  
 }
 
 /* Bootstrap overrides */

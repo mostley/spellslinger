@@ -9,7 +9,6 @@ console.log("Connecting to database...");
 var db = require("mongojs").connect(databaseUrl, collections);
 
 var connectedClients = {};
-//var channels = {};
 
 var port = process.env.PORT || 8080;
 var _clientId = 0;
@@ -126,16 +125,18 @@ wss.broadcast = function(data, except) {
     }
 };
 
-wss.broadcastChannel = function(channel_name, data, except) {
-    var client_list = channels[channel_name].clients;
-    if (client_list) {
+wss.broadcastChannel = function(channelId, data, except) {
+    channeldb.get_channel_by_id(channelId, function(channel) {
+        var client_list = channel.clients;
         for(var i in client_list) {
             var clientId = client_list[i];
             if (!except || clientId != except) {
                 connectedClients[clientId].send(data);
             }
         }
-    }
+    }, function(err) {
+        console.log("Failed to send to channel #" + channelId + ". msg: " + msg);
+    })
 };
 
 function send(socket, msg) {

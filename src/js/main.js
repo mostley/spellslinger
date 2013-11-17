@@ -4,17 +4,6 @@ if (typeof(MF) === "undefined") {
 
 MF.Controller = {
 
-	width: 300,
-	height: 400,
-	stage: null,
-
-	renderer: null,
-
-	fps: 60,
-	interval: 16.666,
-
-	gameContainer: "#gamecontainer",
-
 	Templates: {
 		player_box: '#player-box-template',
 		channel_list_item: '#channel-list-item',
@@ -25,16 +14,6 @@ MF.Controller = {
 	init: function() {
 		var me = this;
 
-		me.stage = new PIXI.Stage(0xdddddd);
-		
-		me.width = $('#gamecontainer').width();
-		me.height = $('#gamecontainer').height();
-		me.renderer = PIXI.autoDetectRenderer(me.width, me.height);
-		
-		$(me.gameContainer).append(me.renderer.view);
-
-		requestAnimFrame(me.animate.bind(me));
-
 		$(".nav-tabs li:not(.ignore) a").click(function (e) { e.preventDefault(); $(this).tab('show'); return false; });
 
 		$('#channel_dialog_create_button').click(me.on_create_channel.bind(me));
@@ -43,6 +22,10 @@ MF.Controller = {
 		$('#code-send-content').click(me.on_send_code.bind(me));
 
 		me.init_templates();
+
+		MF.Executor.init();
+
+		MF.Game.init();
 	},
 
 	/*
@@ -59,23 +42,6 @@ MF.Controller = {
 		}
 	},
 
-	// loop
-	animate: function ()
-	{
-		var me = this;
-
-	    me.update();
-	    me.renderer.render(me.stage);
-
-		requestAnimFrame(me.animate.bind(me));
-	},
-
-	// loop logik
-	update: function ()
-	{
-		// Game Code
-	},
-
 	validateCode: function(code) {
 		return true;
 	},
@@ -85,6 +51,8 @@ MF.Controller = {
 
 		var html = me.Templates.player_box({ id: playerId });
 		$('#log_players .list-group').append(html);
+
+		MF.Game.add_wizard(playerId);
 	},
 
 	//Network events
@@ -186,6 +154,16 @@ MF.Controller = {
 		$('#log_player_count').text(parseInt($('#log_player_count').text())-1);
 	},
 
+	player_code: function(data) {
+		var html = '<pre class="fade"><code data-language="javascript">' + data.code + "</code></pre>";
+		$('#log_header_player_' + data.userId + ' .list-group-item-text').append(html);
+		Rainbow.color();
+
+		Function.defer(1, function(){$(".player_log pre").addClass('in');});
+
+		MF.Executor.execute(data.userId, data.code);
+	},
+
 	request_error: function(data) {
 		var me = this;
 
@@ -215,8 +193,10 @@ MF.Controller = {
 		return false;
 	},
 
-	on_send_code: function() {
+	on_send_code: function(e) {
 		var me = this;
+
+		e.preventDefault();
 
 		var editor = ace.edit("codeditor");
 		var code = editor.getValue();
@@ -229,6 +209,8 @@ MF.Controller = {
 			//TODO better messages
 			$('#codeditor').prepend(me.Templates.alert_warning({ text: "code not valid!" }));
 		}
+
+		return false;
 	}
 };
 
@@ -270,6 +252,10 @@ $(function() {
 	client.on(
 		client.events.player_disconnected, 
 		controller.player_disconnected.bind(controller));
+
+	client.on(
+		client.events.player_code, 
+		controller.player_code.bind(controller));
 
 	client.on(
 		client.events.error, 

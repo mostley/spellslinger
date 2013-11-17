@@ -2,15 +2,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-	    <meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta charset="utf-8"/>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <title>Wizard Standoff</title>
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="description" content="Let's fight! Coding game, where you can battle other people with code!">
-	    <meta name="author" content="Sven Hecht, Marcel Ochs">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	    <meta name="description" content="Let's fight! Coding game, where you can battle other people with code!"/>
+	    <meta name="author" content="Sven Hecht, Marcel Ochs"/>
 
-        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/rainbow-theme-monokai.css"/>
 
 	    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -161,11 +162,11 @@
 		<!-- ========== Templates ========== -->
 
 		<script id="player-box-template" type="text/x-handlebars-template">
-			<li id="log_header_player_{{id}}" class="list-group-item">
+			<li id="log_header_player_{{id}}" class="list-group-item player_log">
 				<span class="badge">{{count}}</span>
 
 				<h4 class="list-group-item-heading"><span class="glyphicon glyphicon-user"></span> Player #{{id}}</h4>
-				<p class="list-group-item-text">TODO: stats, code, activity</p>
+				<p class="list-group-item-text">Code:</p>
 			</li>
 		</script>
 
@@ -199,10 +200,15 @@
 		<script type="text/javascript" src="js/libs/ace/ace.js"></script>
 		<script type="text/javascript" src="js/libs/pixi.js"></script>
 		<script type="text/javascript" src="js/libs/base64.js"></script>
+		<script type="text/javascript" src="js/libs/rainbow-custom.min.js"></script>
 
         <script type="text/javascript" src="js/magicfight.js"></script>
         <script type="text/javascript" src="js/extensions.js"></script>
         <script type="text/javascript" src="js/client.js"></script>
+        <script type="text/javascript" src="js/executor.js"></script>
+        <script type="text/javascript" src="js/game.js"></script>
+        <script type="text/javascript" src="js/magic.js"></script>
+        <script type="text/javascript" src="js/wizard.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
