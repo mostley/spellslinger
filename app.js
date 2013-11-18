@@ -160,7 +160,11 @@ wss.on('connection', function(socket) {
 
             var obj = JSON.parse(message);
 
-            if(obj.event_name.toLowerCase() == 'channel_list') {
+            if(obj.event_name.toLowerCase() == 'keep_alive') {
+
+                send(socket, JSON.stringify({ event_name: 'keep_alive', data: { datetime: new Date() } }));
+
+            } else if (obj.event_name.toLowerCase() == 'channel_list') {
                 
                 channeldb.get_channel_list(function(channels) {
                     

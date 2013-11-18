@@ -13,6 +13,7 @@ MF.Client = {
 		set_channel: 'set_channel',
 		send_status: 'send_status',
 		get_status: 'get_status',
+		keep_alive: 'keep_alive',
 		error: 'error'
 	},
 
@@ -20,6 +21,8 @@ MF.Client = {
 
 	_socket: null,
 	_channel: null,
+	_keey_alive_timer: null,
+	_keep_alive_interval: 10000,
 
 	connect: function() {
 		var me = this;
@@ -31,7 +34,7 @@ MF.Client = {
 		console.log("connecting to '" + host + "' ...");
 
     	try {
-			me._socket = new WebSocket(host);
+			me._socket = new ReconnectingWebSocket(host);
 
 			me._socket.onopen = function() {
 			    me.trigger(me.events.client_connected, me);
@@ -44,6 +47,8 @@ MF.Client = {
 	        };
 
 			console.log("... connected.");
+
+			me._keey_alive_timer = window.setInterval(me._on_timeout.bind(me), me._keep_alive_interval);
 
 	    	result = true;
 	    } catch(e) {
@@ -147,6 +152,10 @@ MF.Client = {
 		}
 	},
 
+	stop_keepalive: function() {
+		window.clearTimeout(me._keey_alive_timer);
+	},
+
 	_message_handler: {
 		player_connected: function(msg) {
 			var me = this;
@@ -180,6 +189,12 @@ MF.Client = {
 			me._channel = msg.data.id;
 		},
 
+		keep_alive: function(msg) {
+			var me = this;
+			
+		    console.log("keep_alive", msg.data);
+		},
+
 		error: function(msg) {
 			var me = this;
 
@@ -200,6 +215,19 @@ MF.Client = {
 		} else {
 			console.warn('No handler for event "' + msgData.event_name);
 		}
+	},
+
+	_on_timeout: function() {
+		var me = this;
+
+		var msg = {
+			event_name: me.events.keep_alive,
+			data: {
+				datetime: new Date()
+			}
+		};
+
+		me._send(msg);
 	},
 
 	_send: function(obj) {

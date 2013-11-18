@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"code",
+				"codeFunction"
+			],
+			[
+				"channe",
+				"channeldb"
+			],
+			[
+				"get",
+				"get_channel_by_id"
+			],
+			[
+				"requ",
+				"requestingClientId"
+			],
+			[
+				"get_c",
+				"get_channel_by_id"
+			],
+			[
+				"remo",
+				"remove_client_from_channel"
+			],
+			[
+				"get_",
+				"get_channel_by_id"
+			],
+			[
+				"add",
+				"add_client_to_channel"
+			],
+			[
+				"cha",
+				"channelId"
+			],
+			[
 				"cl",
 				"clients"
 			],
@@ -18,10 +54,6 @@
 			[
 				"backgroun",
 				"background-color"
-			],
-			[
-				"cha",
-				"channels"
 			],
 			[
 				"z-i",
@@ -230,10 +262,6 @@
 			[
 				"Score",
 				"ScoreEffectOffset"
-			],
-			[
-				"get",
-				"getDirVector()	(attribute, function)"
 			],
 			[
 				"pos",
@@ -486,34 +514,6 @@
 			[
 				"Colo",
 				"colorB"
-			],
-			[
-				"clor",
-				"colorB	(local, instance)"
-			],
-			[
-				"age",
-				"ageRatio	(local, instance)"
-			],
-			[
-				"par",
-				"particles	(attribute, instance)"
-			],
-			[
-				"VE",
-				"Vector	(imported, class)"
-			],
-			[
-				"U",
-				"update"
-			],
-			[
-				"Gue",
-				"GuyStateTypes	(global, class)"
-			],
-			[
-				"Guy",
-				"GuyState	(global, class)"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 5897,
+				"buffer_size": 12611,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 8621,
+				"buffer_size": 9134,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,23 +539,39 @@
 			"file": "src/js/main.js",
 			"settings":
 			{
-				"buffer_size": 6579,
+				"buffer_size": 6617,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "package.json",
+			"file": "src/js/executor.js",
 			"settings":
 			{
-				"buffer_size": 407,
+				"buffer_size": 727,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "procfile",
+			"file": "src/js/wizard.js",
 			"settings":
 			{
-				"buffer_size": 16,
+				"buffer_size": 679,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/magic.js",
+			"settings":
+			{
+				"buffer_size": 992,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/game.js",
+			"settings":
+			{
+				"buffer_size": 858,
 				"line_ending": "Windows"
 			}
 		},
@@ -563,7 +579,7 @@
 			"file": "src/css/style.css",
 			"settings":
 			{
-				"buffer_size": 3047,
+				"buffer_size": 3329,
 				"line_ending": "Windows"
 			}
 		},
@@ -571,7 +587,7 @@
 			"file": "src/js/client.js",
 			"settings":
 			{
-				"buffer_size": 4238,
+				"buffer_size": 4399,
 				"line_ending": "Windows"
 			}
 		}
@@ -760,6 +776,10 @@
 	},
 	"file_history":
 	[
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/reconnecting-websocket.min.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/rainbow-theme-monokai.css",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/procfile",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/package.json",
 		"/C/Users/Sven Hecht/Desktop/New Text Document.txt",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
@@ -770,7 +790,6 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/compile.bat",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/bundle.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/client.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/package.json",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/start.bat",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/xclient.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/xapp.js",
@@ -884,10 +903,7 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/arm.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/screw.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/screw_pin.scad",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/Roar/Data/ics.uci.edu/source.txt",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/Roar/Data/ics.uci.edu/parkinsons_updrs.data",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/python/eTrainingTracker/detect.py",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/aruco-1.2.4/aruco-1.2.4/utils/aruco_simple.cpp"
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/Roar/Data/ics.uci.edu/source.txt"
 	],
 	"find":
 	{
@@ -907,6 +923,26 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"left",
+			"on_send_code",
+			"broadcastChannel",
+			"channels",
+			"player_code",
+			"player_box",
+			"#",
+			"remove_client_from_channel",
+			"remove",
+			"base64",
+			"add_client_to_channel",
+			"get_channel_by_id",
+			"add_client_to_channel",
+			"_channelsId",
+			"channelCollection",
+			"socket.send(",
+			"window.",
+			"set_channel",
+			"hide",
+			"set_channel_result",
 			"length",
 			"player ",
 			"join",
@@ -1014,27 +1050,7 @@
 			".twitter",
 			"<?php i18n(",
 			"i18n\\('(.*)'\\)",
-			"_(",
-			"\n	/*",
-			"aaa",
-			"html",
-			"Peterson",
-			"Michael",
-			"Peterson",
-			"Michael",
-			"Ribeiro",
-			"Michael Peterson",
-			"@import \"style.less\"",
-			"import",
-			"mich",
-			"#",
-			"michael",
-			"kHistogramSize",
-			"kImageSize",
-			"kHistogramSize",
-			"153",
-			"histo",
-			"kHistogramSize"
+			"_("
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1042,6 +1058,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"send(socket, ",
 			"",
 			";",
 			", ",
@@ -1174,7 +1191,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -1182,15 +1199,15 @@
 					"file": "app.js",
 					"settings":
 					{
-						"buffer_size": 5897,
+						"buffer_size": 12611,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								387,
+								387
 							]
 						],
 						"settings":
@@ -1200,7 +1217,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1512.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1210,15 +1227,15 @@
 					"file": "src/index.html",
 					"settings":
 					{
-						"buffer_size": 8621,
+						"buffer_size": 9134,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								7848,
+								7848
 							]
 						],
 						"settings":
@@ -1227,7 +1244,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 269.0,
+						"translation.y": 2324.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1237,15 +1254,15 @@
 					"file": "src/js/main.js",
 					"settings":
 					{
-						"buffer_size": 6579,
+						"buffer_size": 6617,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1337,
+								1337
 							]
 						],
 						"settings":
@@ -1254,32 +1271,31 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1249.0,
+						"translation.y": 42.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "package.json",
+					"file": "src/js/executor.js",
 					"settings":
 					{
-						"buffer_size": 407,
+						"buffer_size": 727,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								246,
-								246
+								397,
+								397
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1289,23 +1305,24 @@
 				},
 				{
 					"buffer": 4,
-					"file": "procfile",
+					"file": "src/js/wizard.js",
 					"settings":
 					{
-						"buffer_size": 16,
+						"buffer_size": 679,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13,
-								13
+								193,
+								193
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1315,18 +1332,72 @@
 				},
 				{
 					"buffer": 5,
-					"file": "src/css/style.css",
+					"file": "src/js/magic.js",
 					"settings":
 					{
-						"buffer_size": 3047,
+						"buffer_size": 992,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/js/game.js",
+					"settings":
+					{
+						"buffer_size": 858,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								708,
+								708
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/css/style.css",
+					"settings":
+					{
+						"buffer_size": 3329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1544,
+								1544
 							]
 						],
 						"settings":
@@ -1336,25 +1407,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1218.0,
+						"translation.y": 714.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 8,
 					"file": "src/js/client.js",
 					"settings":
 					{
-						"buffer_size": 4238,
+						"buffer_size": 4399,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								733,
+								733
 							]
 						],
 						"settings":
@@ -1363,7 +1434,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 336.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1404,7 +1475,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 262.0
+		"height": 53.0
 	},
 	"replace":
 	{

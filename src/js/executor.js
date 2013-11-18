@@ -29,7 +29,9 @@ MF.Executor = {
 
 		//TODO some checks
 
-		var enrichedCode = "(function(wizard) { " + code + " })";
+		var preambel = "var $ = {}; var window = {}; var document = {}; var this = wizard;";
+
+		var enrichedCode = "(function(wizard) { " + preambel + code + " })";
 
 		var codeFunction = eval(enrichedCode);
 
