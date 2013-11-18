@@ -15,6 +15,10 @@ MF.Game = {
 
 	gameContainer: "#gamecontainer",
 
+	_wizards: [],
+
+	_commandQueue: {},
+
 	init: function() {
 		var me = this;
 
@@ -30,8 +34,7 @@ MF.Game = {
 	},
 
 	// loop
-	animate: function ()
-	{
+	animate: function () {
 		var me = this;
 
 	    me.update();
@@ -41,16 +44,42 @@ MF.Game = {
 	},
 
 	// loop logik
-	update: function ()
-	{
+	update: function () {
+		var me = this;
+
+		for (var playerId in me._wizards) {
+			var wizard = me._wizards[playerId];
+			var cmds = wizard.magic._popAllCommands();
+
+			if (!me._commandQueue[playerId]) {
+				me._commandQueue[playerId] = [];
+			}
+
+			for (var i in cmds) {
+				Array.insert(me._commandQueue[playerId], 0, cmds[i]);
+			}
+		}
+
+		me._commandQueue
 	},
 
 	add_wizard: function(playerId) {
-		//TODO
+		var me = this;
+
+		if (me._wizards[playerId]) {
+			console.error("Wizard for player '" + playerId + "' already exists. tsnh.");
+		}
+
+		var magic = new MF.Magic(playerId);
+		var wizard = new MF.Wizard(magic);
+		me._wizards[playerId] = wizard;
+
+		return wizard;
 	},
 
 	get_wizard: function(playerId) {
-		//TODO
-		return new MF.Wizard(new MF.Magic(playerId));
+		var me = this;
+		
+		return me._wizards[playerId];
 	}
 };

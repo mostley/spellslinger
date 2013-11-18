@@ -8,23 +8,23 @@ if (typeof(MF) === "undefined") {
 MF.Magic = function(playerId) {
 	var me = this;
 
-	me.playerId = playerId;
+	me._playerId = playerId;
+	me._commands = [];
 };
 
-MF.Magic.prototype.move_left = function(amount) {
-	//TODO
-};
+['move_left', 'move_right', 'move_up', 'move_down'].forEach(function(name) {
+	MF.Magic.prototype[name] = function() {
+		var me = this;
+		me._commands.push(name);
+	};
+});
 
-MF.Magic.prototype.move_right = function(amount) {
-	//TODO
-};
+MF.Magic.prototype._popAllCommands = function() {
+	var me = this;
 
-MF.Magic.prototype.move_up = function(amount) {
-	//TODO
-};
-
-MF.Magic.prototype.move_down = function(amount) {
-	//TODO
+	var result = me._commands;
+	me._commands = [];
+	return result;
 };
 
 
@@ -43,25 +43,25 @@ MF.MockMagic.prototype.get_total = function() {
 	return me.mana;
 };
 
-MF.MockMagic.prototype.move_left = function(amount) {
+MF.MockMagic.prototype.move_left = function() {
 	var me = this;
 
 	me.mana = me.mana + 1;
 };
 
-MF.MockMagic.prototype.move_right = function(amount) {
-	var me = this;
-	
-	me.mana = me.mana + 1;
-};
-
-MF.MockMagic.prototype.move_up = function(amount) {
+MF.MockMagic.prototype.move_right = function() {
 	var me = this;
 	
 	me.mana = me.mana + 1;
 };
 
-MF.MockMagic.prototype.move_down = function(amount) {
+MF.MockMagic.prototype.move_up = function() {
+	var me = this;
+	
+	me.mana = me.mana + 1;
+};
+
+MF.MockMagic.prototype.move_down = function() {
 	var me = this;
 	
 	me.mana = me.mana + 1;

@@ -25,16 +25,39 @@ MF.Executor = {
 		return magic.get_total();
 	},
 
+	validate: function(code) {
+		var me = this;
+
+		var result = { success: true, error: null };
+
+		var magic = new MF.MockMagic();
+		var wizard = new MF.Wizard(magic);
+
+		result.error = me._execute_code(wizard, code);
+		result.success = result.error == null;
+
+		return result;
+	},
+
 	_execute_code: function(wizard, code) {
 
 		//TODO some checks
 
-		var preambel = "var $ = {}; var window = {}; var document = {}; var this = wizard;";
+		var preambel = "var $ = {}; var window = {}; var document = {}; var MF = undefined;";
 
 		var enrichedCode = "(function(wizard) { " + preambel + code + " })";
 
-		var codeFunction = eval(enrichedCode);
+		var result = null;
 
-		codeFunction(wizard);
+		try {
+			var codeFunction = eval(enrichedCode);
+
+			codeFunction.call(wizard, wizard);
+		} catch (e) {
+			result = e;
+			console.error("Failed to execute code.", e);
+		}
+
+		return result;
 	}
 };

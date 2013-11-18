@@ -39,6 +39,11 @@ if (!Array.prototype.forEach) {
     };
 }
 
+/* ==== Array Insert ==== */
+Array.insert = function (array, position, value) {
+    array.splice(position, 0, value);
+};
+
 /* ==== String Format ==== */
 String.format = function () {
     var s = arguments[0];

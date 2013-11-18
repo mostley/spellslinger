@@ -187,7 +187,7 @@ wss.on('connection', function(socket) {
                 var channelId = obj.channel;
                 var code = obj.data.code;
 
-                wss.broadcastChannel(channelId, JSON.stringify({ event_name: 'player_code', data: { username: obj.data.username, code: code, userId: thisId } }), thisId);
+                wss.broadcastChannel(channelId, JSON.stringify({ event_name: 'player_code', data: { username: obj.data.username, code: code, userId: thisId } }));
 
             } else if (obj.event_name.toLowerCase() == 'set_channel') {
                 var channelId = obj.data.id;
@@ -230,7 +230,7 @@ wss.on('connection', function(socket) {
                             channeldb.add_channel(channel);
                             socket.channelId = channelId;
                             
-                            send(socket, JSON.stringify({ event_name: 'set_channel', data: channel }));
+                            send(socket, JSON.stringify({ event_name: 'set_channel', data: channel, userId: thisId }));
                         } catch (e) {
                             console.error("Client #"+thisId+": produced exception: "+e+".");
                         }
@@ -245,7 +245,7 @@ wss.on('connection', function(socket) {
 
                                 console.log("Client #"+thisId+" joined channel with id '" + channelId + "'.");
                                 socket.channelId = channelId;
-                                send(socket, JSON.stringify({ event_name: 'set_channel', data: joinedChannel }));
+                                send(socket, JSON.stringify({ event_name: 'set_channel', data: joinedChannel, userId: thisId }));
                             }, function(err) {
 
                                 console.error("Client #"+thisId+": Failed to join Channel with id '" + channelId + "'. reason: " + e);

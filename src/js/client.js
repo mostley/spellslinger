@@ -183,10 +183,11 @@ MF.Client = {
 
 		set_channel: function(msg) {
 			var me = this;
-			
-		    me.trigger(me.events.set_channel, msg.data);
 
 			me._channel = msg.data.id;
+			me.userId = msg.userId;
+			
+		    me.trigger(me.events.set_channel, msg.data);
 		},
 
 		keep_alive: function(msg) {
@@ -220,14 +221,16 @@ MF.Client = {
 	_on_timeout: function() {
 		var me = this;
 
-		var msg = {
-			event_name: me.events.keep_alive,
-			data: {
-				datetime: new Date()
-			}
-		};
+		if (me._channel) {
+			var msg = {
+				event_name: me.events.keep_alive,
+				data: {
+					datetime: new Date()
+				}
+			};
 
-		me._send(msg);
+			me._send(msg);
+		}
 	},
 
 	_send: function(obj) {

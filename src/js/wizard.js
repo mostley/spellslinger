@@ -10,7 +10,9 @@ MF.Wizard = function(magic) {
 
 function set_func_alias (names, func) {
 	for (var i in names) {
+		var name = names[i];
 		MF.Wizard.prototype[name] = func;
+		MF.Wizard.__proto__[name] = func;
 	}
 }
 

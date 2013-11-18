@@ -21,6 +21,8 @@ MF.Controller = {
 
 		$('#code-send-content').click(me.on_send_code.bind(me));
 
+		$('#codeditor').on('keydown', Function.buffer(500, me._on_text_entered.bind(me)));
+
 		me.init_templates();
 
 		MF.Executor.init();
@@ -42,15 +44,13 @@ MF.Controller = {
 		}
 	},
 
-	validateCode: function(code) {
-		return true;
-	},
-
 	add_player: function(playerId) {
 		var me = this;
 
-		var html = me.Templates.player_box({ id: playerId });
-		$('#log_players .list-group').append(html);
+		if (playerId !== MF.Client.userId) {
+			var html = me.Templates.player_box({ id: playerId });
+			$('#log_players .list-group').append(html);
+		}
 
 		MF.Game.add_wizard(playerId);
 	},
@@ -196,21 +196,56 @@ MF.Controller = {
 	on_send_code: function(e) {
 		var me = this;
 
+		me.set_codeditor_loading(true);
+
 		e.preventDefault();
 
 		var editor = ace.edit("codeditor");
 		var code = editor.getValue();
-		console.log(code);
 
-		if (me.validateCode(code)) {
+		var validationResult = MF.Executor.validate(code);
+		if (validationResult.success) {
 			var username = $('#usernamebox').val();
 			MF.Client.send_code(username, code);
+
+			$('.code .tab-content .alert').remove();
 		} else {
-			//TODO better messages
-			$('#codeditor').prepend(me.Templates.alert_warning({ text: "code not valid!" }));
+			$('.code .tab-content').append(me.Templates.alert_error({ text: "Code not valid: " + validationResult.error.message }));
 		}
 
+		me.set_codeditor_loading(false);
+
+		editor.setValue('');
+
 		return false;
+	},
+
+	set_codeditor_loading: function(loading) {
+		if (loading) {
+			$('.code .tab-content').addClass('loading')
+								   .append($('<div class="loading-overlay"></div>'));
+		} else {
+			$('.code .tab-content').removeClass('loading');
+			$('.code .tab-content .loading-overlay').remove();
+		}
+	},
+
+	_on_text_entered: function() {
+		var me = this;
+
+		var editor = ace.edit("codeditor");
+		var code = editor.getValue();
+
+		var validationResult = MF.Executor.validate(code);
+
+		if (validationResult.success) {
+			var count = MF.Executor.calculate_mana_cost(code);
+			$('#mana-count').text(count);
+
+			$('.code .tab-content .alert').remove();
+		} else {
+			$('.code .tab-content').append(me.Templates.alert_error({ text: "Code not valid: " + validationResult.error.message }));
+		}
 	}
 };
 
