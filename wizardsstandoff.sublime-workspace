@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"add",
+				"add_wizard"
+			],
+			[
+				"user",
+				"userId"
+			],
+			[
+				"ex",
+				"execute"
+			],
+			[
+				"pla",
+				"playerId"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"rig",
+				"right"
+			],
+			[
 				"code",
 				"codeFunction"
 			],
@@ -30,10 +54,6 @@
 			[
 				"get_",
 				"get_channel_by_id"
-			],
-			[
-				"add",
-				"add_client_to_channel"
 			],
 			[
 				"cha",
@@ -122,10 +142,6 @@
 			[
 				"to",
 				"toPixelPos"
-			],
-			[
-				"ex",
-				"explosions"
 			],
 			[
 				"back",
@@ -498,22 +514,6 @@
 			[
 				"vEC",
 				"Vector"
-			],
-			[
-				"from",
-				"fromRatio	(local, instance)"
-			],
-			[
-				"index",
-				"indexB	(local, instance)"
-			],
-			[
-				"ind",
-				"indexB	(local, instance)"
-			],
-			[
-				"Colo",
-				"colorB"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 12611,
+				"buffer_size": 12816,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 9134,
+				"buffer_size": 9349,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,7 +539,7 @@
 			"file": "src/js/main.js",
 			"settings":
 			{
-				"buffer_size": 6617,
+				"buffer_size": 7664,
 				"line_ending": "Windows"
 			}
 		},
@@ -547,7 +547,7 @@
 			"file": "src/js/executor.js",
 			"settings":
 			{
-				"buffer_size": 727,
+				"buffer_size": 1153,
 				"line_ending": "Windows"
 			}
 		},
@@ -555,7 +555,7 @@
 			"file": "src/js/wizard.js",
 			"settings":
 			{
-				"buffer_size": 679,
+				"buffer_size": 738,
 				"line_ending": "Windows"
 			}
 		},
@@ -563,7 +563,7 @@
 			"file": "src/js/magic.js",
 			"settings":
 			{
-				"buffer_size": 992,
+				"buffer_size": 1048,
 				"line_ending": "Windows"
 			}
 		},
@@ -571,7 +571,7 @@
 			"file": "src/js/game.js",
 			"settings":
 			{
-				"buffer_size": 858,
+				"buffer_size": 1475,
 				"line_ending": "Windows"
 			}
 		},
@@ -579,15 +579,39 @@
 			"file": "src/css/style.css",
 			"settings":
 			{
-				"buffer_size": 3329,
+				"buffer_size": 4754,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/stylesheet.css",
+			"settings":
+			{
+				"buffer_size": 475,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/mildeast-demo.html",
+			"settings":
+			{
+				"buffer_size": 30450,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "src/js/client.js",
 			"settings":
 			{
-				"buffer_size": 4399,
+				"buffer_size": 4985,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/extensions.js",
+			"settings":
+			{
+				"buffer_size": 3409,
 				"line_ending": "Windows"
 			}
 		}
@@ -776,6 +800,9 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155355/stylesheet.css",
+		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155355/specimen_files/specimen_stylesheet.css",
+		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155355/generator_config.txt",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/reconnecting-websocket.min.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/rainbow-theme-monokai.css",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/procfile",
@@ -900,10 +927,7 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/test.bat",
 		"/D/aruco-1.2.4/arcuco_clean/aruco/aruco.sln",
 		"/D/Lokale Daten/DropBox/Dropbox/sites/DaianeRibeiro/contact.php",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/arm.scad",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/screw.scad",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/screw_pin.scad",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/Roar/Data/ics.uci.edu/source.txt"
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/arm.scad"
 	],
 	"find":
 	{
@@ -923,6 +947,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"add_wizard",
+			"add_player",
+			"amount",
+			"_on_text_entered",
+			"validateCode",
+			"on_send_code",
+			"wizard",
+			"\n\n		set_channel: function(msg) {\n			var me = this;\n			\n		    me.trigger(me.events.set_channel, msg.data);\n\n			me._channel = msg.data.id;\n		},",
+			"_send",
 			"left",
 			"on_send_code",
 			"broadcastChannel",
@@ -1041,16 +1074,7 @@
 			"velocity",
 			"scale",
 			":[^:\\n]*$",
-			":.*",
-			"currentPlayerPosition",
-			"assetsLoaded",
-			"build",
-			"4098",
-			"1657",
-			".twitter",
-			"<?php i18n(",
-			"i18n\\('(.*)'\\)",
-			"_("
+			":.*"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1058,6 +1082,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
 			"send(socket, ",
 			"",
 			";",
@@ -1191,7 +1216,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1199,15 +1224,15 @@
 					"file": "app.js",
 					"settings":
 					{
-						"buffer_size": 12611,
+						"buffer_size": 12816,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								387,
-								387
+								9157,
+								9168
 							]
 						],
 						"settings":
@@ -1217,7 +1242,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2814.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1227,15 +1252,15 @@
 					"file": "src/index.html",
 					"settings":
 					{
-						"buffer_size": 9134,
+						"buffer_size": 9349,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7848,
-								7848
+								4484,
+								4484
 							]
 						],
 						"settings":
@@ -1244,7 +1269,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2324.0,
+						"translation.y": 773.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1254,15 +1279,15 @@
 					"file": "src/js/main.js",
 					"settings":
 					{
-						"buffer_size": 6617,
+						"buffer_size": 7664,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1337,
-								1337
+								3081,
+								3082
 							]
 						],
 						"settings":
@@ -1271,7 +1296,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 42.0,
+						"translation.y": 1263.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1281,15 +1306,15 @@
 					"file": "src/js/executor.js",
 					"settings":
 					{
-						"buffer_size": 727,
+						"buffer_size": 1153,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								397,
-								397
+								632,
+								638
 							]
 						],
 						"settings":
@@ -1308,15 +1333,15 @@
 					"file": "src/js/wizard.js",
 					"settings":
 					{
-						"buffer_size": 679,
+						"buffer_size": 738,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								193,
-								193
+								105,
+								105
 							]
 						],
 						"settings":
@@ -1325,7 +1350,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 42.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1335,15 +1360,15 @@
 					"file": "src/js/magic.js",
 					"settings":
 					{
-						"buffer_size": 992,
+						"buffer_size": 1048,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								222,
-								222
+								570,
+								570
 							]
 						],
 						"settings":
@@ -1362,15 +1387,15 @@
 					"file": "src/js/game.js",
 					"settings":
 					{
-						"buffer_size": 858,
+						"buffer_size": 1475,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								708,
-								708
+								884,
+								884
 							]
 						],
 						"settings":
@@ -1379,7 +1404,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 210.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1389,15 +1414,15 @@
 					"file": "src/css/style.css",
 					"settings":
 					{
-						"buffer_size": 3329,
+						"buffer_size": 4754,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1544,
-								1544
+								2836,
+								2842
 							]
 						],
 						"settings":
@@ -1407,31 +1432,112 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 714.0,
+						"translation.y": 1347.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "src/js/client.js",
+					"file": "/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/stylesheet.css",
 					"settings":
 					{
-						"buffer_size": 4399,
+						"buffer_size": 475,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								733,
-								733
+								134,
+								99
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/mildeast-demo.html",
+					"settings":
+					{
+						"buffer_size": 30450,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1278,
+								1278
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/js/client.js",
+					"settings":
+					{
+						"buffer_size": 4985,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3461,
+								3467
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2058.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/js/extensions.js",
+					"settings":
+					{
+						"buffer_size": 3409,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1328,
+								1316
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
