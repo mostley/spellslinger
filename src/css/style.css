@@ -131,6 +131,12 @@ body {
         border: 1px solid #ccc;
 }
 
+.game h2.center-block {
+        font-family: bleeding_cowboysregular;
+        font-size: 40px;
+        width: 240px;
+}
+
 .code {
         padding-left: 0;
 }
