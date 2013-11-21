@@ -24,218 +24,224 @@
 
 html,
 body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 body {
-        padding-top: 50px;
-        background-color: #f5f5f5;
+    padding-top: 50px;
+    background-color: #f5f5f5;
 }
 
 .navbar-brand {
-        font-family: bleeding_cowboysregular;
-        font-size: 30px;
+    font-family: bleeding_cowboysregular;
+    font-size: 30px;
 }
 
 .navbar-header {
-        overflow: hidden;
+    overflow: hidden;
 }
 
 #wrap {
-        min-height: 100%;
-        height: auto;
-        margin: 0 auto -60px;
-        padding: 0 0 60px;
-        position: relative;
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+    position: relative;
 }
 
 #footer {
-        height: 60px;
-        background-color: #333;
-        padding-top: 20px;
-        border-top: 1px solid #555;
+    height: 60px;
+    background-color: #333;
+    padding-top: 20px;
+    border-top: 1px solid #555;
 }
 
 #footer .credit {
-        padding-left: 20px;
+    padding-left: 20px;
 }
 
 .screenpane {
-        height: 100%;
-        padding-top: 10px;
+    height: 100%;
+    padding-top: 10px;
 }
 
 .screenpane h2 {
-        width: 200px
+    width: 200px
 }
 
 .screenpane .well {
-        width: 100%;
-        height: 98%;
-        position: relative;
+    width: 100%;
+    height: 98%;
+    position: relative;
 }
 
 .screenpane .well .fullsize-content {
-        position: absolute;
-        bottom: 19px;
-        top: 8.8em;
-        right: 19px;
-        left: 19px;
+    position: absolute;
+    bottom: 19px;
+    top: 8.8em;
+    right: 19px;
+    left: 19px;
 }
 
 .main {
-        height: 100%; 
-        width: 100%;
-        min-height: 100%;
-        position: absolute;
-        top: 0;
-        margin: 0;
-        padding-bottom: 60px;
+    height: 100%; 
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding-bottom: 60px;
 }
 .main .main-inner {
-        height: 100%; 
-        width: 100%;
-        min-height: 100%;
+    height: 100%; 
+    width: 100%;
+    min-height: 100%;
 }
 
 .log {
-        padding-right: 0;
+    padding-right: 0;
 }
 
 .log #serverlog_container {
-        width: 100%;
-        height: 100%;
-        position: relative;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .log #serverlog {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        background-color: #ddd;
-        overflow-y: scroll;
-        font-family: courier;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #ddd;
+    overflow-y: scroll;
+    font-family: courier;
 }
 
 #log_players {
-        overflow-y: scroll;
-        height: 100%;
+    overflow-y: scroll;
+    height: 100%;
 }
 
 .game #gamecontainer {
-        border: 1px solid #ccc;
+    border: 1px solid #ccc;
 }
 
 .game h2.center-block {
-        font-family: bleeding_cowboysregular;
-        font-size: 40px;
-        width: 240px;
+    font-family: bleeding_cowboysregular;
+    font-size: 40px;
+    width: 240px;
 }
 
 .code {
-        padding-left: 0;
+    padding-left: 0;
 }
 
 .code .alert {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 999;
-        margin-bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    margin-bottom: 0;
 }
 .code .alert.alert-danger {
-        border: 1px solid red;
+    border: 1px solid red;
 }
 
 .code #codeditor {
-        width: 100%;
-        height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 #usernamebox {
-        margin-top: 10px;
-        width: 150px;
+    margin-top: 10px;
+    width: 150px;
 }
 #usernameboxbtn {
-        margin-top: 10px;
+    margin-top: 10px;
 }
 
 .playeccr_log pre {
-        -webkit-transition: opacity 0.4s ease-in;  
-        -moz-transition: opacity 0.4s ease-in;  
-        -o-transition: opacity 0.4s ease-in;  
-        transition: opacity 0.4s ease-in;  
+    -webkit-transition: opacity 0.4s ease-in;  
+    -moz-transition: opacity 0.4s ease-in;  
+    -o-transition: opacity 0.4s ease-in;  
+    transition: opacity 0.4s ease-in;  
 }
 
 
 /* Bootstrap overrides */
 
 .well {
-        background-color: #fff;
-        border: 1px solid #e3e3e3;
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
 }
 
 .nav .badge {
-        /*background-color: #428bca;*/
+    /*background-color: #428bca;*/
 }
 
 .tab-content {
-        padding: 10px;
-        border-left: 1px solid #ddd;
-        border-right: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
+    padding: 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 
 /* Helper Classes */
 
 .loading {
-        background-image: url(../img/loading.gif);
-        background-repeat: no-repeat;
-        background-position: 50%;
-        /*height:  100%;*/
+    background-image: url(../img/loading.gif);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    /*height:  100%;*/
 }
 
 .loading *:not(.loading-overlay) {
-        opacity: 0.8;
-        -webkit-transition: opacity 0.4s ease-in;  
-        -moz-transition: opacity 0.4s ease-in;  
-        -o-transition: opacity 0.4s ease-in;  
-        transition: opacity 0.4s ease-in;  
+    opacity: 0.8;
+    -webkit-transition: opacity 0.4s ease-in;  
+    -moz-transition: opacity 0.4s ease-in;  
+    -o-transition: opacity 0.4s ease-in;  
+    transition: opacity 0.4s ease-in;  
 }
 .loading-overlay {
-        background-color: white
-        opacity: 0.8;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+    background-color: white
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .loading-failed {
-        background-image: url(../img/error.png);
-        background-repeat: no-repeat;
-        background-position: 50%;
+    background-image: url(../img/error.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
 }
 
 .loading-failed *:not(.loading-failed-overlay) {
-        opacity: 0.8;
-        -webkit-transition: opacity 0.4s ease-in;  
-        -moz-transition: opacity 0.4s ease-in;  
-        -o-transition: opacity 0.4s ease-in;  
-        transition: opacity 0.4s ease-in;  
+    opacity: 0.8;
+    -webkit-transition: opacity 0.4s ease-in;  
+    -moz-transition: opacity 0.4s ease-in;  
+    -o-transition: opacity 0.4s ease-in;  
+    transition: opacity 0.4s ease-in;  
 }
 
 .loading-failed .mp-loading-failed-overlay {
-        margin: 0 auto;
-        width:  100%;
-        text-align: center;
-        margin-top:  2em;
+    margin: 0 auto;
+    width:  100%;
+    text-align: center;
+    margin-top:  2em;
 }

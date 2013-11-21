@@ -57,7 +57,7 @@ var channeldb = {
     },
 
     get_channel_list: function (callback, error) {
-        db.channels.find(function(err, channels) {
+        db.channels.find({ is_private: false }, function(err, channels) {
             if (err) {
                 if (error) { error(err); }
             } else if (!channels) {

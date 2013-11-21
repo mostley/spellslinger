@@ -531,7 +531,7 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 9349,
+				"buffer_size": 9797,
 				"line_ending": "Windows"
 			}
 		},
@@ -540,6 +540,14 @@
 			"settings":
 			{
 				"buffer_size": 7664,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/logo_cutter.scad",
+			"settings":
+			{
+				"buffer_size": 7623,
 				"line_ending": "Windows"
 			}
 		},
@@ -579,7 +587,7 @@
 			"file": "src/css/style.css",
 			"settings":
 			{
-				"buffer_size": 4754,
+				"buffer_size": 4874,
 				"line_ending": "Windows"
 			}
 		},
@@ -800,6 +808,8 @@
 	},
 	"file_history":
 	[
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/logo_cutter.scad",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/logo_inverted_stamp.scad",
 		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155355/stylesheet.css",
 		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155355/specimen_files/specimen_stylesheet.css",
 		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155355/generator_config.txt",
@@ -925,9 +935,7 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/testdata/single/README",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/simple.bat",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/test.bat",
-		"/D/aruco-1.2.4/arcuco_clean/aruco/aruco.sln",
-		"/D/Lokale Daten/DropBox/Dropbox/sites/DaianeRibeiro/contact.php",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/UniversalArm/arm.scad"
+		"/D/aruco-1.2.4/arcuco_clean/aruco/aruco.sln"
 	],
 	"find":
 	{
@@ -1216,7 +1224,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1252,15 +1260,15 @@
 					"file": "src/index.html",
 					"settings":
 					{
-						"buffer_size": 9349,
+						"buffer_size": 9797,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4484,
-								4484
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1303,6 +1311,34 @@
 				},
 				{
 					"buffer": 3,
+					"file": "/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/logo_cutter.scad",
+					"settings":
+					{
+						"buffer_size": 7623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7377,
+								7377
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/OpenSCAD/Syntaxes/OpenSCAD.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 756.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "src/js/executor.js",
 					"settings":
 					{
@@ -1329,7 +1365,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "src/js/wizard.js",
 					"settings":
 					{
@@ -1356,7 +1392,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "src/js/magic.js",
 					"settings":
 					{
@@ -1383,7 +1419,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "src/js/game.js",
 					"settings":
 					{
@@ -1410,25 +1446,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "src/css/style.css",
 					"settings":
 					{
-						"buffer_size": 4754,
+						"buffer_size": 4874,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2836,
-								2842
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 8,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -1438,7 +1474,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/stylesheet.css",
 					"settings":
 					{
@@ -1464,7 +1500,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/mildeast-demo.html",
 					"settings":
 					{
@@ -1491,7 +1527,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "src/js/client.js",
 					"settings":
 					{
@@ -1518,7 +1554,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "src/js/extensions.js",
 					"settings":
 					{

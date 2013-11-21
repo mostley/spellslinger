@@ -22,6 +22,12 @@ MF.Controller = {
 		$('#code-send-content').click(me.on_send_code.bind(me));
 
 		$('#codeditor').on('keydown', Function.buffer(500, me._on_text_entered.bind(me)));
+		$('#codeditor').on('keydown', function(e) {
+
+			if (e.ctrlKey && e.keyCode == 13) {
+				me.on_send_code(e);
+			}
+		});
 
 		me.init_templates();
 
@@ -53,6 +59,16 @@ MF.Controller = {
 		}
 
 		MF.Game.add_wizard(playerId);
+	},
+
+	remove_player: function(playerId) {
+		var me = this;
+
+
+		$('#log_header_player_' + playerId).remove();
+		$('#log_player_' + playerId).remove();
+
+		MF.Game.remove_wizard(playerId);
 	},
 
 	//Network events
@@ -147,10 +163,11 @@ MF.Controller = {
 	},
 
 	player_disconnected: function(playerId) {
+		var me = this;
+		
 		$('#serverlog').append('<div class="message">Player #'+ playerId +' left</div>');
 
-		$('#log_header_player_' + playerId).remove();
-		$('#log_player_' + playerId).remove();
+		me.remove_player(playerId);
 		$('#log_player_count').text(parseInt($('#log_player_count').text())-1);
 	},
 
