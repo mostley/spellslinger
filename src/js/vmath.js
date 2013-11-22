@@ -9,6 +9,10 @@ var VMath = {
         return Math.sqrt(p.x * p.x + p.y * p.y);
     },
 
+    normalize: function (p) {
+        return VMath.divideScalar(p, VMath.magnitude(p));
+    },
+
     distance: function (a, b) {
         return Math.sqrt(Math.pow(b.x-a.x,2) + Math.pow(b.y-a.y,2));
     },

@@ -21,6 +21,10 @@ MF.Controller = {
 
 		$('#code-send-content').click(me.on_send_code.bind(me));
 
+		$('[data-target=#dialog-channel-selection]').click(function() {
+			MF.Client.request_channels();
+		});
+
 		$('#codeditor').on('keydown', Function.buffer(500, me._on_text_entered.bind(me)));
 		$('#codeditor').on('keydown', function(e) {
 
@@ -73,15 +77,17 @@ MF.Controller = {
 
 	get_game_status: function() {
 		var wizard_data = MF.Game.get_wizard_data();
+		var projectile_data = MF.Game.get_projectile_data();
 
 		return {
-			wizards: wizard_data
+			wizards: wizard_data,
+			projectiles: projectile_data
 		}
 	},
 
 	set_game_status: function(status) {
 		MF.Game.set_wizard_data(status.wizards);
-
+		MF.Game.set_projectile_data(status.projectiles);
 	},
 
 	//Network events
@@ -89,6 +95,7 @@ MF.Controller = {
 		var me = this;
 
 		$('body').removeClass('loading');
+		$('#dialog-channel-selection .modal-body .list-group').empty();
 
 		var count = Object.size(channels);
 		$('#serverlog').append('<div class="message">'+ count +' Channels found</div>');

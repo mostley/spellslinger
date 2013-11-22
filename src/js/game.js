@@ -4,7 +4,10 @@ if (typeof(MF) === "undefined") {
 
 MF.Textures = {
 	Ground: 5,
-	Wizard_Novice: 5190
+	Wizard_Novice: 5190,
+	Projectiles: {
+		'fireball': 5580 //TODO
+	}
 };
 
 MF.Game = {
@@ -36,8 +39,8 @@ MF.Game = {
 
 	_wizards: [],
 	_wizardSprites: [],
+	_projectileSprites: [],
 	levelContainer: null,
-	creatureContainer: null,
 
 	_commandQueue: {},
 
@@ -63,11 +66,6 @@ MF.Game = {
 	    me.levelContainer.position.x = 0;
 	    me.levelContainer.position.y = 0;
 
-	    me.creatureContainer = new PIXI.DisplayObjectContainer();
-	    me.creatureContainer.position.x = 0;
-	    me.creatureContainer.position.y = 0;
-
-	    me.levelContainer.addChild(me.creatureContainer);
 	    me.stage.addChild(me.levelContainer);
 
 	    me.createGrid();
@@ -140,7 +138,7 @@ MF.Game = {
 				var command = commandList.pop();
 				var wizard = me._wizardSprites[playerId];
 
-				wizard[command]();
+				wizard[command.name](command.parameter);
 			}
 		}
 	},
@@ -175,6 +173,24 @@ MF.Game = {
 		}
 
 		return new PIXI.Point(x,y);
+	},
+
+	add_projectile: function(playerId, position, type) {
+		var me = this;
+
+		var projectile = new MF.Projectile(playerId, position, type);
+		me._projectileSprites[playerId].push(projectile);
+
+		me.levelContainer.addChild(projectileSprite);
+	},
+
+	remove_projectile: function(playerId, projectileSprite) {
+		var me = this;
+		
+		var index = me._projectileSprites[playerId].indexOf(projectileSprite);
+		delete me._projectileSprites[playerId][index];
+
+		me.levelContainer.removeChild(projectileSprite);
 	},
 
 	add_wizard: function(playerId) {
@@ -216,6 +232,7 @@ MF.Game = {
 		var me = this;
 
 		var result = null;
+
 		for (var id in me._wizardSprites) {
 			var wizard = me._wizardSprites[id];
 			if (wizard.tilePosition.x == x && wizard.tilePosition.y == y) {
@@ -225,6 +242,51 @@ MF.Game = {
 		}
 
 		return result;
+	},
+
+	get_projectile_data: function() {
+		var me = this;
+
+		var result = {};
+
+		for (var id in me._projectileSprites) {
+			var projectiles = me._projectileSprites[id];
+			result[id] = [];
+
+			for (var i in projectiles) {
+				var projectileSprite = projectiles[i];
+
+				result[id].push({
+					position: {
+						x: projectileSprite.tilePosition.x, 
+						y: projectileSprite.tilePosition.y
+					},
+					type: projectileSprite.type,
+					velocity: projectileSprite.velocity
+				});
+			}
+		}
+
+		return result;
+	},
+
+	set_projectile_data: function(projectile_data) {
+		var me = this;
+		
+		for (var playerId in projectile_data) {
+			var data = projectile_data[playerId];
+
+			var projectileSprites = me._projectileSprites[playerId];
+			for (var j in projectileSprites) {
+				me.remove_projectile(playerId, projectileSprites[j]);
+			}
+
+			for (var i in data) {
+				var projectile = data[i];
+				var projectileSprite = me.add_projectile(playerId, new PIXI.Point(projectile.position.x, projectile.position.y), projectile.type);
+				projectileSprite.set_direction(projectile.velocity);
+			}
+		}
 	},
 
 	get_wizard_data: function() {
@@ -240,7 +302,7 @@ MF.Game = {
 					x: wizardSprite.tilePosition.x, 
 					y: wizardSprite.tilePosition.y 
 				},
-				health: wizardSprite.health,
+				health: wizardSprite.health
 			};
 		}
 
@@ -250,12 +312,17 @@ MF.Game = {
 	set_wizard_data: function(wizard_data) {
 		var me = this;
 		
-		for (var id in wizard_data) {
-			var data = wizard_data[id]
-			var wizardSprite = me._wizardSprites[id];
+		for (var playerId in wizard_data) {
+			var data = wizard_data[playerId];
+			var wizardSprite = me._wizardSprites[playerId];
 
-			wizardSprite._set_tile_position(data.position);
-			wizardSprite.health = data.health;
+			if (!wizardSprite) {
+				console.error("no wizard for player with ID '" + playerId + "' found...");
+			} else {
+
+				wizardSprite._set_tile_position(data.position);
+				wizardSprite.health = data.health;
+			}
 		}
 	},
 

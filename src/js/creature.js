@@ -52,7 +52,7 @@ MF.Creature.prototype.update = function (dt) {
 	}
 };
 
-MF.Creature.prototype.damage = function (shot) {
+MF.Creature.prototype.damageWith = function (shot) {
     var me = this;
 
     me.health -= shot.damage;
@@ -105,6 +105,17 @@ MF.Creature.prototype.move_down = function () {
         me.sprite.position.y += MF.Game.tileHeight;
         me.tilePosition.y += 1;
     }
+};
+
+MF.Creature.prototype.throw_fireball = function (direction) {
+    var me = this;
+
+    var dirX = direction.x == 0 ? 0 : ( direction.x > 0 ? 1 : -1 );
+    var dirY = direction.y == 0 ? 0 : ( direction.y > 0 ? 1 : -1 );
+    var pos = VMath.add(me.tilePosition, new PIXI.Point(dirX, dirY));
+
+    var projectile = MF.Game.add_projectile(me.playerId, pos, MF.ProjectileTypes.Fireball);
+    projectile.set_direction(direction);
 };
 
 MF.Creature.prototype.say = function (text, duration) {
