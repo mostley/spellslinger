@@ -116,9 +116,17 @@ MF.Client = {
 		return me._send(msg);
 	},
 
-	get_status: function() {
+	send_status: function(targetClientId, status) {
 		var me = this;
-		return me._socket ? me._socket.readyState : null;
+
+		var msg = {
+			event_name: me.events.player_code,
+			data: {
+				clientId: targetClientId,
+				status: status
+			}
+		};
+		return me._send(msg);
 	},
 
 	on: function(event_name, func) {
@@ -194,6 +202,20 @@ MF.Client = {
 			var me = this;
 			
 		    console.log("keep_alive", msg.data);
+		},
+
+		get_status: function(msg) {
+			var me = this;
+			
+		    me.trigger(me.events.get_status, msg.data);
+		},
+
+		send_status: function(msg) {
+			var me = this;
+			
+		    console.log("send_status", msg.data);
+			
+		    me.trigger(me.events.send_status, msg.data);
 		},
 
 		error: function(msg) {

@@ -71,6 +71,19 @@ MF.Controller = {
 		MF.Game.remove_wizard(playerId);
 	},
 
+	get_game_status: function() {
+		var wizard_data = MF.Game.get_wizard_data();
+
+		return {
+			wizards: wizard_data
+		}
+	},
+
+	set_game_status: function(status) {
+		MF.Game.set_wizard_data(status.wizards);
+
+	},
+
 	//Network events
 	channel_list_received: function(channels) {
 		var me = this;
@@ -179,6 +192,19 @@ MF.Controller = {
 		Function.defer(1, function(){$(".player_log pre").addClass('in');});
 
 		MF.Executor.execute(data.userId, data.code);
+	},
+
+	get_status: function(data) {
+		var me = this;
+
+		var status = me.get_game_status();
+		MF.Client.send_status(data.requestingClientId, status);
+	},
+
+	send_status: function(data) {
+		var me = this;
+
+		me.set_game_status(data.status);
 	},
 
 	request_error: function(data) {
@@ -308,6 +334,14 @@ $(function() {
 	client.on(
 		client.events.player_code, 
 		controller.player_code.bind(controller));
+
+	client.on(
+		client.events.get_status, 
+		controller.get_status.bind(controller));
+
+	client.on(
+		client.events.send_status, 
+		controller.send_status.bind(controller));
 
 	client.on(
 		client.events.error, 

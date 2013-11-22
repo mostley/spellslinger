@@ -227,6 +227,38 @@ MF.Game = {
 		return result;
 	},
 
+	get_wizard_data: function() {
+		var me = this;
+
+		var result = {};
+
+		for (var id in me._wizardSprites) {
+			var wizardSprite = me._wizardSprites[id];
+
+			result[id] = {
+				position: { 
+					x: wizardSprite.tilePosition.x, 
+					y: wizardSprite.tilePosition.y 
+				},
+				health: wizardSprite.health,
+			};
+		}
+
+		return result;
+	},
+
+	set_wizard_data: function(wizard_data) {
+		var me = this;
+		
+		for (var id in wizard_data) {
+			var data = wizard_data[id]
+			var wizardSprite = me._wizardSprites[id];
+
+			wizardSprite._set_tile_position(data.position);
+			wizardSprite.health = data.health;
+		}
+	},
+
 	// Events
 	on_mouse_down: function(e) {
 		var me = this;
