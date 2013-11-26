@@ -113,13 +113,14 @@ Function.defer = function(time, func) {
     return window.setTimeout(func, time);
 };
 
-Function.buffer = function(time, func) {
+Function.buffer = function(delay, func) {
     var timer = -1;
     return function() {
-        if (timer != -1) {
-            window.clearTimeout(timer);
-        }
+        var context = this, args = arguments;
+        window.clearTimeout(timer);
         
-        timer = window.setTimeout(func, time);
+        timer = window.setTimeout(function () {
+          func.apply(context, args);
+        }, delay);
     };
 };

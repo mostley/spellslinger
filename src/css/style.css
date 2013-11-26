@@ -137,6 +137,13 @@ body {
     border: 1px solid #ccc;
 }
 
+.game #gamecoordinates {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    color: #0f0;
+}
+
 .game h2.center-block {
     font-family: bleeding_cowboysregular;
     font-size: 40px;

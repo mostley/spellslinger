@@ -8,13 +8,14 @@ function getCreatureMovieClip(creature) {
  * ================ Creature ================
  */
 
-MF.Creature = function(sprite, tPos)
+MF.Creature = function(playerId, sprite, tPos)
 {
     var me = this;
 
     me.health = 100;
     me.currentSpeech = null;
 
+    me.playerId = playerId;
     me.sprite = sprite;
     me.tilePosition = tPos;
 
@@ -31,6 +32,8 @@ MF.Creature.constructor = MF.Creature;
 
 MF.Creature.prototype._set_tile_position = function (tPos) {
     var me = this;
+    
+    me.tilePosition = tPos;
 
     me.sprite.position = new PIXI.Point(tPos.x * MF.Game.tileWidth, tPos.y * MF.Game.tileHeight);
     me.sprite.position = VMath.add(me.sprite.position, this.sprite.pivot);

@@ -19,6 +19,8 @@ MF.Client = {
 
 	eventHandler: {},
 
+	userId: null,
+
 	_socket: null,
 	_channel: null,
 	_keey_alive_timer: null,
@@ -116,11 +118,21 @@ MF.Client = {
 		return me._send(msg);
 	},
 
+	get_status: function() {
+		var me = this;
+
+		var msg = {
+			event_name: me.events.get_status,
+			data: {}
+		};
+		return me._send(msg);
+	},
+
 	send_status: function(targetClientId, status) {
 		var me = this;
 
 		var msg = {
-			event_name: me.events.player_code,
+			event_name: me.events.send_status,
 			data: {
 				clientId: targetClientId,
 				status: status

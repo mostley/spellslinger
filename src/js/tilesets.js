@@ -23,12 +23,16 @@ MF.Tilesets = [{
 }, {
     "firstgid": 5580,
     "image": "img/oryx_16bit_fantasy_fx_trans.png",
-    "imageheight": 592,
+    "imageheight": 384,
     "imagewidth": 564,
     "margin": 0,
     "name": "Effects Small",
     "properties": {},
     "spacing": 0,
-    "tileheight": 24,
-    "tilewidth": 24
+    "tileheight": 32,
+    "tilewidth": 32,
+    "offset": {
+        x: 288,
+        y: 32
+    }
 }];

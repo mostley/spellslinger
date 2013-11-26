@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"coll",
+				"collidedWizard"
+			],
+			[
+				"tile",
+				"tilePosition"
+			],
+			[
+				"name",
+				"name_list"
+			],
+			[
+				"nam",
+				"name_list"
+			],
+			[
+				"requ",
+				"request_channels"
+			],
+			[
+				"proj",
+				"projectile_data"
+			],
+			[
+				"remove",
+				"removeChild"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"wiz",
+				"wizardSprite"
+			],
+			[
+				"_wi",
+				"_wizardSprites"
+			],
+			[
 				"play",
 				"playerId"
 			],
@@ -14,10 +54,6 @@
 			[
 				"onMouse",
 				"onMouseDown"
-			],
-			[
-				"tile",
-				"tileWidth"
 			],
 			[
 				"add",
@@ -54,10 +90,6 @@
 			[
 				"get",
 				"get_channel_by_id"
-			],
-			[
-				"requ",
-				"requestingClientId"
 			],
 			[
 				"get_c",
@@ -288,10 +320,6 @@
 				"ScoreEffectOffset"
 			],
 			[
-				"pos",
-				"positionCache	(attribute, instance)"
-			],
-			[
 				"toIn",
 				"toIntArr()	(attribute, function)"
 			],
@@ -486,108 +514,32 @@
 			[
 				"level",
 				"levelFile"
-			],
-			[
-				"fireb",
-				"fireButtonSize"
-			],
-			[
-				"conten",
-				"contentHeight"
-			],
-			[
-				"content",
-				"contentWidth"
-			],
-			[
-				"particles",
-				"particleSizeRandom"
-			],
-			[
-				"init",
-				"randomInitialSize"
-			],
-			[
-				"con",
-				"contentWidth"
-			],
-			[
-				"ini",
-				"initialEmitterSizeRandom	(attribute, instance)"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/index.html",
+			"file": "src/js/projectile.js",
 			"settings":
 			{
-				"buffer_size": 10160,
+				"buffer_size": 1653,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/js/creature.js",
+			"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
 			"settings":
 			{
-				"buffer_size": 3004,
+				"buffer_size": 1171,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/js/game.js",
+			"file": "/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
 			"settings":
 			{
-				"buffer_size": 5636,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/game.js",
-			"settings":
-			{
-				"buffer_size": 11131,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/resourceloader.js",
-			"settings":
-			{
-				"buffer_size": 2024,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/tilesets.js",
-			"settings":
-			{
-				"buffer_size": 776,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/css/style.css",
-			"settings":
-			{
-				"buffer_size": 4602,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/main.js",
-			"settings":
-			{
-				"buffer_size": 7932,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/magic.js",
-			"settings":
-			{
-				"buffer_size": 1048,
+				"buffer_size": 1460,
 				"line_ending": "Windows"
 			}
 		}
@@ -775,7 +727,11 @@
 	},
 	"console":
 	{
-		"height": 237.0
+		"height": 237.0,
+		"history":
+		[
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')"
+		]
 	},
 	"distraction_free":
 	{
@@ -788,8 +744,23 @@
 	},
 	"file_history":
 	[
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/avatar.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/app.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/creature.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/vmath.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
+		"/C/Users/hecht/Desktop/tfsgorba.txt",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/index.html",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/resourceloader.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/tilesets.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/wizardsstandoff.sublime-project",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/game.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/avatar.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/creatures.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/map.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/data/Level.json",
@@ -900,26 +871,11 @@
 		"/D/Lokale Daten/DropBox/Dropbox/sites/SHDev/index.html",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/TrackingServer/gitignore",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/INSTALL",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/index.html",
-		"/F/INSTRUCTIONS-README.txt",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/RpiTracker/Makefile",
-		"/C/Users/Sven Hecht/Downloads/create_mail/create_mail.php",
-		"/C/Users/Sven Hecht/.ssh/id_rsa.ppk",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/testdata/single/intrinsics.yml",
-		"/D/aruco-1.2.4/aruco/utils/aruco_simple.cpp",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/include/cameraparameters.h",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/createAllMarkers.bat",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/createMarker.bat",
-		"/D/aruco-1.2.4/arcuco_clean/testdata/single/README",
-		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_simple_board.vcxproj",
-		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_selectoptimalmarkers.vcxproj",
-		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_board_pix2meters.vcxproj",
-		"/D/aruco-1.2.4/arcuco_clean/aruco/utils/aruco_create_marker.vcxproj"
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/INSTALL"
 	],
 	"find":
 	{
-		"height": 32.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -935,6 +891,23 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"add_projectile",
+			"Projectile",
+			"get_wizard_at",
+			"MF.Client.request_channels",
+			"channel_list_received",
+			"list-group",
+			"dialog-channel-selection",
+			"Creature",
+			"Projectiles",
+			"Fireball",
+			"_wizards",
+			"levelContainer",
+			"creatureContainer",
+			"levelContainer",
+			"_projectileSprites",
+			"\n\n	set_game_status: function() {\n\n	},",
+			"get_status",
 			"remove_player",
 			"on_send_code",
 			"{\n",
@@ -1045,24 +1018,7 @@
 			"createLayer",
 			"removechild",
 			"position",
-			"currentLevelName",
-			"interact",
-			"click",
-			"attackAt",
-			"dl-horizontal",
-			"/font/",
-			"tilewidth",
-			"toPixelPos",
-			"console",
-			"largeParticleTiles",
-			"particleList",
-			"shots[i].",
-			"shots",
-			".call",
-			"call",
-			"addition",
-			"getSmallParticleMovieClip",
-			"getLargeParticleMovieClip"
+			"currentLevelName"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1070,6 +1026,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Projectile",
 			".png",
 			"24",
 			"img/",
@@ -1196,8 +1153,7 @@
 			">\\n<",
 			"<ActualValue>",
 			"<Name>",
-			"<string>",
-			"<DatabaseName>"
+			"<string>"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1208,252 +1164,88 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/index.html",
+					"file": "src/js/projectile.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10160,
+						"buffer_size": 1653,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9298,
-								9298
+								1639,
+								1639
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2299.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/js/creature.js",
+					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3004,
+						"buffer_size": 1171,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1890,
-								1890
+								92,
+								92
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/OpenSCAD/OpenSCAD.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 675.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/js/game.js",
+					"file": "/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5636,
+						"buffer_size": 1460,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								337,
-								337
+								1422,
+								1422
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/game.js",
-					"settings":
-					{
-						"buffer_size": 11131,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2146,
-								2146
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/js/resourceloader.js",
-					"settings":
-					{
-						"buffer_size": 2024,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								222,
-								222
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/js/tilesets.js",
-					"settings":
-					{
-						"buffer_size": 776,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								644,
-								644
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/css/style.css",
-					"settings":
-					{
-						"buffer_size": 4602,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1034,
-								1034
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/js/main.js",
-					"settings":
-					{
-						"buffer_size": 7932,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4077,
-								4077
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1977.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/js/magic.js",
-					"settings":
-					{
-						"buffer_size": 1048,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								978,
-								987
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1496,9 +1288,10 @@
 	{
 		"height": 53.0
 	},
+	"project": "wizardsstandoff.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1541,10 +1334,24 @@
 		],
 		"width": 380.0
 	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 161.0,
-	"status_bar_visible": true
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }

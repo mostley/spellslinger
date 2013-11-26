@@ -4,9 +4,10 @@ if (typeof(MF) === "undefined") {
 
 MF.Textures = {
 	Ground: 5,
-	Wizard_Novice: 5190,
+	Wizard_Novice: 5189,
+	Wizard_Me: 5187,
 	Projectiles: {
-		'fireball': 5580 //TODO
+		'fireball': 5598
 	}
 };
 
@@ -22,7 +23,7 @@ MF.Game = {
 	interval: 16.666,
 
 	startTime: 0,
-	lastTick: 0,
+	lastTick: null,
 	time: 0,
 	tileWidth: 22,
 	tileHeight: 22,
@@ -38,8 +39,8 @@ MF.Game = {
 	gameContainer: "#gamecontainer",
 
 	_wizards: [],
-	_wizardSprites: [],
-	_projectileSprites: [],
+	_wizardSprites: {},
+	_projectileSprites: {},
 	levelContainer: null,
 
 	_commandQueue: {},
@@ -54,7 +55,6 @@ MF.Game = {
 		me.renderer = PIXI.autoDetectRenderer(me.width, me.height);
 		
         me.startTime = new Date().getTime();
-        me.lastTick = MF.startTime;
 		
 		$(me.gameContainer).append(me.renderer.view);
 
@@ -75,6 +75,10 @@ MF.Game = {
 		$(me.gameContainer).on('mousedown', me.on_mouse_down.bind(me));
 		$(me.gameContainer).on('mousemove', me.on_mouse_move.bind(me));
 		$(document).on('mouseup', me.on_mouse_up.bind(me));
+
+		me.showCoordinates = Function.buffer(100, me.showCoordinates.bind(me));
+		me.hideCoordinates = Function.buffer(100, me.hideCoordinates.bind(me));
+		$(me.gameContainer).on('mouseleave', me.hideCoordinates.bind(me));
 	},
 
 	createGrid: function() {
@@ -115,12 +119,16 @@ MF.Game = {
         var dt = (now - me.lastTick)/1000;
         me.time = (now - me.startTime)/1000;
 
-	    me.update(dt);
-	    me.renderer.render(me.stage);
+        if (dt > 1 || me.lastTick == null) {
+
+		    me.update(dt);
+
+	        me.lastTick = new Date().getTime();
+	    }
+		
+		me.renderer.render(me.stage);
 
 		requestAnimFrame(me.animate.bind(me));
-
-        me.lastTick = new Date().getTime();
 	},
 
 	update: function (dt) {
@@ -128,6 +136,12 @@ MF.Game = {
 
 		for (var id in me._wizardSprites) {
 			me._wizardSprites[id].update(dt);
+		}
+
+		for (var id in me._projectileSprites) {
+			for (var j in me._projectileSprites[id]) {
+				me._projectileSprites[id][j].update(dt);
+			}
 		}
 
 		me.collectCommands();
@@ -177,20 +191,29 @@ MF.Game = {
 
 	add_projectile: function(playerId, position, type) {
 		var me = this;
+		console.log("add_projectile",playerId, position, type);
 
 		var projectile = new MF.Projectile(playerId, position, type);
+
+		if (!me._projectileSprites[playerId]) {
+			me._projectileSprites[playerId] = [];
+		}
 		me._projectileSprites[playerId].push(projectile);
 
-		me.levelContainer.addChild(projectileSprite);
+		me.levelContainer.addChild(projectile.sprite);
+
+		return projectile;
 	},
 
 	remove_projectile: function(playerId, projectileSprite) {
 		var me = this;
 		
-		var index = me._projectileSprites[playerId].indexOf(projectileSprite);
-		delete me._projectileSprites[playerId][index];
+		if (me._projectileSprites[playerId]) {
+			var index = me._projectileSprites[playerId].indexOf(projectileSprite);
+			delete me._projectileSprites[playerId][index];
 
-		me.levelContainer.removeChild(projectileSprite);
+			me.levelContainer.removeChild(projectileSprite);
+		}
 	},
 
 	add_wizard: function(playerId) {
@@ -204,10 +227,16 @@ MF.Game = {
 		var wizard = new MF.Wizard(magic);
 		me._wizards[playerId] = wizard;
 
-		var sprite = new PIXI.Sprite(PIXI.TextureCache[MF.Textures.Wizard_Novice]);
+		var playerTextureId = MF.Textures.Wizard_Novice;
+
+		if (MF.Client.userId == playerId) {
+			playerTextureId = MF.Textures.Wizard_Me;
+		}
+
+		var sprite = new PIXI.Sprite(PIXI.TextureCache[playerTextureId]);
 
 		var tPos = me.get_random_grid_position();
-		var wizardSprite = new MF.Creature(sprite, tPos);
+		var wizardSprite = new MF.Creature(playerId, sprite, tPos);
 		me._wizardSprites[playerId] = wizardSprite;
 		me.levelContainer.addChild(wizardSprite.sprite);
 
@@ -217,9 +246,11 @@ MF.Game = {
 	remove_wizard: function(playerId) {
 		var me = this;
 		
-		delete me._wizards[playerId];
-		me.levelContainer.removeChild(me._wizardSprites[playerId].sprite);
-		delete me._wizardSprites[playerId];
+		if (me._wizards[playerId]) {
+			delete me._wizards[playerId];
+			me.levelContainer.removeChild(me._wizardSprites[playerId].sprite);
+			delete me._wizardSprites[playerId];
+		}
 	},
 
 	get_wizard: function(playerId) {
@@ -338,11 +369,23 @@ MF.Game = {
 	on_mouse_move: function(e) {
 		var me = this;
 
+		var pos = new PIXI.Point(e.offsetX, e.offsetY);
+
 		if (me.isDragging) {
-			var pos = new PIXI.Point(e.offsetX, e.offsetY);
 			var delta = VMath.substract(pos, me.dragStart);
 			me.levelContainer.position.x = me.containerStart.x + delta.x;
 			me.levelContainer.position.y = me.containerStart.y + delta.y;
+		} else {
+			var x = pos.x - me.levelContainer.position.x;
+			var y = pos.y - me.levelContainer.position.y;
+
+			x = Math.floor(x / me.tileWidth);
+			y = Math.floor(y / me.tileWidth);
+			if (x >= 0 && y >= 0 && x < me.gridCols && y < me.gridRows) {
+				me.showCoordinates(x,y);
+			} else {
+				me.hideCoordinates();
+			}
 		}
 	},
 
@@ -351,4 +394,12 @@ MF.Game = {
 
 		me.isDragging = false;
 	},
+
+	showCoordinates: function(x,y) {
+		$('#gamecoordinates').text("X: " + x + " Y: " + y);
+	},
+
+	hideCoordinates: function(x,y) {
+		$('#gamecoordinates').text("");
+	}
 };

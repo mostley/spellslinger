@@ -20,9 +20,11 @@ MF.Projectile = function(playerId, tPos, type)
     me.sprite.pivot.x = 12;
     me.sprite.pivot.y = 12.5;
 
+    me.centerOffset = new PIXI.Point(-4, -4);
+
     me._set_tile_position(tPos);
 
-    me.velocity = new PIXI.Sprite(0, 0);
+    me.velocity = new PIXI.Point(0, 0);
 
     me.damage = type.damage; 
 };
@@ -37,8 +39,10 @@ MF.Projectile.prototype.set_direction = function (dir) {
 
 MF.Projectile.prototype._set_tile_position = function (tPos) {
     var me = this;
-
-    me.sprite.position = new PIXI.Point(tPos.x * MF.Game.tileWidth, tPos.y * MF.Game.tileHeight);
+    
+    me.tilePosition = tPos;
+    
+    me.sprite.position = new PIXI.Point(tPos.x * MF.Game.tileWidth + me.centerOffset.x, tPos.y * MF.Game.tileHeight + me.centerOffset.y);
     me.sprite.position = VMath.add(me.sprite.position, me.sprite.pivot);
 };
 

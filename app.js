@@ -267,13 +267,19 @@ wss.on('connection', function(socket) {
                     });
                 }
             } else if (obj.event_name.toLowerCase() == 'get_status') {
-                var channelId = obj.data.id;
+                var channelId = obj.channel;
 
                 channeldb.get_channel_by_id(channelId, function(channel) {
 
                     if (channel.clients.length > 0) {
 
-                        connectedClients[thisId].send(JSON.stringify({ event_name: 'get_status', data: { requestingClientId: thisId } }));
+                        if (channel.clients[0] == socket) {
+                            console.error("Client #"+thisId+": Server tried to request status.");
+                            send(socket, JSON.stringify({ event_name: 'error', data: { event_name: 'get_status', reason: "Server can't request Status." } }));
+
+                        } else {
+                            send(connectedClients[channel.clients[0]], JSON.stringify({ event_name: 'get_status', data: { requestingClientId: thisId } }));
+                        }
 
                     } else {
                         console.log("Channel #'"+ channelId +"' has no players left and will be closed.");
@@ -291,7 +297,7 @@ wss.on('connection', function(socket) {
                 var clientId = obj.data.clientId;
 
                 if (clientId) {
-                    connectedClients[clientId].send(channelId, JSON.stringify({ event_name: 'send_status', data: { status: obj.data.status } }), thisId);
+                    send(connectedClients[clientId], JSON.stringify({ event_name: 'send_status', data: { status: obj.data.status } }), thisId);
                 } else {
                     wss.broadcast(channelId, JSON.stringify({ event_name: 'send_status', data: { status: obj.data.status } }), thisId);
                 }

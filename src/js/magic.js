@@ -11,16 +11,58 @@ MF.Magic = function(playerId) {
 	me._playerId = playerId;
 	me._commands = [];
 };
+MF.MockMagic = function() {
+	var me = this;
 
-['move_left', 'move_right', 'move_up', 'move_down', 'throw_fireball'].forEach(function(name) {
+	me.mana = 0;
+};
+
+MF.Magic._methods = {
+	'move_left': {
+		parameterRequired: false,
+		manaCost: 1
+	}, 
+	'move_right': {
+		parameterRequired: false,
+		manaCost: 1
+	}, 
+	'move_up': {
+		parameterRequired: false,
+		manaCost: 1
+	}, 
+	'move_down': {
+		parameterRequired: false,
+		manaCost: 1
+	}, 
+	'throw_fireball': {
+		parameterRequired: true,
+		manaCost: 1
+	}
+};
+
+for (var name in MF.Magic._methods) {
+	var method = MF.Magic._methods[name];
+
 	MF.Magic.prototype[name] = function(parameter) {
 		var me = this;
-		me._commands.push({
-			name: name,
-			parameter: $.extend(true, {}, parameter)
-		});
+		if (typeof(parameter) === 'undefined' && method.parameterRequired) {
+			throw new Error("A parameter is required. See Docu for more informatione");
+		} else {
+			me._commands.push({
+				name: name,
+				parameter: $.extend(true, {}, parameter)
+			});
+		}
 	};
-});
+
+	MF.MockMagic.prototype[name] = function(parameter) {
+		if (typeof(parameter) === 'undefined' && method.parameterRequired) {
+			throw new Error("A parameter is required. See Docu for more informatione");
+		} else {
+			this.mana += method.manaCost;
+		}
+	};
+}
 
 MF.Magic.prototype._popAllCommands = function() {
 	var me = this;
@@ -31,29 +73,6 @@ MF.Magic.prototype._popAllCommands = function() {
 };
 
 
-/*
- * ===== Mock Magic =====
- */
-MF.MockMagic = function() {
-	var me = this;
-
-	me.mana = 0;
-};
-
-MF.MockMagic._manaCost = {
-	'move_left': 1,
-	'move_right': 1,
-	'move_up': 1,
-	'move_down': 1,
-	'throw_fireball': 1
-};
-
-for (var name in MF.MockMagic._manaCost) {
-
-	MF.MockMagic.prototype[name] = function() {
-		this.mana += MF.MockMagic._manaCost[name];
-	};
-}
 
 MF.MockMagic.prototype.get_total = function() {
 	var me = this;

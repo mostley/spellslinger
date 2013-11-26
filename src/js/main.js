@@ -4,6 +4,8 @@ if (typeof(MF) === "undefined") {
 
 MF.Controller = {
 
+	_isServer: false,
+
 	Templates: {
 		player_box: '#player-box-template',
 		channel_list_item: '#channel-list-item',
@@ -161,6 +163,13 @@ MF.Controller = {
 
 		$('#log_player_count').text(channel.clients.length);
 		window.location.hash = '#' + base64.encode(channel.name + "_" + parseInt(channel.id));
+
+		if (!me._isServer) {
+			console.log("requesting status");
+			MF.Client.get_status();
+
+			$('body').addClass('loading');
+		}
 	},
 	
 	client_connected: function(client) {
@@ -208,8 +217,10 @@ MF.Controller = {
 		MF.Client.send_status(data.requestingClientId, status);
 	},
 
-	send_status: function(data) {
+	get_status_result: function(data) {
 		var me = this;
+
+		$('body').removeClass('loading');
 
 		me.set_game_status(data.status);
 	},
@@ -227,6 +238,8 @@ MF.Controller = {
 	//UI events
 	on_create_channel: function() {
 		var me = this;
+
+		me._isServer = true;
 
 		MF.Client.set_channel($('#channel_name').val(), $('#channel_is_private').is(':checked'));
 	},
@@ -348,7 +361,7 @@ $(function() {
 
 	client.on(
 		client.events.send_status, 
-		controller.send_status.bind(controller));
+		controller.get_status_result.bind(controller));
 
 	client.on(
 		client.events.error, 

@@ -11,11 +11,15 @@ MF.ResourceLoader = {
 
 		var texture = PIXI.Texture.fromImage(tileset.image);
 
+		if (!tileset.offset) {
+			tileset.offset = { x: 0, y: 0 };
+		}
+
 		var w = tileset.imagewidth - tileset.margin;
 		var h = tileset.imageheight - tileset.margin;
-		tileset.colCount = Math.floor(w / (tileset.tilewidth + tileset.spacing));
+		tileset.colCount = Math.floor((w - tileset.offset.x) / (tileset.tilewidth + tileset.spacing));
 		if (tileset.spacing > 0) { tileset.colCount++; }
-		tileset.rowCount = Math.floor(h / (tileset.tileheight + tileset.spacing));
+		tileset.rowCount = Math.floor((h - tileset.offset.y) / (tileset.tileheight + tileset.spacing));
 		if (tileset.spacing > 0) { tileset.rowCount++; }
 
 		//console.log(tileset.imagewidth, w, tileset.tilewidth + tileset.spacing,w / (tileset.tilewidth + tileset.spacing));
@@ -28,8 +32,8 @@ MF.ResourceLoader = {
 		for (var y=0; y<tileset.rowCount; y++) {
 			for (var x=0; x<tileset.colCount; x++) {
 				PIXI.TextureCache[index] = new PIXI.Texture(texture, {
-					x: (x * tileset.tilewidth) + (x * tileset.spacing) + tileset.margin+1,
-					y: (y * tileset.tileheight) + (y * tileset.spacing) + tileset.margin+1,
+					x: (x * tileset.tilewidth) + (x * tileset.spacing) + tileset.margin+1 + tileset.offset.x,
+					y: (y * tileset.tileheight) + (y * tileset.spacing) + tileset.margin+1 + tileset.offset.y,
 					width: tileset.tilewidth-2,
 					height: tileset.tileheight-2,
 					tileoffset: tileset.tileoffset

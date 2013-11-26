@@ -43,7 +43,7 @@ MF.Executor = {
 
 		//TODO some checks
 
-		var preambel = "var $ = {}; var window = {}; var document = {}; var MF = undefined;";
+		var preambel = "var $ = {}; var window = {}; var document = {}; var MF = undefined; var alert = undefined;";
 
 		var enrichedCode = "(function(wizard) { " + preambel + code + " })";
 
