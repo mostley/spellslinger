@@ -5,13 +5,15 @@
 MF.ProjectileTypes = {
     Fireball: {
         name: 'fireball',
-        damage: 10
+        damage: 100
     }
 };
 
 MF.Projectile = function(playerId, tPos, type)
 {
     var me = this;
+
+    me._type = "projectile";
 
     me.playerId = playerId;
     me.tilePosition = tPos;
@@ -26,7 +28,7 @@ MF.Projectile = function(playerId, tPos, type)
 
     me.velocity = new PIXI.Point(0, 0);
 
-    me.damage = type.damage; 
+    me.damage = type.damage;
 };
 
 MF.Projectile.constructor = MF.Projectile;
@@ -39,11 +41,7 @@ MF.Projectile.prototype.set_direction = function (dir) {
 
 MF.Projectile.prototype._set_tile_position = function (tPos) {
     var me = this;
-    
-    me.tilePosition = tPos;
-    
-    me.sprite.position = new PIXI.Point(tPos.x * MF.Game.tileWidth + me.centerOffset.x, tPos.y * MF.Game.tileHeight + me.centerOffset.y);
-    me.sprite.position = VMath.add(me.sprite.position, me.sprite.pivot);
+    return MF.Game.set_element_tile_position(me, tPos);
 };
 
 MF.Projectile.prototype.update = function (dt) {
@@ -52,15 +50,15 @@ MF.Projectile.prototype.update = function (dt) {
 
     if (me.tilePosition.x >= 0 && me.tilePosition.y >= 0 && me.tilePosition.x < MF.Game.gridCols && me.tilePosition.y < MF.Game.gridRows) {
         me._set_tile_position(newPos);
-
-        var collidedWizard = MF.Game.get_wizard_at(me.tilePosition.x, me.tilePosition.y);
-        if (collidedWizard) {
-            collidedWizard.damageWith(me);
-            me.explode();
-        }
     } else {
         me.explode();
     }
+};
+
+MF.Projectile.prototype.damageWith = function (damagingElement) {
+    var me = this;
+
+    me.explode();
 };
 
 MF.Projectile.prototype.explode = function () {
@@ -69,4 +67,12 @@ MF.Projectile.prototype.explode = function () {
     MF.Game.remove_projectile(me);
     
     //TODO add explosion animation
+};
+
+MF.Projectile.prototype.onCollision = function (collidedElement) {
+    var me = this;
+
+    collidedElement.damageWith(me);
+
+    me.explode();
 };

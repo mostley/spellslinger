@@ -43,6 +43,8 @@ MF.Game = {
 	_projectileSprites: {},
 	levelContainer: null,
 
+	_grid: {},
+
 	_commandQueue: {},
 
 	init: function() {
@@ -87,7 +89,11 @@ MF.Game = {
 		console.log("creating grid...",me.gridCols,me.gridRows);
 
 	    for (var x=0; x<me.gridCols; x++) {
+	    	me._grid[x] = {};
+
 	    	for (var y=0; y<me.gridRows; y++) {
+
+	    		me._grid[x][y] = null;
 
 	    		var texture = PIXI.TextureCache[MF.Textures.Ground]
 
@@ -181,7 +187,7 @@ MF.Game = {
 		var x = Math.floor(Math.random() * me.gridCols);
 		var y = Math.floor(Math.random() * me.gridRows);
 
-		while (me.get_wizard_at(x, y) != null) {
+		while (me.get_element_at(x, y) != null) {
 			x = Math.floor(Math.random() * me.gridCols);
 			y = Math.floor(Math.random() * me.gridRows);
 		}
@@ -205,14 +211,16 @@ MF.Game = {
 		return projectile;
 	},
 
-	remove_projectile: function(playerId, projectileSprite) {
+	remove_projectile: function(projectileSprite) {
 		var me = this;
 		
-		if (me._projectileSprites[playerId]) {
-			var index = me._projectileSprites[playerId].indexOf(projectileSprite);
-			delete me._projectileSprites[playerId][index];
+		if (me._projectileSprites[projectileSprite.playerId]) {
+			var index = me._projectileSprites[projectileSprite.playerId].indexOf(projectileSprite);
+			delete me._projectileSprites[projectileSprite.playerId][index];
 
-			me.levelContainer.removeChild(projectileSprite);
+			me.levelContainer.removeChild(projectileSprite.sprite);
+
+			me._grid[projectileSprite.tilePosition.x][projectileSprite.tilePosition.y] = null;
 		}
 	},
 
@@ -243,13 +251,29 @@ MF.Game = {
 		return wizard;
 	},
 
-	remove_wizard: function(playerId) {
+	remove_wizard: function(wizard) {
 		var me = this;
-		
-		if (me._wizards[playerId]) {
+
+		var playerId, wizard;
+		if (typeof(wizard) == "string" || typeof(wizard) == "number") {
+			playerId = wizard;
+			if (me._wizards[playerId]) {
+				wizard = me._wizardSprites[playerId];
+			}
+		} else {
+			playerId = wizard.playerId;
+		}
+
+		if (wizard) {
 			delete me._wizards[playerId];
-			me.levelContainer.removeChild(me._wizardSprites[playerId].sprite);
+			me.levelContainer.removeChild(wizard.sprite);
 			delete me._wizardSprites[playerId];
+
+			me._grid[wizard.tilePosition.x][wizard.tilePosition.y] = null;
+
+			if (playerId == MF.Client.userId) {
+				MF.Controller.gameOver();
+			}
 		}
 	},
 
@@ -264,12 +288,21 @@ MF.Game = {
 
 		var result = null;
 
-		for (var id in me._wizardSprites) {
-			var wizard = me._wizardSprites[id];
-			if (wizard.tilePosition.x == x && wizard.tilePosition.y == y) {
+		if (me._grid[x][y]) {
+			var element = me._grid[x][y];
+			if (element._type == 'creature') {
 				result = wizard;
-				break;
 			}
+		}
+
+		return result;
+	},
+
+	get_element_at: function(x,y) {
+		var me = this;
+		var result = null;
+		if (x < me.gridCols && y < me.gridRows) {
+			result = me._grid[x][y];
 		}
 
 		return result;
@@ -309,7 +342,7 @@ MF.Game = {
 
 			var projectileSprites = me._projectileSprites[playerId];
 			for (var j in projectileSprites) {
-				me.remove_projectile(playerId, projectileSprites[j]);
+				me.remove_projectile(projectileSprites[j]);
 			}
 
 			for (var i in data) {
@@ -351,10 +384,40 @@ MF.Game = {
 				console.error("no wizard for player with ID '" + playerId + "' found...");
 			} else {
 
-				wizardSprite._set_tile_position(data.position);
+				me.set_element_tile_position(wizardSprite, data.position);
 				wizardSprite.health = data.health;
 			}
 		}
+	},
+
+	set_element_tile_position: function(element, tPos) {
+	    var me = this;
+	    var result = false;
+
+	    var existing_element = me.get_element_at(tPos.x, tPos.y);
+
+	    if (existing_element == element) {
+	    	return true;
+	    }
+
+	    if (existing_element) {
+	    	console.log("collision",existing_element,element);
+	        element.onCollision(existing_element);
+	    } else {
+
+	    	me._grid[element.tilePosition.x][element.tilePosition.y] = null;
+
+	        element.tilePosition = tPos;
+
+	        element.sprite.position = new PIXI.Point(tPos.x * me.tileWidth + element.centerOffset.x, tPos.y * me.tileHeight + element.centerOffset.y);
+	        element.sprite.position = VMath.add(element.sprite.position, element.sprite.pivot);
+
+			me._grid[tPos.x][tPos.y] = element;
+
+	        result = true;
+	    }
+
+	    return result;
 	},
 
 	// Events

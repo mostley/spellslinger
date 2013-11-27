@@ -12,6 +12,8 @@ MF.Creature = function(playerId, sprite, tPos)
 {
     var me = this;
 
+    me._type = "creature";
+
     me.health = 100;
     me.currentSpeech = null;
 
@@ -21,6 +23,8 @@ MF.Creature = function(playerId, sprite, tPos)
 
     this.sprite.pivot.x = 12;
     this.sprite.pivot.y = 12.5;
+
+    me.centerOffset = new PIXI.Point(0, 0);
 
     me._set_tile_position(tPos);
 
@@ -32,11 +36,7 @@ MF.Creature.constructor = MF.Creature;
 
 MF.Creature.prototype._set_tile_position = function (tPos) {
     var me = this;
-    
-    me.tilePosition = tPos;
-
-    me.sprite.position = new PIXI.Point(tPos.x * MF.Game.tileWidth, tPos.y * MF.Game.tileHeight);
-    me.sprite.position = VMath.add(me.sprite.position, this.sprite.pivot);
+    return MF.Game.set_element_tile_position(me, tPos);
 };
 
 MF.Creature.prototype.update = function (dt) {
@@ -59,6 +59,12 @@ MF.Creature.prototype.damageWith = function (shot) {
     var me = this;
 
     me.health -= shot.damage;
+
+    if (me.health <= 0) {
+        console.log("wizard was killed by",shot);
+        //TODO log message
+        MF.Game.remove_wizard(me);
+    }
 };
 
 MF.Creature.prototype.move_left = function () {
@@ -148,4 +154,12 @@ MF.Creature.prototype.doSay = function (speech) {
 	}
 	me.currentSpeech.sprite.position.y = -MF.Game.tileWidth/2;
 	me.sprite.addChild(me.currentSpeech.sprite);
+};
+
+MF.Creature.prototype.onCollision = function (collidedElement) {
+    var me = this;
+
+    if (collidedElement._type == 'projectile') {
+        me.damageWith(collidedElement);
+    }
 };

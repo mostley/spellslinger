@@ -42,6 +42,11 @@ MF.Controller = {
 		MF.Game.init();
 	},
 
+	gameOver: function() {
+		//TODO make nicer
+		alert("Game Over - You are dead.");
+	},
+
 	/*
 	 * This function takes the template selectors in the local Templates object and replaces them with handlebar functions.
 	 * those can generate templated html from data
