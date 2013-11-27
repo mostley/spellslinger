@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"cur",
+				"cursor"
+			],
+			[
 				"coll",
 				"collidedWizard"
 			],
@@ -510,10 +514,6 @@
 			[
 				"tileD",
 				"tileDefinition"
-			],
-			[
-				"level",
-				"levelFile"
 			]
 		]
 	},
@@ -523,7 +523,31 @@
 			"file": "src/js/projectile.js",
 			"settings":
 			{
-				"buffer_size": 1653,
+				"buffer_size": 1776,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/game.js",
+			"settings":
+			{
+				"buffer_size": 9194,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/main.js",
+			"settings":
+			{
+				"buffer_size": 9080,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/css/style.css",
+			"settings":
+			{
+				"buffer_size": 4904,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,15 +555,7 @@
 			"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
 			"settings":
 			{
-				"buffer_size": 1171,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
-			"settings":
-			{
-				"buffer_size": 1460,
+				"buffer_size": 1173,
 				"line_ending": "Windows"
 			}
 		}
@@ -744,6 +760,7 @@
 	},
 	"file_history":
 	[
+		"/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
 		"/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox",
 		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/app.js",
 		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
@@ -870,8 +887,7 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Didgeridoo Mount/DidgeridooMount.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/sites/SHDev/index.html",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/TrackingServer/gitignore",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/INSTALL"
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot"
 	],
 	"find":
 	{
@@ -1164,7 +1180,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1173,15 +1189,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1653,
+						"buffer_size": 1776,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1639,
-								1639
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1198,24 +1214,53 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
+					"file": "src/js/game.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1171,
+						"buffer_size": 9194,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								92,
-								92
+								6136,
+								6136
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/OpenSCAD/OpenSCAD.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3697.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/js/main.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 9080,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1224,28 +1269,57 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
+					"buffer": 3,
+					"file": "src/css/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1460,
+						"buffer_size": 4904,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1422,
-								1422
+								2776,
+								2776
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 1498.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/OpenSCAD/OpenSCAD.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

@@ -272,13 +272,14 @@ MF.Controller = {
 			MF.Client.send_code(username, code);
 
 			$('.code .tab-content .alert').remove();
+
+			editor.setValue('');
+			$('#mana-count').text(0);
 		} else {
 			$('.code .tab-content').append(me.Templates.alert_error({ text: "Code not valid: " + validationResult.error.message }));
 		}
 
 		me.set_codeditor_loading(false);
-
-		editor.setValue('');
 
 		return false;
 	},

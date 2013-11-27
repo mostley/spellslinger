@@ -148,7 +148,7 @@ MF.Game = {
 
 		for (var playerId in me._commandQueue) {
 			var commandList = me._commandQueue[playerId];
-			while (commandList.length > 0) {
+			if (commandList.length > 0) {
 				var command = commandList.pop();
 				var wizard = me._wizardSprites[playerId];
 
@@ -364,6 +364,7 @@ MF.Game = {
 		me.isDragging = true;
 		me.dragStart = new PIXI.Point(e.offsetX, e.offsetY);
 		me.containerStart = new PIXI.Point(me.levelContainer.position.x, me.levelContainer.position.y);
+		$(me.gameContainer).addClass('dragging');
 	},
 
 	on_mouse_move: function(e) {
@@ -393,6 +394,7 @@ MF.Game = {
 		var me = this;
 
 		me.isDragging = false;
+		$(me.gameContainer).removeClass('dragging');
 	},
 
 	showCoordinates: function(x,y) {

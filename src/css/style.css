@@ -135,6 +135,15 @@ body {
 
 .game #gamecontainer {
     border: 1px solid #ccc;
+    cursor: hand;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+.game #gamecontainer.dragging {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
 }
 
 .game #gamecoordinates {
