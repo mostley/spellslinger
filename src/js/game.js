@@ -314,7 +314,7 @@ MF.Game = {
 	get_element_at: function(x,y) {
 		var me = this;
 		var result = null;
-		
+
 		if (x >= 0 && y >= 0 && x < me.gridCols && y < me.gridRows) {
 			result = me._grid[x][y];
 		}
@@ -427,6 +427,8 @@ MF.Game = {
 	        element.sprite.position = VMath.add(element.sprite.position, element.sprite.pivot);
 
 			me._grid[tPos.x][tPos.y] = element;
+
+			console.log("set_element_tile_position", element._type, element, tPos);
 
 	        result = true;
 	    }
