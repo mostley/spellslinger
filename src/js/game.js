@@ -403,7 +403,7 @@ MF.Game = {
 	    if (existing_element) {
 	    	console.log("collision",existing_element,element);
 	        element.onCollision(existing_element);
-	    } else {
+	    } else if (tPos.x >= 0 && tPos.y >= 0 && tPos.x < me.gridCols && tPos.y < me.gridRows) {
 
 	    	me._grid[element.tilePosition.x][element.tilePosition.y] = null;
 
