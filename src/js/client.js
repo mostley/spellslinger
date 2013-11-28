@@ -31,7 +31,9 @@ MF.Client = {
 
 		var result = false;
 
-		var host = "ws://" + window.location.hostname + ":" + window.location.port  + "/";
+		var port = window.location.port || "80";
+
+		var host = "ws://" + window.location.hostname + ":" + port  + "/";
 
 		console.log("connecting to '" + host + "' ...");
 
