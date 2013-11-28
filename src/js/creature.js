@@ -29,6 +29,8 @@ MF.Creature = function(playerId, sprite, tPos)
     me._set_tile_position(tPos);
 
     me.speeches = [];
+
+    me.isAlive = true;
 };
 
 MF.Creature.constructor = MF.Creature;
@@ -60,10 +62,11 @@ MF.Creature.prototype.damageWith = function (shot) {
 
     me.health -= shot.damage;
 
-    if (me.health <= 0) {
+    if (me.health <= 0 && me.isAlive) {
         console.log("wizard was killed by",shot);
         //TODO log message
         MF.Game.remove_wizard(me);
+        me.isAlive = false;
     }
 };
 

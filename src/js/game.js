@@ -224,6 +224,8 @@ MF.Game = {
 			}
 
 			me._grid[projectileSprite.tilePosition.x][projectileSprite.tilePosition.y] = null;
+
+			projectileSprite.isAlive = false;
 		}
 	},
 
@@ -271,7 +273,10 @@ MF.Game = {
 
 		if (wizard) {
 			delete me._wizards[playerId];
-			me.levelContainer.removeChild(wizard.sprite);
+			if (wizard.sprite) {
+				me.levelContainer.removeChild(wizard.sprite);
+				wizard.sprite = null;
+			}
 			delete me._wizardSprites[playerId];
 			delete me._commandQueue[playerId];
 
@@ -280,6 +285,8 @@ MF.Game = {
 			if (playerId == MF.Client.userId) {
 				MF.Controller.gameOver();
 			}
+
+			wizard.isAlive = false;
 		}
 	},
 

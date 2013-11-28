@@ -523,7 +523,7 @@
 			"file": "src/js/projectile.js",
 			"settings":
 			{
-				"buffer_size": 1666,
+				"buffer_size": 1925,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,7 +531,23 @@
 			"file": "src/js/game.js",
 			"settings":
 			{
-				"buffer_size": 10677,
+				"buffer_size": 10928,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/creature.js",
+			"settings":
+			{
+				"buffer_size": 3872,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/main.js",
+			"settings":
+			{
+				"buffer_size": 9265,
 				"line_ending": "Windows"
 			}
 		},
@@ -556,14 +572,6 @@
 			"settings":
 			{
 				"buffer_size": 5638,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 13223,
 				"line_ending": "Windows"
 			}
 		},
@@ -931,6 +939,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"get_stat",
+			"command",
+			"add_projectile",
+			"send",
+			"_grid",
 			"add_projectile",
 			"Projectile",
 			"get_wizard_at",
@@ -1053,12 +1066,7 @@
 			"input",
 			"page3-img2",
 			"this.ground.position.x",
-			"playSound",
-			"explode",
-			"createLayer",
-			"removechild",
-			"position",
-			"currentLevelName"
+			"playSound"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1204,7 +1212,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -1213,15 +1221,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1666,
+						"buffer_size": 1925,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1632,
+								1632
 							]
 						],
 						"settings":
@@ -1231,7 +1239,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1242,15 +1250,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10677,
+						"buffer_size": 10928,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4599,
+								4616
 							]
 						],
 						"settings":
@@ -1259,13 +1267,70 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3697.0,
+						"translation.y": 1903.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "src/js/creature.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3872,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								985,
+								985
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 133.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5136,
+								5136
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2158.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "/C/Users/hecht/Desktop/tfsgorba.txt",
 					"semi_transient": false,
 					"settings":
@@ -1292,7 +1357,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "src/js/wizard.js",
 					"semi_transient": false,
 					"settings":
@@ -1320,7 +1385,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "src/js/client.js",
 					"semi_transient": false,
 					"settings":
@@ -1332,8 +1397,8 @@
 						"selection":
 						[
 							[
-								839,
-								839
+								619,
+								619
 							]
 						],
 						"settings":
@@ -1348,36 +1413,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 13223,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1293,
-								1293
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "src/css/style.css",
 					"semi_transient": false,
 					"settings":
@@ -1406,7 +1442,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
 					"semi_transient": false,
 					"settings":
