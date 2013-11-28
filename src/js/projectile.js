@@ -30,6 +30,8 @@ MF.Projectile = function(playerId, tPos, type)
     me.velocity = new PIXI.Point(0, 0);
 
     me.damage = type.damage;
+
+    me.isAlive = true;
 };
 
 MF.Projectile.constructor = MF.Projectile;
@@ -71,9 +73,13 @@ MF.Projectile.prototype.damageWith = function (damagingElement) {
 MF.Projectile.prototype.explode = function () {
     var me = this;
 
-    MF.Game.remove_projectile(me);
-    
-    //TODO add explosion animation
+    if (me.isAlive) {
+        MF.Game.remove_projectile(me);
+
+        me.isAlive = false;
+        
+        //TODO add explosion animation
+    }
 };
 
 MF.Projectile.prototype.onCollision = function (collidedElement) {

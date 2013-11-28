@@ -218,7 +218,10 @@ MF.Game = {
 			var index = me._projectileSprites[projectileSprite.playerId].indexOf(projectileSprite);
 			delete me._projectileSprites[projectileSprite.playerId][index];
 
-			me.levelContainer.removeChild(projectileSprite.sprite);
+			if (projectileSprite.sprite) {
+				me.levelContainer.removeChild(projectileSprite.sprite);
+				projectileSprite.sprite = null;
+			}
 
 			me._grid[projectileSprite.tilePosition.x][projectileSprite.tilePosition.y] = null;
 		}
