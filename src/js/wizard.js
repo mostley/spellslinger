@@ -8,6 +8,8 @@ MF.Wizard = function(magic) {
 	me.magic = magic;
 };
 
+if (!MF.Wizard.__proto__) { MF.Wizard.__proto__ = {}; }
+
 MF.Wizard._create_magic_callback = function(magic_name) {
 	return function() {
 		this.magic[magic_name].apply(this.magic, arguments);
