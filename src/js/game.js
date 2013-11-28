@@ -288,9 +288,9 @@ MF.Game = {
 
 		var result = null;
 
-		if (me._grid[x][y]) {
+		if (me._grid[x] && me._grid[x][y]) {
 			var element = me._grid[x][y];
-			if (element._type == 'creature') {
+			if (element && element._type == 'creature') {
 				result = wizard;
 			}
 		}

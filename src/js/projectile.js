@@ -17,6 +17,7 @@ MF.Projectile = function(playerId, tPos, type)
 
     me.playerId = playerId;
     me.tilePosition = tPos;
+    me.type = type;
     me.sprite = new PIXI.Sprite(PIXI.TextureCache[MF.Textures.Projectiles[type.name]]);
 
     me.sprite.pivot.x = 12;
