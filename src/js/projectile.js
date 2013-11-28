@@ -42,12 +42,18 @@ MF.Projectile.prototype.set_direction = function (dir) {
 
 MF.Projectile.prototype._set_tile_position = function (tPos) {
     var me = this;
-    return MF.Game.set_element_tile_position(me, tPos);
+    var result = MF.Game.set_element_tile_position(me, tPos);
+    if (!result) {
+        me.explode();
+    }
+    return result;
 };
 
 MF.Projectile.prototype.update = function (dt) {
     var me = this;
     var newPos = VMath.add(me.tilePosition, me.velocity);
+    newPos.x = Math.floor(newPos.x);
+    newPos.y = Math.floor(newPos.y);
 
     if (me.tilePosition.x >= 0 && me.tilePosition.y >= 0 && me.tilePosition.x < MF.Game.gridCols && me.tilePosition.y < MF.Game.gridRows) {
         me._set_tile_position(newPos);
