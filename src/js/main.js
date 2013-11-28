@@ -194,6 +194,8 @@ MF.Controller = {
 
 		me.add_player(playerId);
 		$('#log_player_count').text(parseInt($('#log_player_count').text())+1);
+
+		MF.Client.get_status();
 	},
 
 	player_disconnected: function(playerId) {
@@ -203,6 +205,8 @@ MF.Controller = {
 
 		me.remove_player(playerId);
 		$('#log_player_count').text(parseInt($('#log_player_count').text())-1);
+
+		MF.Client.get_status();
 	},
 
 	player_code: function(data) {
@@ -278,7 +282,7 @@ MF.Controller = {
 
 			$('.code .tab-content .alert').remove();
 
-			editor.setValue('');
+			editor.setValue(''); //TODO select
 			$('#mana-count').text(0);
 		} else {
 			$('.code .tab-content').append(me.Templates.alert_error({ text: "Code not valid: " + validationResult.error.message }));

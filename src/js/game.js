@@ -259,6 +259,8 @@ MF.Game = {
 			playerId = wizard;
 			if (me._wizards[playerId]) {
 				wizard = me._wizardSprites[playerId];
+			} else {
+				wizard = null;
 			}
 		} else {
 			playerId = wizard.playerId;
@@ -268,6 +270,7 @@ MF.Game = {
 			delete me._wizards[playerId];
 			me.levelContainer.removeChild(wizard.sprite);
 			delete me._wizardSprites[playerId];
+			delete me._commandQueue[playerId];
 
 			me._grid[wizard.tilePosition.x][wizard.tilePosition.y] = null;
 
