@@ -31,9 +31,10 @@ MF.Client = {
 
 		var result = false;
 
+		var wshref = (window.location.protocol === 'https') ? 'wss' : 'ws';
 		var port = window.location.port || "80";
 
-		var host = "ws://" + window.location.hostname + ":" + port  + "/";
+		var host = wshref + "://" + window.location.hostname + ":" + port  + "/socket/";
 
 		console.log("connecting to '" + host + "' ...");
 
