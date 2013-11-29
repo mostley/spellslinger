@@ -4,48 +4,36 @@
 		"selected_items":
 		[
 			[
-				"cur",
-				"cursor"
+				"player",
+				"playerId"
 			],
 			[
-				"coll",
-				"collidedWizard"
+				"wi",
+				"wizard"
 			],
 			[
-				"tile",
-				"tilePosition"
+				"grid",
+				"gridCols"
 			],
 			[
-				"name",
-				"name_list"
-			],
-			[
-				"nam",
-				"name_list"
-			],
-			[
-				"requ",
-				"request_channels"
-			],
-			[
-				"proj",
-				"projectile_data"
-			],
-			[
-				"remove",
-				"removeChild"
-			],
-			[
-				"pos",
-				"position"
+				"ex",
+				"existing_element"
 			],
 			[
 				"wiz",
 				"wizardSprite"
 			],
 			[
-				"_wi",
-				"_wizardSprites"
+				"tile",
+				"tilePosition"
+			],
+			[
+				"mana",
+				"manaCost"
+			],
+			[
+				"send",
+				"send_status"
 			],
 			[
 				"play",
@@ -66,10 +54,6 @@
 			[
 				"user",
 				"userId"
-			],
-			[
-				"ex",
-				"execute"
 			],
 			[
 				"pla",
@@ -94,6 +78,10 @@
 			[
 				"get",
 				"get_channel_by_id"
+			],
+			[
+				"requ",
+				"requestingClientId"
 			],
 			[
 				"get_c",
@@ -324,6 +312,10 @@
 				"ScoreEffectOffset"
 			],
 			[
+				"pos",
+				"positionCache	(attribute, instance)"
+			],
+			[
 				"toIn",
 				"toIntArr()	(attribute, function)"
 			],
@@ -514,11 +506,35 @@
 			[
 				"tileD",
 				"tileDefinition"
+			],
+			[
+				"level",
+				"levelFile"
+			],
+			[
+				"fireb",
+				"fireButtonSize"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "src/js/game.js",
+			"settings":
+			{
+				"buffer_size": 11147,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/creature.js",
+			"settings":
+			{
+				"buffer_size": 3938,
+				"line_ending": "Windows"
+			}
+		},
 		{
 			"file": "src/js/projectile.js",
 			"settings":
@@ -528,18 +544,34 @@
 			}
 		},
 		{
-			"file": "src/js/game.js",
+			"file": "src/js/resourceloader.js",
 			"settings":
 			{
-				"buffer_size": 10928,
+				"buffer_size": 2170,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/js/creature.js",
+			"file": "src/js/tilesets.js",
 			"settings":
 			{
-				"buffer_size": 3872,
+				"buffer_size": 829,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/magic.js",
+			"settings":
+			{
+				"buffer_size": 1719,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/index.html",
+			"settings":
+			{
+				"buffer_size": 10330,
 				"line_ending": "Windows"
 			}
 		},
@@ -550,54 +582,22 @@
 				"buffer_size": 9265,
 				"line_ending": "Windows"
 			}
-		},
-		{
-			"file": "/C/Users/hecht/Desktop/tfsgorba.txt",
-			"settings":
-			{
-				"buffer_size": 9,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/wizard.js",
-			"settings":
-			{
-				"buffer_size": 950,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/client.js",
-			"settings":
-			{
-				"buffer_size": 5638,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/css/style.css",
-			"settings":
-			{
-				"buffer_size": 4904,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
-			"settings":
-			{
-				"buffer_size": 1173,
-				"line_ending": "Windows"
-			}
 		}
 	],
 	"build_system": "Packages/User/compileBat.sublime-build",
 	"command_palette":
 	{
-		"height": 81.0,
+		"height": 58.0,
 		"selected_items":
 		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"form",
 				"Format: Javascript"
@@ -605,14 +605,6 @@
 			[
 				"instal",
 				"Package Control: Install Package"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
 			],
 			[
 				"ssj",
@@ -775,11 +767,7 @@
 	},
 	"console":
 	{
-		"height": 237.0,
-		"history":
-		[
-			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')"
-		]
+		"height": 237.0
 	},
 	"distraction_free":
 	{
@@ -792,47 +780,40 @@
 	},
 	"file_history":
 	[
-		"/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/app.js",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/creature.js",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/vmath.js",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
-		"/C/Users/hecht/Desktop/tfsgorba.txt",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/index.html",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/resourceloader.js",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/tilesets.js",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
-		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/wizardsstandoff.sublime-project",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/executor.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/app.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/projectile.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/extensions.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/creature.js",
+		"/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/css/main.css",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/game.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/resourceloader.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/tilesets.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
+		"/C/Users/Sven Hecht/.ssh/id_rsa.pub",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/.git/config",
+		"/C/Users/Sven Hecht/.ssh/id_rsa",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/avatar.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/creatures.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/map.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/data/Level.json",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/magicfight.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/tilesets.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/resourceloader.js",
 		"/C/Users/Sven Hecht/AppData/Roaming/Sublime Text 2/Packages/Javascript Beautify/Default (Windows).sublime-keymap",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/tilesets.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/main.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/app.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/vmath",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/executor.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
 		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/stylesheet.css",
 		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/mildeast-demo.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/extensions.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/logo_cutter.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/logo_inverted_stamp.scad",
 		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155355/stylesheet.css",
@@ -911,7 +892,6 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/scripts/controllers/analysis.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/.gitignore",
 		"/Z/tracker/Readme.txt",
-		"/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/S3Mount/s3mount.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/README.md",
 		"/C/Chocolatey/lib/XSockets.Windows.Service.2.7.6/tools/XSockets.Windows.Service.exe.config",
@@ -919,17 +899,26 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Didgeridoo Mount/DidgeridooMount.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/sites/SHDev/index.html",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/TrackingServer/gitignore",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot"
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/INSTALL",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/index.html",
+		"/F/INSTRUCTIONS-README.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/RpiTracker/Makefile",
+		"/C/Users/Sven Hecht/Downloads/create_mail/create_mail.php",
+		"/C/Users/Sven Hecht/.ssh/id_rsa.ppk",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/testdata/single/intrinsics.yml",
+		"/D/aruco-1.2.4/aruco/utils/aruco_simple.cpp"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 32.0
 	},
 	"find_in_files":
 	{
 		"height": 0.0,
 		"where_history":
 		[
+			"D:\\Lokale Daten\\DropBox\\Dropbox\\projects\\web\\WizardsStandoff",
 			"D:\\Lokale Daten\\DropBox\\Dropbox\\sites\\DaianeRibeiro\\",
 			"D:\\Lokale Daten\\DropBox\\Dropbox\\sites\\DaianeRibeiro\\less"
 		]
@@ -939,28 +928,45 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"get_stat",
-			"command",
-			"add_projectile",
+			"get_el",
+			"remove_wizard",
+			"add_",
+			"set_game_status",
+			"stat",
+			"remove_",
+			"remove_w",
+			"remove_projectile",
+			"get_e",
+			"get_w",
 			"send",
-			"_grid",
-			"add_projectile",
-			"Projectile",
-			"get_wizard_at",
-			"MF.Client.request_channels",
-			"channel_list_received",
-			"list-group",
-			"dialog-channel-selection",
-			"Creature",
-			"Projectiles",
-			"Fireball",
-			"_wizards",
-			"levelContainer",
-			"creatureContainer",
-			"levelContainer",
+			"count",
+			"send",
+			"move_left",
+			"lastTick",
+			"_wizardSprites",
 			"_projectileSprites",
-			"\n\n	set_game_status: function() {\n\n	},",
+			"on_mouse_move",
+			"));\n",
+			"on_mouse_move",
+			"Wizard_Novice",
+			"Wizard_Me",
+			"Wizard_Novice",
+			"id",
+			".clients",
+			"set_channel",
 			"get_status",
+			"res",
+			"get_status",
+			"\n		$('body').removeClass('loading');",
+			"get_status",
+			"loading",
+			"set_channel",
+			"MF.Wizard",
+			"logo_large",
+			"test",
+			"tets",
+			"doctype",
+			"5",
 			"remove_player",
 			"on_send_code",
 			"{\n",
@@ -1049,24 +1055,7 @@
 			") (",
 			"Txyz.*",
 			"sharing",
-			"mousewheel",
-			"mousew",
-			"cm",
-			"far",
-			"html",
-			"5",
-			"[^/]*?([^ ./]*)\\.pdf:PDF\\},",
-			"[^/]*([^ ./]*)\\.pdf:PDF\\},",
-			"[^/]*([^ .]*)\\.pdf:PDF\\},",
-			"[^/]*([^ ]*)\\.pdf:PDF\\},",
-			"[^/]*([^ ]*\\.pdf:PDF\\},)",
-			"D:\\aruco-1.2.4\\aruco\\bin",
-			"D:",
-			"ArucoTracker",
-			"input",
-			"page3-img2",
-			"this.ground.position.x",
-			"playSound"
+			"mousewheel"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1074,7 +1063,6 @@
 		"regex": false,
 		"replace_history":
 		[
-			"Projectile",
 			".png",
 			"24",
 			"img/",
@@ -1201,9 +1189,10 @@
 			">\\n<",
 			"<ActualValue>",
 			"<Name>",
-			"<string>"
+			"<string>",
+			"<DatabaseName>"
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -1217,8 +1206,62 @@
 			[
 				{
 					"buffer": 0,
+					"file": "src/js/game.js",
+					"settings":
+					{
+						"buffer_size": 11147,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9866,
+								9866
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7105.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/js/creature.js",
+					"settings":
+					{
+						"buffer_size": 3938,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1449,
+								1462
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 499.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "src/js/projectile.js",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 1925,
@@ -1228,8 +1271,8 @@
 						"selection":
 						[
 							[
-								1632,
-								1632
+								1396,
+								1396
 							]
 						],
 						"settings":
@@ -1239,83 +1282,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/js/game.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10928,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4599,
-								4616
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1903.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/js/creature.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 3872,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								985,
-								985
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 133.0,
+						"translation.y": 594.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "src/js/main.js",
-					"semi_transient": false,
+					"file": "src/js/resourceloader.js",
 					"settings":
 					{
-						"buffer_size": 9265,
+						"buffer_size": 2170,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5136,
-								5136
+								222,
+								222
 							]
 						],
 						"settings":
@@ -1324,31 +1309,32 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2158.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "/C/Users/hecht/Desktop/tfsgorba.txt",
-					"semi_transient": false,
+					"file": "src/js/tilesets.js",
 					"settings":
 					{
-						"buffer_size": 9,
+						"buffer_size": 829,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9,
-								9
+								178,
+								178
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1358,19 +1344,18 @@
 				},
 				{
 					"buffer": 5,
-					"file": "src/js/wizard.js",
-					"semi_transient": false,
+					"file": "src/js/magic.js",
 					"settings":
 					{
-						"buffer_size": 950,
+						"buffer_size": 1719,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								240,
-								240
+								928,
+								928
 							]
 						],
 						"settings":
@@ -1379,75 +1364,44 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 648.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "src/js/client.js",
-					"semi_transient": false,
+					"file": "src/index.html",
 					"settings":
 					{
-						"buffer_size": 5638,
+						"buffer_size": 10330,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								619,
-								619
+								7320,
+								7320
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2659.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "src/css/style.css",
-					"semi_transient": false,
+					"file": "src/js/main.js",
 					"settings":
 					{
-						"buffer_size": 4904,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2776,
-								2776
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1498.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1173,
+						"buffer_size": 9265,
 						"regions":
 						{
 						},
@@ -1460,7 +1414,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/OpenSCAD/OpenSCAD.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1506,10 +1461,9 @@
 	{
 		"height": 53.0
 	},
-	"project": "wizardsstandoff.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 60.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1552,24 +1506,10 @@
 		],
 		"width": 380.0
 	},
-	"select_symbol":
-	{
-		"height": 0.0,
-		"selected_items":
-		[
-		],
-		"width": 0.0
-	},
-	"settings":
-	{
-	},
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 161.0,
-	"status_bar_visible": true,
-	"template_settings":
-	{
-	}
+	"status_bar_visible": true
 }

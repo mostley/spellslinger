@@ -324,18 +324,22 @@ MF.Controller = {
 
 $(function() {
 
-	// Init ACE Editor
+	   // Init ACE Editor
     var editor = ace.edit("codeditor");
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/javascript");
 
-	// Init Base64 for use in urls
+    editor.setOptions({
+        enableBasicAutocompletion: true
+    });
+    
+	   // Init Base64 for use in urls
     base64.settings.char62 = "-";
-	base64.settings.char63 = "_";
-	base64.settings.pad = null;
+	   base64.settings.char63 = "_";
+    base64.settings.pad = null;
 
-	var client = MF.Client;
-	var controller = MF.Controller;
+	   var client = MF.Client;
+	   var controller = MF.Controller;
 
 	client.on(
 		client.events.channel_list, 
