@@ -39,7 +39,7 @@ MF.Client = {
 		console.log("connecting to '" + host + "' ...");
 
     	try {
-			me._socket = new ReconnectingWebSocket(host);
+			me._socket = new WebSocket(host); //new ReconnectingWebSocket(host);
 
 			me._socket.onopen = function() {
 			    me.trigger(me.events.client_connected, me);

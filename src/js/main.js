@@ -282,7 +282,7 @@ MF.Controller = {
 
 			$('.code .tab-content .alert').remove();
 
-			editor.setValue(''); //TODO select
+			editor.selectAll();
 			$('#mana-count').text(0);
 		} else {
 			$('.code .tab-content').append(me.Templates.alert_error({ text: "Code not valid: " + validationResult.error.message }));
@@ -326,11 +326,13 @@ $(function() {
 
 	   // Init ACE Editor
     var editor = ace.edit("codeditor");
+    ace.require("ace/ext/language_tools");
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/javascript");
 
     editor.setOptions({
-        enableBasicAutocompletion: true
+        enableLiveAutoComplete: true,
+        enableSnippets: true
     });
     
 	   // Init Base64 for use in urls
