@@ -216,6 +216,15 @@ body {
     height: 100%;
 }
 
+#log_players .list-group-item-text pre {
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
 .game #gamecontainer {
     border: 1px solid #ccc;
     cursor: hand;

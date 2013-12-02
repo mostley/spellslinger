@@ -132,16 +132,20 @@ wss.broadcastChannel = function(channelId, data, except) {
             var clientId = client_list[i];
             if (!except || clientId != except) {
                 connectedClients[clientId].send(data);
-            }
-        }
+            
+}        }
     }, function(err) {
-        console.log("Failed to send to channel #" + channelId + ". msg: " + msg);
+        console.log("Failed to send to channel #" + channelId + ". msg: " + data);
     })
 };
 
 function send(socket, msg) {
-    console.log("Sending to client #" + socket._id + " msg: " + msg);
-    socket.send(msg);
+    if (socket) {
+        console.log("Sending to client #" + socket._id + " msg: " + msg);
+        socket.send(msg);
+    } else {
+        console.error("No Socket to send message to. ", msg);
+    }
 }
 
 wss.on('connection', function(socket) {
