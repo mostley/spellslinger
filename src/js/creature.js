@@ -119,8 +119,10 @@ MF.Creature.prototype.move_down = function () {
     }
 };
 
-MF.Creature.prototype.throw_fireball = function (direction) {
+MF.Creature.prototype.throw_fireball = function (x, y) {
     var me = this;
+
+    var direction = { x: x, y: y };
 
     var dirX = direction.x == 0 ? 0 : ( direction.x > 0 ? 1 : -1 );
     var dirY = direction.y == 0 ? 0 : ( direction.y > 0 ? 1 : -1 );
