@@ -44,7 +44,7 @@ MF.Controller = {
 
 		$('#introOverlay .close-button').on('click', function(e) {
 			$('#introOverlay').removeClass('in').hide();
-			//TODO add cookie
+			$.cookie('intro_seen', 'true', { expires: 999 });
 			e.stopPropagation();
 		});
 		$(window).on('keydown', function(e) {
@@ -303,7 +303,7 @@ MF.Controller = {
 		
 		$('body').removeClass('loading');
 
-		if (true) { // TODO only if not cookie
+		if (!$.cookie('intro_seen')) {
 			me.show_intro_overlay();
 		}
 
