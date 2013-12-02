@@ -126,6 +126,7 @@ MF.Creature.prototype.throw_fireball = function (x, y) {
 
     var dirX = direction.x == 0 ? 0 : ( direction.x > 0 ? 1 : -1 );
     var dirY = direction.y == 0 ? 0 : ( direction.y > 0 ? 1 : -1 );
+    
     var pos = VMath.add(me.tilePosition, new PIXI.Point(dirX, dirY));
 
     var projectile = MF.Game.add_projectile(me.playerId, pos, MF.ProjectileTypes.Fireball);

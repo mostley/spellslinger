@@ -39,7 +39,10 @@ MF.Projectile.constructor = MF.Projectile;
 MF.Projectile.prototype.set_direction = function (dir) {
     var me = this;
 
-    me.velocity = VMath.normalize(dir);
+    var dirX = direction.x == 0 ? 0 : ( direction.x > 0 ? 1 : -1 );
+    var dirY = direction.y == 0 ? 0 : ( direction.y > 0 ? 1 : -1 );
+    
+    me.velocity = new PIXI.Point(dirX, dirY);
 };
 
 MF.Projectile.prototype._set_tile_position = function (tPos) {
