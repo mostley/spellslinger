@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"pad",
+				"padding"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
 				"player",
 				"playerId"
 			],
@@ -506,14 +514,6 @@
 			[
 				"tileD",
 				"tileDefinition"
-			],
-			[
-				"level",
-				"levelFile"
-			],
-			[
-				"fireb",
-				"fireButtonSize"
 			]
 		]
 	},
@@ -571,15 +571,26 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 10330,
+				"buffer_size": 10787,
 				"line_ending": "Windows"
 			}
 		},
 		{
+			"contents": "if (typeof(MF) === \"undefined\") {\n	window.MF = {};\n}\n\nMF.Controller = {\n\n	_isServer: false,\n	gameIsRunning: false,\n\n	Templates: {\n		player_box: '#player-box-template',\n		channel_list_item: '#channel-list-item',\n		alert_warning: '#alert-warning',\n		alert_error: '#alert-error'\n	},\n\n	init: function() {\n		var me = this;\n\n		$(\".nav-tabs li:not(.ignore) a\").click(function (e) { e.preventDefault(); $(this).tab('show'); return false; });\n\n		$('#channel_dialog_create_button').click(me.on_create_channel.bind(me));\n		$('#dialog-channel-selection .modal-body .list-group').on('click', 'a', me.on_select_channel.bind(me));\n\n		$('#code-send-content').click(me.on_send_code.bind(me));\n\n		$('[data-target=#dialog-channel-selection]').click(function() {\n			MF.Client.request_channels();\n		});\n\n		$('#codeditor').on('keydown', Function.buffer(500, me._on_text_entered.bind(me)));\n		$('#codeditor').on('keydown', function(e) {\n\n			if (e.ctrlKey && e.keyCode == 13) {\n				me.on_send_code(e);\n			}\n		});\n\n		$('#helpOverlay').on('click', function() {\n			$(this).removeClass('in').hide();\n		})\n		$(window).on('keydown', function(e) {\n    		var editor = ace.edit(\"codeditor\");\n			var editorHasFocus = editor.isFocused();\n			if (me.gameIsRunning && !editorHasFocus && e.keyCode == 72) {\n				me.show_help_overlay();\n			}\n		});\n		$(window).on('keyup', function(e) {\n			if (me.gameIsRunning && e.keyCode == 72) {\n				$('#helpOverlay').removeClass('in').hide();\n			}\n		});\n\n		me.init_templates();\n\n		MF.Executor.init();\n\n		MF.Game.init();\n	},\n\n	gameOver: function() {\n		//TODO make nicer\n		alert(\"Game Over - You are dead.\");\n	},\n\n	show_help_overlay: function() {\n		console.log(\"show_help_overlay\");\n		$('#helpOverlay').show();\n		Function.defer(1, function(){\n			$('#helpOverlay').addClass('in');\n\n			var gameContainerOffset = $('#gamecontainer').offset();\n			$('#helpOverlay .game-field').offset({ left: gameContainerOffset.left+10, top: gameContainerOffset.top+10 });\n\n			var codeditorOffset = $('#codeditor').offset();\n			$('#helpOverlay .code-field').offset({ left: codeditorOffset.left+10, top: codeditorOffset.top+10 })\ny;		});\n	},\n\n	/*\n	 * This function takes the template selectors in the local Templates object and replaces them with handlebar functions.\n	 * those can generate templated html from data\n	 */\n	init_templates: function() {\n		var me = this;\n\n		for (var key in me.Templates) {\n			var selector = me.Templates[key];\n			var source   = $(selector).html();\n			me.Templates[key] = Handlebars.compile(source);\n		}\n	},\n\n	add_player: function(playerId) {\n		var me = this;\n\n		if (playerId !== MF.Client.userId) {\n			var html = me.Templates.player_box({ id: playerId });\n			$('#log_players .list-group').append(html);\n		}\n\n		MF.Game.add_wizard(playerId);\n	},\n\n	remove_player: function(playerId) {\n		var me = this;\n\n\n		$('#log_header_player_' + playerId).remove();\n		$('#log_player_' + playerId).remove();\n\n		MF.Game.remove_wizard(playerId);\n	},\n\n	get_game_status: function() {\n		var wizard_data = MF.Game.get_wizard_data();\n		var projectile_data = MF.Game.get_projectile_data();\n\n		return {\n			wizards: wizard_data,\n			projectiles: projectile_data\n		}\n	},\n\n	set_game_status: function(status) {\n		if (status) {\n			MF.Game.set_wizard_data(status.wizards);\n			MF.Game.set_projectile_data(status.projectiles);\n		}\n	},\n\n	//Network events\n	channel_list_received: function(channels) {\n		var me = this;\n\n		$('body').removeClass('loading');\n		$('#dialog-channel-selection .modal-body .list-group').empty();\n\n		var count = Object.size(channels);\n		$('#serverlog').append('<div class=\"message\">'+ count +' Channels found</div>');\n		for (var key in channels) {\n			var channel = channels[key];\n			$('#serverlog').append('<div class=\"message\"> - '+ channel.name +' ('+channel.clients.length+')</div>');\n\n			var html = me.Templates.channel_list_item({\n				id: channel.id,\n				name: channel.name,\n				count: channel.clients.length,\n				is_private: channel.is_private\n			});\n\n			$('#dialog-channel-selection .modal-body .list-group').append(html);\n		}\n\n		var channelId = null;\n		if (window.location.hash.length > 1) {\n			var channelcode = base64.decode(window.location.hash.substr(1));\n			channelId = channelcode.substr(channelcode.lastIndexOf(\"_\")+1)\n\n			var foundChannel = false;\n			for (var key in channels) {\n				if (channels[key].id == channelId) {\n					foundChannel = true;\n					break;\n				}\n			}\n\n			if (!foundChannel) {\n				channelId = null;\n			}\n		}\n\n\n		if (channelId == null) {\n			window.location.hash = '';\n\n			if (count > 0) {\n				$('#dialog-channel-selection').modal();\n			} else {\n				$('#dialog-channel-creation').modal();\n			}\n		} else {\n			MF.Client.select_channel(channelId);\n		}\n	},\n\n	set_channel_result: function(channel) {\n		var me = this;\n\n		$('#dialog-channel-selection').modal('hide');\n		$('#dialog-channel-creation').modal('hide');\n\n		$('#serverlog').append('<div class=\"message\">Joined Channel: \"'+ channel.name +'\"</div>');\n\n		for (var i in channel.clients)	{\n			var playerId = channel.clients[i];\n\n			me.add_player(playerId);\n		}\n\n		$('#log_player_count').text(channel.clients.length);\n		window.location.hash = '#' + base64.encode(channel.name + \"_\" + parseInt(channel.id));\n\n		if (!me._isServer) {\n			console.log(\"requesting status\");\n			MF.Client.get_status();\n\n			$('body').addClass('loading');\n		} else {\n			me.on_game_started();\n		}\n	},\n	\n	client_connected: function(client) {\n		MF.Client.request_channels();\n		$('#serverlog').append('<div class=\"message\">Server Connected</div>');\n	},\n\n	client_disconnected: function(client) {\n		//lost connection\n		$('#serverlog').append('<div class=\"message\">Connection lost.</div>');\n	},\n\n	player_connected: function(playerId) {\n		var me = this;\n\n		$('#serverlog').append('<div class=\"message\">Player #'+ playerId +' joined</div>');\n\n		me.add_player(playerId);\n		$('#log_player_count').text(parseInt($('#log_player_count').text())+1);\n\n		MF.Client.get_status();\n	},\n\n	player_disconnected: function(playerId) {\n		var me = this;\n		\n		$('#serverlog').append('<div class=\"message\">Player #'+ playerId +' left</div>');\n\n		me.remove_player(playerId);\n		$('#log_player_count').text(parseInt($('#log_player_count').text())-1);\n\n		MF.Client.get_status();\n	},\n\n	player_code: function(data) {\n		var html = '<pre class=\"fade\"><code data-language=\"javascript\">' + data.code + \"</code></pre>\";\n		$('#log_header_player_' + data.userId + ' .list-group-item-text').append(html);\n		Rainbow.color();\n\n		Function.defer(1, function(){$(\".player_log pre\").addClass('in');});\n\n		MF.Executor.execute(data.userId, data.code);\n	},\n\n	get_status: function(data) {\n		var me = this;\n\n		var status = me.get_game_status();\n		MF.Client.send_status(data.requestingClientId, status);\n	},\n\n	get_status_result: function(data) {\n		var me = this;\n\n		me.set_game_status(data.status);\n\n		me.on_game_started();\n	},\n\n	request_error: function(data) {\n		var me = this;\n\n		switch (data.event_name) {\n			case 'set_channel':\n				$('#channel-creation-form').prepend(me.Templates.alert_warning({ text: data.reason }));\n				break;\n		}\n	},\n\n	//UI events\n	on_game_started: function() {\n		var me = this;\n		\n		$('body').removeClass('loading');\n\n		me.show_help_overlay();\n\n		me.gameIsRunning = true;\n	},\n\n	on_create_channel: function() {\n		var me = this;\n\n		me._isServer = true;\n\n		MF.Client.set_channel($('#channel_name').val(), $('#channel_is_private').is(':checked'));\n	},\n\n	on_select_channel: function(e) {\n		var me = this;\n\n		e.preventDefault();\n\n		console.log(\"selecting Channel '\" + $(e.target).data('channel-id') + \"'\");\n\n		MF.Client.select_channel($(e.target).data('channel-id'));\n\n		return false;\n	},\n\n	on_send_code: function(e) {\n		var me = this;\n\n		me.set_codeditor_loading(true);\n\n		e.preventDefault();\n\n		var editor = ace.edit(\"codeditor\");\n		var code = editor.getValue();\n\n		var validationResult = MF.Executor.validate(code);\n		if (validationResult.success) {\n			var username = $('#usernamebox').val();\n			MF.Client.send_code(username, code);\n\n			$('.code .tab-content .alert').remove();\n\n			editor.selectAll();\n			$('#mana-count').text(0);\n		} else {\n			$('.code .tab-content').append(me.Templates.alert_error({ text: \"Code not valid: \" + validationResult.error.message }));\n		}\n\n		me.set_codeditor_loading(false);\n\n		return false;\n	},\n\n	set_codeditor_loading: function(loading) {\n		if (loading) {\n			$('.code .tab-content').addClass('loading')\n								   .append($('<div class=\"loading-overlay\"></div>'));\n		} else {\n			$('.code .tab-content').removeClass('loading');\n			$('.code .tab-content .loading-overlay').remove();\n		}\n	},\n\n	_on_text_entered: function() {\n		var me = this;\n\n		var editor = ace.edit(\"codeditor\");\n		var code = editor.getValue();\n\n		var validationResult = MF.Executor.validate(code);\n\n		if (validationResult.success) {\n			var count = MF.Executor.calculate_mana_cost(code);\n			$('#mana-count').text(count);\n\n			$('.code .tab-content .alert').remove();\n		} else {\n			$('.code .tab-content').append(me.Templates.alert_error({ text: \"Code not valid: \" + validationResult.error.message }));\n		}\n	}\n};\n\n$(function() {\n\n	   // Init ACE Editor\n    var editor = ace.edit(\"codeditor\");\n    ace.require(\"ace/ext/language_tools\");\n    editor.setTheme(\"ace/theme/monokai\");\n    editor.getSession().setMode(\"ace/mode/javascript\");\n\n    editor.setOptions({\n        //TODO: enableLiveAutoComplete: true,\n        enableSnippets: true\n    });\n    \n	   // Init Base64 for use in urls\n    base64.settings.char62 = \"-\";\n	   base64.settings.char63 = \"_\";\n    base64.settings.pad = null;\n\n	   var client = MF.Client;\n	   var controller = MF.Controller;\n\n	client.on(\n		client.events.channel_list, \n		controller.channel_list_received.bind(controller));\n\n	client.on(\n		client.events.set_channel, \n		controller.set_channel_result.bind(controller));\n\n	client.on(\n		client.events.client_connected, \n		controller.client_connected.bind(controller));\n\n	client.on(\n		client.events.client_disconnected, \n		controller.client_disconnected.bind(controller));\n\n	client.on(\n		client.events.player_connected, \n		controller.player_connected.bind(controller));\n\n	client.on(\n		client.events.player_disconnected, \n		controller.player_disconnected.bind(controller));\n\n	client.on(\n		client.events.player_code, \n		controller.player_code.bind(controller));\n\n	client.on(\n		client.events.get_status, \n		controller.get_status.bind(controller));\n\n	client.on(\n		client.events.send_status, \n		controller.get_status_result.bind(controller));\n\n	client.on(\n		client.events.error, \n		controller.request_error.bind(controller));\n\n	$('#serverlog').append('<div class=\"message\">Connecting...</div>');\n\n	client.connect();\n\n	controller.init();\n});\n",
 			"file": "src/js/main.js",
+			"file_size": 10610,
+			"file_write_time": 130303926776125824,
 			"settings":
 			{
-				"buffer_size": 9265,
+				"buffer_size": 10608,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/css/style.css",
+			"settings":
+			{
+				"buffer_size": 5345,
 				"line_ending": "Windows"
 			}
 		}
@@ -928,6 +939,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			".addClass('in'",
+			";\n",
+			"editor",
+			"\n		$(window).on('keydown', function(e) {\n\n			if (e.keyCode == 13) {\n				$('#helpOverlay').addClass('in');\n			}\n		});",
 			"get_el",
 			"remove_wizard",
 			"add_",
@@ -1051,11 +1066,7 @@
 			"mysql_pass",
 			"where",
 			"local_sender_blacklist",
-			",",
-			") (",
-			"Txyz.*",
-			"sharing",
-			"mousewheel"
+			","
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1201,7 +1212,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -1216,8 +1227,8 @@
 						"selection":
 						[
 							[
-								9866,
-								9866
+								9766,
+								9766
 							]
 						],
 						"settings":
@@ -1374,15 +1385,15 @@
 					"file": "src/index.html",
 					"settings":
 					{
-						"buffer_size": 10330,
+						"buffer_size": 10787,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7320,
-								7320
+								4509,
+								4509
 							]
 						],
 						"settings":
@@ -1391,7 +1402,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2659.0,
+						"translation.y": 1399.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1401,15 +1412,15 @@
 					"file": "src/js/main.js",
 					"settings":
 					{
-						"buffer_size": 9265,
+						"buffer_size": 10608,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2104,
+								2104
 							]
 						],
 						"settings":
@@ -1418,7 +1429,35 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 756.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/css/style.css",
+					"settings":
+					{
+						"buffer_size": 5345,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1517,
+								1517
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

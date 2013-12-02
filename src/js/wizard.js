@@ -36,5 +36,8 @@ MF.Wizard._set_mapping(["goUp", "up", "moveUp", "walkUp"],
 MF.Wizard._set_mapping(["goDown", "down", "moveDown", "walkDown"],
 		'move_down');
 
+MF.Wizard._set_mapping(["say", "talk", "speak", "blurt", "brabble", "schwätz", "blubber", "openMouth", "createWords", "incantate", "formulate", "murmur", "whisper"],
+		'say_something');
+
 MF.Wizard._set_mapping(["fireball", "throwFireball"],
 		'throw_fireball');

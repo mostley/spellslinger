@@ -36,45 +36,62 @@ MF.MockMagic.prototype.get_total = function() {
 (function () {
 	var _methods = {
 		'move_left': {
-			parameterRequired: false,
+			parametersRequired: 0,
 			manaCost: 1
 		}, 
 		'move_right': {
-			parameterRequired: false,
+			parametersRequired: 0,
 			manaCost: 1
 		}, 
 		'move_up': {
-			parameterRequired: false,
+			parametersRequired: 0,
 			manaCost: 1
 		}, 
 		'move_down': {
-			parameterRequired: false,
+			parametersRequired: 0,
+			manaCost: 1
+		}, 
+		'say_something': {
+			parametersRequired: 1,
 			manaCost: 1
 		}, 
 		'throw_fireball': {
-			parameterRequired: true,
+			parametersRequired: 2,
 			manaCost: 1
 		}
 	};
 
-	function _createPushCommandDelegate(name, method) {
-		return function(parameter) {
-			var me = this;
-			if (typeof(parameter) === 'undefined' && method.parameterRequired) {
-				throw new Error("A parameter is required. See Docu for more informatione");
+	function _cloneArray(args) {
+		var result = [];
+		for (var i in args) {
+			if (typeof(args[i]) === "object") {
+				result.push($.extend(true, {}, args[i]));
 			} else {
+				result.push(args[i]);
+			}
+		}
+		return result;
+	}
+
+	function _createPushCommandDelegate(name, method) {
+		return function() {
+			var me = this;
+			if (arguments.length != method.parametersRequired) {
+				throw new Error(method.parametersRequired + " parameter(s) is/are required. See Docu for more information.");
+			} else {
+				var args = _cloneArray(arguments);
 				me._commands.push({
 					name: name,
-					parameter: $.extend(true, {}, parameter)
+					parameters: args
 				});
 			}
 		};
 	}
 
 	function _createMockDelegate(name, method) {
-		return function(parameter) {
-			if (typeof(parameter) === 'undefined' && method.parameterRequired) {
-				throw new Error("A parameter is required. See Docu for more informatione");
+		return function() {
+			if (arguments.length != method.parametersRequired) {
+				throw new Error(method.parametersRequired + " parameter(s) is/are required. See Docu for more information.");
 			} else {
 				this.mana += method.manaCost;
 			}

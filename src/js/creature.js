@@ -130,12 +130,12 @@ MF.Creature.prototype.throw_fireball = function (direction) {
     projectile.set_direction(direction);
 };
 
-MF.Creature.prototype.say = function (text, duration) {
+MF.Creature.prototype.say_something = function (text, duration) {
     var me = this;
 
     me.speeches.splice(0, 0, {
     	text: text,
-    	duration: duration,
+    	duration: duration || 5,
     	endTime: null,
     	sprite: null
     });
@@ -148,14 +148,16 @@ MF.Creature.prototype.doSay = function (speech) {
     me.currentSpeech.endTime = MF.Game.time + me.currentSpeech.duration;
 	me.currentSpeech.sprite = new PIXI.Text(speech.text, {
 		align: 'center',
-		font: '16pt Arial',
+		font: '12pt Arial',
 		fill: 'white'
 	});
 	me.currentSpeech.sprite.scale.x = me.sprite.scale.x;
 	if (me.currentSpeech.sprite.scale.x < 0) {
-		me.currentSpeech.sprite.position.x = MF.Game.tileWidth;
-	}
-	me.currentSpeech.sprite.position.y = -MF.Game.tileWidth/2;
+        me.currentSpeech.sprite.position.x = MF.Game.tileWidth/2-me.currentSpeech.sprite.width/2;
+	} else {
+        me.currentSpeech.sprite.position.x = -me.currentSpeech.sprite.width/2 + MF.Game.tileWidth/2;
+    }
+	me.currentSpeech.sprite.position.y = -MF.Game.tileWidth;
 	me.sprite.addChild(me.currentSpeech.sprite);
 };
 

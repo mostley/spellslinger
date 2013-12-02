@@ -158,7 +158,7 @@ MF.Game = {
 				var command = commandList.pop();
 				var wizard = me._wizardSprites[playerId];
 
-				wizard[command.name](command.parameter);
+				wizard[command.name].apply(wizard, command.parameters);
 			}
 		}
 	},

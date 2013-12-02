@@ -36,8 +36,11 @@
 		        </div>
 
 		        <div class="navbar-collapse collapse">
+
 					<!--<a id="usernameboxbtn" class="btn btn-small navbar-right" href="#" role="button">Change »</a>-->
 					<input id="usernamebox" type="text" placeholder="Username" class="navbar-right form-control"/>
+
+		        	<p class="navbar-right help-overlay-hint">Press 'h' to show help</p>
 		        </div><!--/.navbar-collapse -->
 		      </div>
 		    </div>
@@ -112,6 +115,92 @@
 							</div>
 					    </div>
 			        </div>
+			    </div>
+
+			    <!-- ======== Overlays ======== -->
+			    <div id="helpOverlay" class="fade" style="display:none;">
+			    	<div class="game-field help-hint">
+			    		<h1>This is the Game field.</h1>
+			    		<p>Here you can see what is happening</p>
+			    	</div>
+			    	<div class="code-field help-hint">
+			    		<h2>Here you write your code</h2>
+			    		<p>
+			    			Examples:
+							<img src="img/walkleft.png" alt="Image of Wizards fighting"/><br/>
+							<img src="img/walkright.png" alt="Image of Wizards fighting"/><br/>
+							<img src="img/walkup.png" alt="Image of Wizards fighting"/><br/>
+							<img src="img/walkdown.png" alt="Image of Wizards fighting"/><br/>
+							<img src="img/fireball.png" alt="Image of Wizards fighting"/><br/>
+							<img src="img/talk.png" alt="Image of Wizards fighting"/><br/>
+							<br/>
+							Press the send button above to execute.
+			    		</p>
+			    	</div>
+			    </div>
+
+			    <div id="introOverlay" class="fade" style="display:none;">
+			    	<div id="intro-carousel" class="carousel slide" data-ride="carousel">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li data-target="#intro-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#intro-carousel" data-slide-to="1"></li>
+							<li data-target="#intro-carousel" data-slide-to="2"></li>
+							<li data-target="#intro-carousel" data-slide-to="3"></li>
+							<li data-target="#intro-carousel" data-slide-to="4"></li>
+						</ol>
+
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="centered">
+									<img src="img/you.png" alt="Image of Wizard"/><br/>
+									This is you.
+								</div>
+							</div>
+							<div class="item">
+								<div class="centered">
+									<img src="img/other_people.png" alt="Image of other Wizards"/><br/>
+									These are other people.
+								</div>
+							</div>
+							<div class="item">
+								<div class="centered">
+									<img src="img/fighting.png" alt="Image of Wizards fighting"/><br/>
+									You can Walk, Talk and <em>throw freaking fireballs</em>.
+								</div>
+							</div>
+							<div class="item">
+								<div class="centered large">
+									And learn to code while doing it:<br/>
+									<img src="img/walkleft.png" alt="Image of Wizards fighting"/><br/>
+									<img src="img/walkright.png" alt="Image of Wizards fighting"/><br/>
+									<img src="img/walkup.png" alt="Image of Wizards fighting"/><br/>
+									<img src="img/walkdown.png" alt="Image of Wizards fighting"/><br/>
+									<img src="img/fireball.png" alt="Image of Wizards fighting"/><br/>
+									<img src="img/talk.png" alt="Image of Wizards fighting"/>
+								</div>
+							</div>
+							<div class="item">
+								<div class="centered">
+									<img src="img/you.png" alt="Image of Wizard"/>
+									<em>Less chatting, more burning</em>
+									<br/><br/><br/>
+
+									<div class="btn btn-default btn-lg close-button">Start</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Controls -->
+						<a class="left carousel-control" href="#intro-carousel" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+						</a>
+						<a class="right carousel-control" href="#intro-carousel" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+						<a class="close-button btn btn-default">&times;</a>
+					</div>
 			    </div>
 		    </div>
 

@@ -5,6 +5,7 @@ if (typeof(MF) === "undefined") {
 MF.Controller = {
 
 	_isServer: false,
+	gameIsRunning: false,
 
 	Templates: {
 		player_box: '#player-box-template',
@@ -15,6 +16,8 @@ MF.Controller = {
 
 	init: function() {
 		var me = this;
+
+		$('.carousel').carousel({ interval: 0, wrap: false });
 
 		$(".nav-tabs li:not(.ignore) a").click(function (e) { e.preventDefault(); $(this).tab('show'); return false; });
 
@@ -35,6 +38,28 @@ MF.Controller = {
 			}
 		});
 
+		$('#helpOverlay').on('click', function() {
+			$(this).removeClass('in').hide();
+		});
+
+		$('#introOverlay .close-button').on('click', function(e) {
+			$('#introOverlay').removeClass('in').hide();
+			//TODO add cookie
+			e.stopPropagation();
+		});
+		$(window).on('keydown', function(e) {
+    		var editor = ace.edit("codeditor");
+			var editorHasFocus = editor.isFocused();
+			if (me.gameIsRunning && !editorHasFocus && e.keyCode == 72) {
+				me.show_help_overlay();
+			}
+		});
+		$(window).on('keyup', function(e) {
+			if (me.gameIsRunning && e.keyCode == 72) {
+				$('#helpOverlay').removeClass('in').hide();
+			}
+		});
+
 		me.init_templates();
 
 		MF.Executor.init();
@@ -45,6 +70,30 @@ MF.Controller = {
 	gameOver: function() {
 		//TODO make nicer
 		alert("Game Over - You are dead.");
+	},
+
+	show_help_overlay: function() {
+		console.log("show_help_overlay");
+		$('#helpOverlay').show();
+		Function.defer(1, function(){
+			$('#helpOverlay').addClass('in');
+
+			var gameContainerOffset = $('#gamecontainer').offset();
+			$('#helpOverlay .game-field').offset({ left: gameContainerOffset.left+10, top: gameContainerOffset.top+10 });
+
+			var codeditorOffset = $('#codeditor').offset();
+			$('#helpOverlay .code-field').offset({ left: codeditorOffset.left+10, top: codeditorOffset.top+10 });
+			$('#helpOverlay .code-field').css('max-width', $('#codeditor').width() - 20);
+			$('#helpOverlay .code-field').css('max-height', $('#codeditor').height() - 20);
+		});
+	},
+
+	show_intro_overlay: function()  {
+		console.log("show_intro_overlay");
+		$('#introOverlay').show();
+		Function.defer(1, function(){
+			$('#introOverlay').addClass('in');
+		});
 	},
 
 	/*
@@ -93,8 +142,10 @@ MF.Controller = {
 	},
 
 	set_game_status: function(status) {
-		MF.Game.set_wizard_data(status.wizards);
-		MF.Game.set_projectile_data(status.projectiles);
+		if (status) {
+			MF.Game.set_wizard_data(status.wizards);
+			MF.Game.set_projectile_data(status.projectiles);
+		}
 	},
 
 	//Network events
@@ -174,6 +225,8 @@ MF.Controller = {
 			MF.Client.get_status();
 
 			$('body').addClass('loading');
+		} else {
+			me.on_game_started();
 		}
 	},
 	
@@ -229,9 +282,9 @@ MF.Controller = {
 	get_status_result: function(data) {
 		var me = this;
 
-		$('body').removeClass('loading');
-
 		me.set_game_status(data.status);
+
+		me.on_game_started();
 	},
 
 	request_error: function(data) {
@@ -245,6 +298,18 @@ MF.Controller = {
 	},
 
 	//UI events
+	on_game_started: function() {
+		var me = this;
+		
+		$('body').removeClass('loading');
+
+		if (true) { // TODO only if not cookie
+			me.show_intro_overlay();
+		}
+
+		me.gameIsRunning = true;
+	},
+
 	on_create_channel: function() {
 		var me = this;
 
@@ -331,7 +396,7 @@ $(function() {
     editor.getSession().setMode("ace/mode/javascript");
 
     editor.setOptions({
-        enableLiveAutoComplete: true,
+        //TODO: enableLiveAutoComplete: true,
         enableSnippets: true
     });
     
