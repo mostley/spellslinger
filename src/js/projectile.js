@@ -36,7 +36,7 @@ MF.Projectile = function(playerId, tPos, type)
 
 MF.Projectile.constructor = MF.Projectile;
 
-MF.Projectile.prototype.set_direction = function (dir) {
+MF.Projectile.prototype.set_direction = function (direction) {
     var me = this;
 
     var dirX = direction.x == 0 ? 0 : ( direction.x > 0 ? 1 : -1 );
