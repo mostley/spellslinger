@@ -370,7 +370,7 @@ MF.Controller = {
 
 	_on_text_entered: function() {
 		var me = this;
-
+/*
 		var editor = ace.edit("codeditor");
 		var code = editor.getValue();
 
@@ -383,7 +383,7 @@ MF.Controller = {
 			$('.code .tab-content .alert').remove();
 		} else {
 			$('.code .tab-content').append(me.Templates.alert_error({ text: "Code not valid: " + validationResult.error.message }));
-		}
+		}*/
 	}
 };
 
