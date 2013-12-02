@@ -223,7 +223,11 @@ MF.Game = {
 				projectileSprite.sprite = null;
 			}
 
-			me._grid[projectileSprite.tilePosition.x][projectileSprite.tilePosition.y] = null;
+			if (projectileSprite.tilePosition.x > 0 && projectileSprite.tilePosition.x < me.gridCols &&
+				projectileSprite.tilePosition.y > 0 && projectileSprite.tilePosition.y < me.gridRows) {
+				
+				me._grid[projectileSprite.tilePosition.x][projectileSprite.tilePosition.y] = null;
+			}
 
 			projectileSprite.isAlive = false;
 		}
