@@ -4,44 +4,48 @@
 		"selected_items":
 		[
 			[
-				"pad",
-				"padding"
+				"cur",
+				"cursor"
 			],
 			[
-				"remove",
-				"removeClass"
-			],
-			[
-				"player",
-				"playerId"
-			],
-			[
-				"wi",
-				"wizard"
-			],
-			[
-				"grid",
-				"gridCols"
-			],
-			[
-				"ex",
-				"existing_element"
-			],
-			[
-				"wiz",
-				"wizardSprite"
+				"coll",
+				"collidedWizard"
 			],
 			[
 				"tile",
 				"tilePosition"
 			],
 			[
-				"mana",
-				"manaCost"
+				"name",
+				"name_list"
 			],
 			[
-				"send",
-				"send_status"
+				"nam",
+				"name_list"
+			],
+			[
+				"requ",
+				"request_channels"
+			],
+			[
+				"proj",
+				"projectile_data"
+			],
+			[
+				"remove",
+				"removeChild"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"wiz",
+				"wizardSprite"
+			],
+			[
+				"_wi",
+				"_wizardSprites"
 			],
 			[
 				"play",
@@ -62,6 +66,10 @@
 			[
 				"user",
 				"userId"
+			],
+			[
+				"ex",
+				"execute"
 			],
 			[
 				"pla",
@@ -86,10 +94,6 @@
 			[
 				"get",
 				"get_channel_by_id"
-			],
-			[
-				"requ",
-				"requestingClientId"
 			],
 			[
 				"get_c",
@@ -320,10 +324,6 @@
 				"ScoreEffectOffset"
 			],
 			[
-				"pos",
-				"positionCache	(attribute, instance)"
-			],
-			[
 				"toIn",
 				"toIntArr()	(attribute, function)"
 			],
@@ -520,50 +520,34 @@
 	"buffers":
 	[
 		{
-			"file": "src/js/game.js",
-			"settings":
-			{
-				"buffer_size": 11147,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/creature.js",
-			"settings":
-			{
-				"buffer_size": 3938,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "src/js/projectile.js",
 			"settings":
 			{
-				"buffer_size": 1925,
+				"buffer_size": 2078,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/js/resourceloader.js",
+			"file": "src/js/game.js",
 			"settings":
 			{
-				"buffer_size": 2170,
+				"buffer_size": 11360,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/js/tilesets.js",
+			"file": "src/js/main.js",
 			"settings":
 			{
-				"buffer_size": 829,
-				"line_ending": "Windows"
+				"buffer_size": 11248,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/js/magic.js",
+			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 1719,
+				"buffer_size": 13331,
 				"line_ending": "Windows"
 			}
 		},
@@ -571,26 +555,47 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 10787,
+				"buffer_size": 14032,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "if (typeof(MF) === \"undefined\") {\n	window.MF = {};\n}\n\nMF.Controller = {\n\n	_isServer: false,\n	gameIsRunning: false,\n\n	Templates: {\n		player_box: '#player-box-template',\n		channel_list_item: '#channel-list-item',\n		alert_warning: '#alert-warning',\n		alert_error: '#alert-error'\n	},\n\n	init: function() {\n		var me = this;\n\n		$(\".nav-tabs li:not(.ignore) a\").click(function (e) { e.preventDefault(); $(this).tab('show'); return false; });\n\n		$('#channel_dialog_create_button').click(me.on_create_channel.bind(me));\n		$('#dialog-channel-selection .modal-body .list-group').on('click', 'a', me.on_select_channel.bind(me));\n\n		$('#code-send-content').click(me.on_send_code.bind(me));\n\n		$('[data-target=#dialog-channel-selection]').click(function() {\n			MF.Client.request_channels();\n		});\n\n		$('#codeditor').on('keydown', Function.buffer(500, me._on_text_entered.bind(me)));\n		$('#codeditor').on('keydown', function(e) {\n\n			if (e.ctrlKey && e.keyCode == 13) {\n				me.on_send_code(e);\n			}\n		});\n\n		$('#helpOverlay').on('click', function() {\n			$(this).removeClass('in').hide();\n		})\n		$(window).on('keydown', function(e) {\n    		var editor = ace.edit(\"codeditor\");\n			var editorHasFocus = editor.isFocused();\n			if (me.gameIsRunning && !editorHasFocus && e.keyCode == 72) {\n				me.show_help_overlay();\n			}\n		});\n		$(window).on('keyup', function(e) {\n			if (me.gameIsRunning && e.keyCode == 72) {\n				$('#helpOverlay').removeClass('in').hide();\n			}\n		});\n\n		me.init_templates();\n\n		MF.Executor.init();\n\n		MF.Game.init();\n	},\n\n	gameOver: function() {\n		//TODO make nicer\n		alert(\"Game Over - You are dead.\");\n	},\n\n	show_help_overlay: function() {\n		console.log(\"show_help_overlay\");\n		$('#helpOverlay').show();\n		Function.defer(1, function(){\n			$('#helpOverlay').addClass('in');\n\n			var gameContainerOffset = $('#gamecontainer').offset();\n			$('#helpOverlay .game-field').offset({ left: gameContainerOffset.left+10, top: gameContainerOffset.top+10 });\n\n			var codeditorOffset = $('#codeditor').offset();\n			$('#helpOverlay .code-field').offset({ left: codeditorOffset.left+10, top: codeditorOffset.top+10 })\ny;		});\n	},\n\n	/*\n	 * This function takes the template selectors in the local Templates object and replaces them with handlebar functions.\n	 * those can generate templated html from data\n	 */\n	init_templates: function() {\n		var me = this;\n\n		for (var key in me.Templates) {\n			var selector = me.Templates[key];\n			var source   = $(selector).html();\n			me.Templates[key] = Handlebars.compile(source);\n		}\n	},\n\n	add_player: function(playerId) {\n		var me = this;\n\n		if (playerId !== MF.Client.userId) {\n			var html = me.Templates.player_box({ id: playerId });\n			$('#log_players .list-group').append(html);\n		}\n\n		MF.Game.add_wizard(playerId);\n	},\n\n	remove_player: function(playerId) {\n		var me = this;\n\n\n		$('#log_header_player_' + playerId).remove();\n		$('#log_player_' + playerId).remove();\n\n		MF.Game.remove_wizard(playerId);\n	},\n\n	get_game_status: function() {\n		var wizard_data = MF.Game.get_wizard_data();\n		var projectile_data = MF.Game.get_projectile_data();\n\n		return {\n			wizards: wizard_data,\n			projectiles: projectile_data\n		}\n	},\n\n	set_game_status: function(status) {\n		if (status) {\n			MF.Game.set_wizard_data(status.wizards);\n			MF.Game.set_projectile_data(status.projectiles);\n		}\n	},\n\n	//Network events\n	channel_list_received: function(channels) {\n		var me = this;\n\n		$('body').removeClass('loading');\n		$('#dialog-channel-selection .modal-body .list-group').empty();\n\n		var count = Object.size(channels);\n		$('#serverlog').append('<div class=\"message\">'+ count +' Channels found</div>');\n		for (var key in channels) {\n			var channel = channels[key];\n			$('#serverlog').append('<div class=\"message\"> - '+ channel.name +' ('+channel.clients.length+')</div>');\n\n			var html = me.Templates.channel_list_item({\n				id: channel.id,\n				name: channel.name,\n				count: channel.clients.length,\n				is_private: channel.is_private\n			});\n\n			$('#dialog-channel-selection .modal-body .list-group').append(html);\n		}\n\n		var channelId = null;\n		if (window.location.hash.length > 1) {\n			var channelcode = base64.decode(window.location.hash.substr(1));\n			channelId = channelcode.substr(channelcode.lastIndexOf(\"_\")+1)\n\n			var foundChannel = false;\n			for (var key in channels) {\n				if (channels[key].id == channelId) {\n					foundChannel = true;\n					break;\n				}\n			}\n\n			if (!foundChannel) {\n				channelId = null;\n			}\n		}\n\n\n		if (channelId == null) {\n			window.location.hash = '';\n\n			if (count > 0) {\n				$('#dialog-channel-selection').modal();\n			} else {\n				$('#dialog-channel-creation').modal();\n			}\n		} else {\n			MF.Client.select_channel(channelId);\n		}\n	},\n\n	set_channel_result: function(channel) {\n		var me = this;\n\n		$('#dialog-channel-selection').modal('hide');\n		$('#dialog-channel-creation').modal('hide');\n\n		$('#serverlog').append('<div class=\"message\">Joined Channel: \"'+ channel.name +'\"</div>');\n\n		for (var i in channel.clients)	{\n			var playerId = channel.clients[i];\n\n			me.add_player(playerId);\n		}\n\n		$('#log_player_count').text(channel.clients.length);\n		window.location.hash = '#' + base64.encode(channel.name + \"_\" + parseInt(channel.id));\n\n		if (!me._isServer) {\n			console.log(\"requesting status\");\n			MF.Client.get_status();\n\n			$('body').addClass('loading');\n		} else {\n			me.on_game_started();\n		}\n	},\n	\n	client_connected: function(client) {\n		MF.Client.request_channels();\n		$('#serverlog').append('<div class=\"message\">Server Connected</div>');\n	},\n\n	client_disconnected: function(client) {\n		//lost connection\n		$('#serverlog').append('<div class=\"message\">Connection lost.</div>');\n	},\n\n	player_connected: function(playerId) {\n		var me = this;\n\n		$('#serverlog').append('<div class=\"message\">Player #'+ playerId +' joined</div>');\n\n		me.add_player(playerId);\n		$('#log_player_count').text(parseInt($('#log_player_count').text())+1);\n\n		MF.Client.get_status();\n	},\n\n	player_disconnected: function(playerId) {\n		var me = this;\n		\n		$('#serverlog').append('<div class=\"message\">Player #'+ playerId +' left</div>');\n\n		me.remove_player(playerId);\n		$('#log_player_count').text(parseInt($('#log_player_count').text())-1);\n\n		MF.Client.get_status();\n	},\n\n	player_code: function(data) {\n		var html = '<pre class=\"fade\"><code data-language=\"javascript\">' + data.code + \"</code></pre>\";\n		$('#log_header_player_' + data.userId + ' .list-group-item-text').append(html);\n		Rainbow.color();\n\n		Function.defer(1, function(){$(\".player_log pre\").addClass('in');});\n\n		MF.Executor.execute(data.userId, data.code);\n	},\n\n	get_status: function(data) {\n		var me = this;\n\n		var status = me.get_game_status();\n		MF.Client.send_status(data.requestingClientId, status);\n	},\n\n	get_status_result: function(data) {\n		var me = this;\n\n		me.set_game_status(data.status);\n\n		me.on_game_started();\n	},\n\n	request_error: function(data) {\n		var me = this;\n\n		switch (data.event_name) {\n			case 'set_channel':\n				$('#channel-creation-form').prepend(me.Templates.alert_warning({ text: data.reason }));\n				break;\n		}\n	},\n\n	//UI events\n	on_game_started: function() {\n		var me = this;\n		\n		$('body').removeClass('loading');\n\n		me.show_help_overlay();\n\n		me.gameIsRunning = true;\n	},\n\n	on_create_channel: function() {\n		var me = this;\n\n		me._isServer = true;\n\n		MF.Client.set_channel($('#channel_name').val(), $('#channel_is_private').is(':checked'));\n	},\n\n	on_select_channel: function(e) {\n		var me = this;\n\n		e.preventDefault();\n\n		console.log(\"selecting Channel '\" + $(e.target).data('channel-id') + \"'\");\n\n		MF.Client.select_channel($(e.target).data('channel-id'));\n\n		return false;\n	},\n\n	on_send_code: function(e) {\n		var me = this;\n\n		me.set_codeditor_loading(true);\n\n		e.preventDefault();\n\n		var editor = ace.edit(\"codeditor\");\n		var code = editor.getValue();\n\n		var validationResult = MF.Executor.validate(code);\n		if (validationResult.success) {\n			var username = $('#usernamebox').val();\n			MF.Client.send_code(username, code);\n\n			$('.code .tab-content .alert').remove();\n\n			editor.selectAll();\n			$('#mana-count').text(0);\n		} else {\n			$('.code .tab-content').append(me.Templates.alert_error({ text: \"Code not valid: \" + validationResult.error.message }));\n		}\n\n		me.set_codeditor_loading(false);\n\n		return false;\n	},\n\n	set_codeditor_loading: function(loading) {\n		if (loading) {\n			$('.code .tab-content').addClass('loading')\n								   .append($('<div class=\"loading-overlay\"></div>'));\n		} else {\n			$('.code .tab-content').removeClass('loading');\n			$('.code .tab-content .loading-overlay').remove();\n		}\n	},\n\n	_on_text_entered: function() {\n		var me = this;\n\n		var editor = ace.edit(\"codeditor\");\n		var code = editor.getValue();\n\n		var validationResult = MF.Executor.validate(code);\n\n		if (validationResult.success) {\n			var count = MF.Executor.calculate_mana_cost(code);\n			$('#mana-count').text(count);\n\n			$('.code .tab-content .alert').remove();\n		} else {\n			$('.code .tab-content').append(me.Templates.alert_error({ text: \"Code not valid: \" + validationResult.error.message }));\n		}\n	}\n};\n\n$(function() {\n\n	   // Init ACE Editor\n    var editor = ace.edit(\"codeditor\");\n    ace.require(\"ace/ext/language_tools\");\n    editor.setTheme(\"ace/theme/monokai\");\n    editor.getSession().setMode(\"ace/mode/javascript\");\n\n    editor.setOptions({\n        //TODO: enableLiveAutoComplete: true,\n        enableSnippets: true\n    });\n    \n	   // Init Base64 for use in urls\n    base64.settings.char62 = \"-\";\n	   base64.settings.char63 = \"_\";\n    base64.settings.pad = null;\n\n	   var client = MF.Client;\n	   var controller = MF.Controller;\n\n	client.on(\n		client.events.channel_list, \n		controller.channel_list_received.bind(controller));\n\n	client.on(\n		client.events.set_channel, \n		controller.set_channel_result.bind(controller));\n\n	client.on(\n		client.events.client_connected, \n		controller.client_connected.bind(controller));\n\n	client.on(\n		client.events.client_disconnected, \n		controller.client_disconnected.bind(controller));\n\n	client.on(\n		client.events.player_connected, \n		controller.player_connected.bind(controller));\n\n	client.on(\n		client.events.player_disconnected, \n		controller.player_disconnected.bind(controller));\n\n	client.on(\n		client.events.player_code, \n		controller.player_code.bind(controller));\n\n	client.on(\n		client.events.get_status, \n		controller.get_status.bind(controller));\n\n	client.on(\n		client.events.send_status, \n		controller.get_status_result.bind(controller));\n\n	client.on(\n		client.events.error, \n		controller.request_error.bind(controller));\n\n	$('#serverlog').append('<div class=\"message\">Connecting...</div>');\n\n	client.connect();\n\n	controller.init();\n});\n",
-			"file": "src/js/main.js",
-			"file_size": 10610,
-			"file_write_time": 130303926776125824,
+			"file": "/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
 			"settings":
 			{
-				"buffer_size": 10608,
-				"line_ending": "Unix"
+				"buffer_size": 1610,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/wizard.js",
+			"settings":
+			{
+				"buffer_size": 1137,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/client.js",
+			"settings":
+			{
+				"buffer_size": 5661,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "src/css/style.css",
 			"settings":
 			{
-				"buffer_size": 5345,
+				"buffer_size": 6773,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
+			"settings":
+			{
+				"buffer_size": 1173,
 				"line_ending": "Windows"
 			}
 		}
@@ -598,17 +603,9 @@
 	"build_system": "Packages/User/compileBat.sublime-build",
 	"command_palette":
 	{
-		"height": 58.0,
+		"height": 81.0,
 		"selected_items":
 		[
-			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
-			],
 			[
 				"form",
 				"Format: Javascript"
@@ -616,6 +613,14 @@
 			[
 				"instal",
 				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
 			],
 			[
 				"ssj",
@@ -778,7 +783,11 @@
 	},
 	"console":
 	{
-		"height": 237.0
+		"height": 237.0,
+		"history":
+		[
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')"
+		]
 	},
 	"distraction_free":
 	{
@@ -791,40 +800,47 @@
 	},
 	"file_history":
 	[
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/executor.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/app.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/projectile.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/extensions.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/creature.js",
-		"/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/css/main.css",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
+		"/C/Users/hecht/Desktop/tfsgorba.txt",
+		"/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/app.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/creature.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/vmath.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/index.html",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/resourceloader.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/js/tilesets.js",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/web/WizardsStandoff/wizardsstandoff.sublime-project",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/game.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/resourceloader.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/tilesets.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
-		"/C/Users/Sven Hecht/.ssh/id_rsa.pub",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/.git/config",
-		"/C/Users/Sven Hecht/.ssh/id_rsa",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/avatar.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/creatures.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/map.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/data/Level.json",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/magicfight.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/tilesets.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/resourceloader.js",
 		"/C/Users/Sven Hecht/AppData/Roaming/Sublime Text 2/Packages/Javascript Beautify/Default (Windows).sublime-keymap",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/tilesets.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/main.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/app.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/vmath",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/executor.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
 		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/stylesheet.css",
 		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155601/mildeast-demo.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/extensions.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/logo_cutter.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/logo_inverted_stamp.scad",
 		"/C/Users/Sven Hecht/Downloads/webfontkit-20131118-155355/stylesheet.css",
@@ -903,6 +919,7 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/scripts/controllers/analysis.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/.gitignore",
 		"/Z/tracker/Readme.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/S3Mount/s3mount.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/README.md",
 		"/C/Chocolatey/lib/XSockets.Windows.Service.2.7.6/tools/XSockets.Windows.Service.exe.config",
@@ -910,26 +927,17 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Didgeridoo Mount/DidgeridooMount.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/sites/SHDev/index.html",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/TrackingServer/gitignore",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/INSTALL",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/index.html",
-		"/F/INSTRUCTIONS-README.txt",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/RpiTracker/Makefile",
-		"/C/Users/Sven Hecht/Downloads/create_mail/create_mail.php",
-		"/C/Users/Sven Hecht/.ssh/id_rsa.ppk",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/ArucoTracker/aruco-1.2.4/testdata/single/intrinsics.yml",
-		"/D/aruco-1.2.4/aruco/utils/aruco_simple.cpp"
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot"
 	],
 	"find":
 	{
-		"height": 32.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
 		"height": 0.0,
 		"where_history":
 		[
-			"D:\\Lokale Daten\\DropBox\\Dropbox\\projects\\web\\WizardsStandoff",
 			"D:\\Lokale Daten\\DropBox\\Dropbox\\sites\\DaianeRibeiro\\",
 			"D:\\Lokale Daten\\DropBox\\Dropbox\\sites\\DaianeRibeiro\\less"
 		]
@@ -939,49 +947,30 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			".addClass('in'",
-			";\n",
-			"editor",
-			"\n		$(window).on('keydown', function(e) {\n\n			if (e.keyCode == 13) {\n				$('#helpOverlay').addClass('in');\n			}\n		});",
-			"get_el",
-			"remove_wizard",
-			"add_",
 			"set_game_status",
-			"stat",
-			"remove_",
-			"remove_w",
-			"remove_projectile",
-			"get_e",
-			"get_w",
+			"recon",
+			"get_stat",
+			"command",
+			"add_projectile",
 			"send",
-			"count",
-			"send",
-			"move_left",
-			"lastTick",
-			"_wizardSprites",
+			"_grid",
+			"add_projectile",
+			"Projectile",
+			"get_wizard_at",
+			"MF.Client.request_channels",
+			"channel_list_received",
+			"list-group",
+			"dialog-channel-selection",
+			"Creature",
+			"Projectiles",
+			"Fireball",
+			"_wizards",
+			"levelContainer",
+			"creatureContainer",
+			"levelContainer",
 			"_projectileSprites",
-			"on_mouse_move",
-			"));\n",
-			"on_mouse_move",
-			"Wizard_Novice",
-			"Wizard_Me",
-			"Wizard_Novice",
-			"id",
-			".clients",
-			"set_channel",
+			"\n\n	set_game_status: function() {\n\n	},",
 			"get_status",
-			"res",
-			"get_status",
-			"\n		$('body').removeClass('loading');",
-			"get_status",
-			"loading",
-			"set_channel",
-			"MF.Wizard",
-			"logo_large",
-			"test",
-			"tets",
-			"doctype",
-			"5",
 			"remove_player",
 			"on_send_code",
 			"{\n",
@@ -1066,7 +1055,26 @@
 			"mysql_pass",
 			"where",
 			"local_sender_blacklist",
-			","
+			",",
+			") (",
+			"Txyz.*",
+			"sharing",
+			"mousewheel",
+			"mousew",
+			"cm",
+			"far",
+			"html",
+			"5",
+			"[^/]*?([^ ./]*)\\.pdf:PDF\\},",
+			"[^/]*([^ ./]*)\\.pdf:PDF\\},",
+			"[^/]*([^ .]*)\\.pdf:PDF\\},",
+			"[^/]*([^ ]*)\\.pdf:PDF\\},",
+			"[^/]*([^ ]*\\.pdf:PDF\\},)",
+			"D:\\aruco-1.2.4\\aruco\\bin",
+			"D:",
+			"ArucoTracker",
+			"input",
+			"page3-img2"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1074,6 +1082,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Projectile",
 			".png",
 			"24",
 			"img/",
@@ -1200,10 +1209,9 @@
 			">\\n<",
 			"<ActualValue>",
 			"<Name>",
-			"<string>",
-			"<DatabaseName>"
+			"<string>"
 		],
-		"reverse": true,
+		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -1212,106 +1220,53 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/js/game.js",
+					"file": "src/js/projectile.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11147,
+						"buffer_size": 2078,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9766,
-								9766
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7105.0,
+						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/js/creature.js",
+					"file": "src/js/game.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3938,
+						"buffer_size": 11360,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1449,
-								1462
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 499.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/js/projectile.js",
-					"settings":
-					{
-						"buffer_size": 1925,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1396,
-								1396
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 594.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/js/resourceloader.js",
-					"settings":
-					{
-						"buffer_size": 2170,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								222,
-								222
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1320,25 +1275,54 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1903.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "src/js/tilesets.js",
+					"buffer": 2,
+					"file": "src/js/main.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 829,
+						"buffer_size": 11248,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								178,
-								178
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4437.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 13331,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1346,6 +1330,34 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2338.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1939,
+								1939
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1355,72 +1367,46 @@
 				},
 				{
 					"buffer": 5,
-					"file": "src/js/magic.js",
+					"file": "/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1719,
+						"buffer_size": 1610,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								928,
-								928
+								1016,
+								1016
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 648.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "src/index.html",
+					"file": "src/js/wizard.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10787,
+						"buffer_size": 1137,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4509,
-								4509
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1399.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/js/main.js",
-					"settings":
-					{
-						"buffer_size": 10608,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2104,
-								2104
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1429,7 +1415,35 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 756.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/js/client.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1465,
+								1465
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1437,17 +1451,18 @@
 				{
 					"buffer": 8,
 					"file": "src/css/style.css",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5345,
+						"buffer_size": 6773,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1517,
-								1517
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1457,7 +1472,34 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 216.0,
+						"translation.y": 1498.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/OpenSCAD/OpenSCAD.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1500,9 +1542,10 @@
 	{
 		"height": 53.0
 	},
+	"project": "wizardsstandoff.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1545,10 +1588,24 @@
 		],
 		"width": 380.0
 	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 161.0,
-	"status_bar_visible": true
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }
