@@ -31,12 +31,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 body {
     padding-top: 50px;
@@ -132,11 +126,11 @@ body {
 }
 
 #wrap {
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
-    position: relative;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    position: absolute;
 }
 
 #footer {
@@ -144,6 +138,15 @@ body {
     background-color: #333;
     padding-top: 20px;
     border-top: 1px solid #555;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#footer .navbar-right {
+    margin-right: 30px;
 }
 
 #footer .credit {
@@ -180,7 +183,6 @@ body {
     position: absolute;
     top: 0;
     margin: 0;
-    padding-bottom: 60px;
 }
 .main .main-inner {
     height: 100%; 
@@ -215,7 +217,7 @@ body {
     overflow-y: scroll;
     height: 100%;
 }
-
+/*
 #log_players .list-group-item-text pre {
     -webkit-touch-callout: text;
     -webkit-user-select: text;
@@ -223,6 +225,16 @@ body {
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
+}*/
+
+.game {
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .game #gamecontainer {
