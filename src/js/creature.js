@@ -74,8 +74,7 @@ MF.Creature.prototype.move_left = function () {
     var me = this;
 
     if (me.tilePosition.x >= 0) {
-        me.sprite.position.x -= MF.Game.tileWidth;
-        me.tilePosition.x -= 1;
+        me._set_tile_position(VMath.add(me.tilePosition, new PIXI.Point(-1, 0)));
     }
 
     me.sprite.scale.x = 1;
@@ -90,8 +89,7 @@ MF.Creature.prototype.move_right = function () {
     var me = this;
     
     if (me.tilePosition.x < MF.Game.gridCols) {
-        me.sprite.position.x += MF.Game.tileWidth;
-        me.tilePosition.x += 1;
+        me._set_tile_position(VMath.add(me.tilePosition, new PIXI.Point(1, 0)));
     }
 
     me.sprite.scale.x = -1;
@@ -105,8 +103,7 @@ MF.Creature.prototype.move_up = function () {
     var me = this;
 
     if (me.tilePosition.y >= 0) {
-        me.sprite.position.y -= MF.Game.tileHeight;
-        me.tilePosition.y -= 1;
+        me._set_tile_position(VMath.add(me.tilePosition, new PIXI.Point(0, -1)));
     }
 };
 
@@ -114,8 +111,7 @@ MF.Creature.prototype.move_down = function () {
     var me = this;
 
     if (me.tilePosition.y < MF.Game.gridRows) {
-        me.sprite.position.y += MF.Game.tileHeight;
-        me.tilePosition.y += 1;
+        me._set_tile_position(VMath.add(me.tilePosition, new PIXI.Point(0, 1)));
     }
 };
 

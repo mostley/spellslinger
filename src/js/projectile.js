@@ -41,6 +41,7 @@ MF.Projectile.prototype.set_direction = function (direction) {
 
     var dirX = direction.x == 0 ? 0 : ( direction.x > 0 ? 1 : -1 );
     var dirY = direction.y == 0 ? 0 : ( direction.y > 0 ? 1 : -1 );
+    //direction = VMath.normalize(direction);
     
     me.velocity = new PIXI.Point(dirX, dirY);
 };
@@ -60,7 +61,7 @@ MF.Projectile.prototype.update = function (dt) {
     newPos.x = Math.floor(newPos.x);
     newPos.y = Math.floor(newPos.y);
 
-    if (me.tilePosition.x >= 0 && me.tilePosition.y >= 0 && me.tilePosition.x < MF.Game.gridCols && me.tilePosition.y < MF.Game.gridRows) {
+    if (newPos.x >= 0 && newPos.y >= 0 && newPos.x < MF.Game.gridCols && newPos.y < MF.Game.gridRows) {
         me._set_tile_position(newPos);
     } else {
         me.explode();

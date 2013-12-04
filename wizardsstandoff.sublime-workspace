@@ -555,7 +555,39 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 14032,
+				"buffer_size": 14148,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/BluehandsCookieCutter/cookiecutter.scad",
+			"settings":
+			{
+				"buffer_size": 678,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/FabLabLogo/repo/3D/logo_cookie_cutter.scad",
+			"settings":
+			{
+				"buffer_size": 6882,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/FabLabLogo/repo/3D/logo.scad",
+			"settings":
+			{
+				"buffer_size": 7464,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/BluehandsCookieCutter/Spiff.scad",
+			"settings":
+			{
+				"buffer_size": 1503,
 				"line_ending": "Windows"
 			}
 		},
@@ -587,7 +619,7 @@
 			"file": "src/css/style.css",
 			"settings":
 			{
-				"buffer_size": 6773,
+				"buffer_size": 6631,
 				"line_ending": "Windows"
 			}
 		},
@@ -800,6 +832,8 @@
 	},
 	"file_history":
 	[
+		"/D/Users/hecht/Dropbox/Dropbox/projects/Models/FabLabLogo/repo/3D/customizer.scad",
+		"/D/Users/hecht/Dropbox/Dropbox/projects/Models/BluehandsCookieCutter/cookiecutter2.scad",
 		"/C/Users/hecht/Desktop/tfsgorba.txt",
 		"/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
 		"/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox",
@@ -925,9 +959,7 @@
 		"/C/Chocolatey/lib/XSockets.Windows.Service.2.7.6/tools/XSockets.Windows.Service.exe.config",
 		"/D/Program Files (x86)/Microsoft/XSockets.2.0.1.Service.Installer/XSockets.NET.Hosting.Service.exe.config",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Didgeridoo Mount/DidgeridooMount.scad",
-		"/D/Lokale Daten/DropBox/Dropbox/sites/SHDev/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/TrackingServer/gitignore",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot"
+		"/D/Lokale Daten/DropBox/Dropbox/sites/SHDev/index.html"
 	],
 	"find":
 	{
@@ -947,6 +979,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"\\],\\[",
+			"],[",
+			"cookie_cutter",
 			"set_game_status",
 			"recon",
 			"get_stat",
@@ -1071,17 +1106,16 @@
 			"[^/]*([^ ]*)\\.pdf:PDF\\},",
 			"[^/]*([^ ]*\\.pdf:PDF\\},)",
 			"D:\\aruco-1.2.4\\aruco\\bin",
-			"D:",
-			"ArucoTracker",
-			"input",
-			"page3-img2"
+			"D:"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"\\],\\n\\[",
+			"],\\n[",
 			"Projectile",
 			".png",
 			"24",
@@ -1207,9 +1241,7 @@
 			"",
 			"[datetime2]",
 			">\\n<",
-			"<ActualValue>",
-			"<Name>",
-			"<string>"
+			"<ActualValue>"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1220,7 +1252,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -1343,15 +1375,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14032,
+						"buffer_size": 14148,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1939,
-								1939
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1367,6 +1399,118 @@
 				},
 				{
 					"buffer": 5,
+					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/BluehandsCookieCutter/cookiecutter.scad",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 678,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								447,
+								458
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/OpenSCAD/OpenSCAD.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 329.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/FabLabLogo/repo/3D/logo_cookie_cutter.scad",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6882,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6330,
+								6330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/OpenSCAD/OpenSCAD.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/FabLabLogo/repo/3D/logo.scad",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2015,
+								3905
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/OpenSCAD/OpenSCAD.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 11887.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/BluehandsCookieCutter/Spiff.scad",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1503,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								990,
+								990
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/OpenSCAD/OpenSCAD.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
 					"file": "/D/Users/hecht/Dropbox/Dropbox/FabLabAccountData.txt",
 					"semi_transient": false,
 					"settings":
@@ -1393,7 +1537,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 10,
 					"file": "src/js/wizard.js",
 					"semi_transient": false,
 					"settings":
@@ -1421,7 +1565,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 11,
 					"file": "src/js/client.js",
 					"semi_transient": false,
 					"settings":
@@ -1449,12 +1593,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 12,
 					"file": "src/css/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6773,
+						"buffer_size": 6631,
 						"regions":
 						{
 						},
@@ -1478,7 +1622,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 13,
 					"file": "/D/Users/hecht/Dropbox/Dropbox/projects/Models/MagneticBox/magneticbox.scad",
 					"semi_transient": false,
 					"settings":

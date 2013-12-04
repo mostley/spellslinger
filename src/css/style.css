@@ -116,6 +116,11 @@ body {
     max-width: 100%;
 }
 
+#introOverlay .glyphicon-chevron-right, #introOverlay .glyphicon-chevron-left {
+    color: #333;
+    font-size: 50px;
+}
+
 .navbar-brand {
     font-family: bleeding_cowboysregular;
     font-size: 30px;
@@ -217,18 +222,8 @@ body {
     overflow-y: scroll;
     height: 100%;
 }
-/*
-#log_players .list-group-item-text pre {
-    -webkit-touch-callout: text;
-    -webkit-user-select: text;
-    -khtml-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-}*/
 
 .game {
-
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -255,6 +250,7 @@ body {
     bottom: 30px;
     right: 40px;
     color: #0f0;
+    text-shadow: 1px 1px 1px #333;
 }
 
 .game h2.center-block {
@@ -265,6 +261,12 @@ body {
 
 .code {
     padding-left: 0;
+}
+
+.code.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
 }
 
 .code .alert {

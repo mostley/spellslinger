@@ -70,6 +70,10 @@ MF.Controller = {
 	gameOver: function() {
 		//TODO make nicer
 		alert("Game Over - You are dead.");
+
+		$('.code').addClass('disabled');
+		var editor = ace.edit("codeditor");
+		editor.setReadonly(true);
 	},
 
 	show_help_overlay: function() {
@@ -384,21 +388,66 @@ MF.Controller = {
 		} else {
 			$('.code .tab-content').append(me.Templates.alert_error({ text: "Code not valid: " + validationResult.error.message }));
 		}*/
-	}
+	},
+
+	on_text_complete: function(editor, session, pos, prefix, callback) {
+        var textBefore = session.getTextRange({ start: { column: 0, row: pos.row }, end: pos });
+        console.log(textBefore, prefix);
+
+        if (textBefore.trim() == "wizard.") {
+        	callback(null, [{
+        		name: 'Walk left',
+        		value: 'walkLeft()',
+        		score: 1,
+        		meta: 'left'
+        	},{
+        		name: 'Walk right',
+        		value: 'walkRight()',
+        		score: 2,
+        		meta: 'right'
+        	},{
+        		name: 'Walk up',
+        		value: 'walkUp()',
+        		score: 3,
+        		meta: 'up'
+        	},{
+        		name: 'Walk down',
+        		value: 'walkDown()',
+        		score: 4,
+        		meta: 'down'
+        	},{
+        		name: 'Say something',
+        		value: 'say("Hello")',
+        		score: 5,
+        		meta: 'say'
+        	},{
+        		name: 'Throw fireball',
+        		value: 'throwFireball(1,0)',
+        		score: 6,
+        		meta: 'down'
+        	}]);
+        } else {
+        	callback(null, []);
+        }
+    }
 };
 
 $(function() {
 
-	   // Init ACE Editor
+	  // Init ACE Editor
     var editor = ace.edit("codeditor");
-    ace.require("ace/ext/language_tools");
+    var langTools = ace.require("ace/ext/language_tools");
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/javascript");
 
     editor.setOptions({
-        //TODO: enableLiveAutoComplete: true,
+        enableBasicAutocompletion: true,
         enableSnippets: true
     });
+    var completer = {
+        getCompletions: MF.Controller.on_text_complete.bind(MF.Controller)
+    }
+    langTools.addCompleter(completer);
     
 	   // Init Base64 for use in urls
     base64.settings.char62 = "-";

@@ -445,7 +445,7 @@ MF.Game = {
 		var me = this;
 
 		me.isDragging = true;
-		me.dragStart = new PIXI.Point(e.offsetX, e.offsetY);
+		me.dragStart = new PIXI.Point(e.pageX, e.pageY);
 		me.containerStart = new PIXI.Point(me.levelContainer.position.x, me.levelContainer.position.y);
 		$(me.gameContainer).addClass('dragging');
 	},
@@ -453,15 +453,16 @@ MF.Game = {
 	on_mouse_move: function(e) {
 		var me = this;
 
-		var pos = new PIXI.Point(e.offsetX, e.offsetY);
+		var pos = new PIXI.Point(e.pageX, e.pageY);
 
 		if (me.isDragging) {
 			var delta = VMath.substract(pos, me.dragStart);
 			me.levelContainer.position.x = me.containerStart.x + delta.x;
 			me.levelContainer.position.y = me.containerStart.y + delta.y;
 		} else {
-			var x = pos.x - me.levelContainer.position.x;
-			var y = pos.y - me.levelContainer.position.y;
+			var offset = $(me.gameContainer).offset();
+			var x = pos.x - me.levelContainer.position.x - offset.left;
+			var y = pos.y - me.levelContainer.position.y - offset.top;
 
 			x = Math.floor(x / me.tileWidth);
 			y = Math.floor(y / me.tileWidth);
