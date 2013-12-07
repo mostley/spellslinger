@@ -35,6 +35,8 @@ MF.Game = {
     
     isDragging: false,
     dragStart: null,
+    _cameraTaget: null,
+    _cameraSpeed: 0.3,
 
 	gameContainer: "#gamecontainer",
 
@@ -131,6 +133,16 @@ MF.Game = {
 
 	        me.lastTick = new Date().getTime();
 	    }
+
+		if (!me.isDragging && me._cameraTaget) {
+			var delta = VMath.multiplyScalar(VMath.substract(me._cameraTaget, me.levelContainer.position), me._cameraSpeed);
+
+			if (VMath.magnitude(delta) > 2) {
+				me.levelContainer.position = VMath.add(me.levelContainer.position, delta);
+			} else {
+				me._cameraTaget = null;
+			}
+		}
 		
 		me.renderer.render(me.stage);
 
@@ -300,6 +312,12 @@ MF.Game = {
 		return me._wizards[playerId];
 	},
 
+	get_wizard_sprite: function(playerId) {
+		var me = this;
+		
+		return me._wizardSprites[playerId];
+	},
+
 	get_wizard_at: function(x,y) {
 		var me = this;
 
@@ -406,6 +424,52 @@ MF.Game = {
 				wizardSprite.health = data.health;
 			}
 		}
+	},
+
+	get_command_data: function() {
+		var me = this;
+
+		var result = {};
+
+		for (var playerId in me._commandQueue) {
+			var commandList = me._commandQueue[playerId];
+
+			result[playerId] = {
+				commands: commandList
+			};
+		}
+
+		return result;
+	},
+
+	set_command_data: function(command_data) {
+		var me = this;
+		
+		for (var playerId in command_data) {
+			var data = command_data[playerId];
+			me._commandQueue[playerId] = data.commands;
+		}
+	},
+
+	move_camera_to: function(obj) {
+		var me = this;
+
+		var pos;
+		if (typeof(obj.x) == 'number' && typeof(obj.y) == 'number') {
+			pos = obj;
+		} else {
+			pos = obj.tilePosition;
+		}
+
+		var tileCenter = new PIXI.Point(
+				Math.floor((me.width / 2) / me.tileWidth),
+				Math.floor((me.height / 2) / me.tileHeight));
+
+		var newScreenEdge = VMath.substract(pos, tileCenter)
+
+	    me._cameraTaget = new PIXI.Point(
+	    	-newScreenEdge.x * me.tileWidth,
+	    	-newScreenEdge.y * me.tileHeight);
 	},
 
 	set_element_tile_position: function(element, tPos) {

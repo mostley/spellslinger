@@ -50,13 +50,19 @@ MF.Controller = {
 		$(window).on('keydown', function(e) {
     		var editor = ace.edit("codeditor");
 			var editorHasFocus = editor.isFocused();
-			if (me.gameIsRunning && !editorHasFocus && e.keyCode == 72) {
-				me.show_help_overlay();
+			if (me.gameIsRunning && !editorHasFocus) {
+				if (e.keyCode == 72) {
+					me.show_help_overlay();
+				}
 			}
 		});
 		$(window).on('keyup', function(e) {
-			if (me.gameIsRunning && e.keyCode == 72) {
-				$('#helpOverlay').removeClass('in').hide();
+			if (me.gameIsRunning) {
+				if (e.keyCode == 72) {
+					$('#helpOverlay').removeClass('in').hide();
+				} else if (e.keyCode == 36) {
+					MF.Game.move_camera_to(MF.Game.get_wizard_sprite(MF.Client.userId));
+				}
 			}
 		});
 
@@ -138,10 +144,12 @@ MF.Controller = {
 	get_game_status: function() {
 		var wizard_data = MF.Game.get_wizard_data();
 		var projectile_data = MF.Game.get_projectile_data();
+		var command_data = MF.Game.get_command_data();
 
 		return {
 			wizards: wizard_data,
-			projectiles: projectile_data
+			projectiles: projectile_data,
+			commands: command_data
 		}
 	},
 
@@ -149,6 +157,7 @@ MF.Controller = {
 		if (status) {
 			MF.Game.set_wizard_data(status.wizards);
 			MF.Game.set_projectile_data(status.projectiles);
+			MF.Game.set_command_data(status.commands);
 		}
 	},
 
@@ -312,6 +321,8 @@ MF.Controller = {
 		}
 
 		me.gameIsRunning = true;
+
+		MF.Game.move_camera_to(MF.Game.get_wizard_sprite(MF.Client.userId));
 	},
 
 	on_create_channel: function() {
