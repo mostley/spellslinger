@@ -16,6 +16,21 @@ MF.MockMagic = function() {
 
 	me.mana = 0;
 };
+MF.MagicElementType = {
+	Nothing: 'nothing',
+	Wizard: 'wizard',
+	Fireball: 'Fireball'
+};
+MF.MagicElement = function(magic, id, x, y, type) {
+	var me = this;
+
+	me._magic = magic;
+
+	me._element_id = id;
+	me.x = x;
+	me.y = y;
+	me.type = type;
+};
 
 MF.Magic.prototype._popAllCommands = function() {
 	var me = this;
@@ -24,8 +39,6 @@ MF.Magic.prototype._popAllCommands = function() {
 	me._commands = [];
 	return result;
 };
-
-
 
 MF.MockMagic.prototype.get_total = function() {
 	var me = this;
@@ -51,12 +64,20 @@ MF.MockMagic.prototype.get_total = function() {
 			parametersRequired: 0,
 			manaCost: 1
 		}, 
+		'move': {
+			parametersRequired: 2,
+			manaCost: 1
+		}, 
 		'say_something': {
 			parametersRequired: 1,
 			manaCost: 1
 		}, 
 		'throw_fireball': {
 			parametersRequired: 2,
+			manaCost: 1
+		}, 
+		'move_element': {
+			parametersRequired: 3,
 			manaCost: 1
 		}
 	};
@@ -105,4 +126,37 @@ MF.MockMagic.prototype.get_total = function() {
 
 		MF.MockMagic.prototype[name] = _createMockDelegate(name, method);
 	}
+
+	MF.MagicElement.prototype.move = function(x, y) {
+		var me = this;
+		if (me.type != MF.MagicElementType.Nothing) {
+			me._magic.move_element(me._element_id, x, y);
+		} else {
+			throw { message: "no element at " +me.x+":"+me.y };
+		}
+	};
+
+	var internal_look_at = function(x, y) {
+		var result = null;
+		var element = MF.Game.get_element_at(x,y);
+
+		if (element) {
+			result = element;
+		}
+
+		return result;
+	};
+
+	MF.MockMagic.prototype.look_at = MF.Magic.prototype.look_at = function(x,y) {
+		var element = internal_look_at(x, y);
+		var id = null;
+		var type = MF.MagicElementType.Nothing;
+		if (element) {
+			id = element._id;
+			type = element._magicElementType;
+		}
+		return new MF.MagicElement(this, id, x, y, type);
+	};
+	
+
 })();

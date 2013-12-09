@@ -12,7 +12,9 @@ MF.Creature = function(playerId, sprite, tPos)
 {
     var me = this;
 
+    me._id = MF.Game.create_id(me);
     me._type = "creature";
+    me._magicElementType = MF.MagicElementType.Wizard;
 
     me.health = 100;
     me.currentSpeech = null;
@@ -70,6 +72,37 @@ MF.Creature.prototype.damageWith = function (shot) {
     }
 };
 
+
+MF.Creature.prototype.move_element = function (elem_id, dirX, dirY) {
+
+    var elem = MF.Game.get_element_by_id(elem_id);
+    
+    if (elem) {
+        elem.move(dirX, dirY);
+    } else {
+        console.log("elem with id " + elem_id + " does not exist.");
+    }
+};
+
+MF.Creature.prototype.move = function (dirX, dirY) {
+    var me = this;
+
+    dirX = dirX == 0 ? 0 : ( dirX > 0 ? 1 : -1 );
+    dirY = dirY == 0 ? 0 : ( dirY > 0 ? 1 : -1 );
+
+    me._set_tile_position(VMath.add(me.tilePosition, new PIXI.Point(dirX,dirY)));
+
+    if (dirX > 0) {
+        me.sprite.scale.x = 1;
+    } else if (dirX < 0) {
+        me.sprite.scale.x = -1;
+    }
+
+    if (me.currentSpeech) {
+        me.currentSpeech.sprite.scale.x = me.sprite.scale.x;
+    }
+};
+
 MF.Creature.prototype.move_left = function () {
     var me = this;
 
@@ -81,7 +114,6 @@ MF.Creature.prototype.move_left = function () {
 
     if (me.currentSpeech) {
     	me.currentSpeech.sprite.scale.x = 1;
-		me.currentSpeech.sprite.position.x = 0;
     }
 };
 

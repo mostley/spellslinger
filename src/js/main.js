@@ -57,13 +57,20 @@ MF.Controller = {
 			}
 		});
 		$(window).on('keyup', function(e) {
+    		var editor = ace.edit("codeditor");
+			var editorHasFocus = editor.isFocused();
 			if (me.gameIsRunning) {
 				if (e.keyCode == 72) {
 					$('#helpOverlay').removeClass('in').hide();
-				} else if (e.keyCode == 36) {
+				} else if (e.keyCode == 36 && !editorHasFocus) {
 					MF.Game.move_camera_to(MF.Game.get_wizard_sprite(MF.Client.userId));
 				}
 			}
+		});
+
+		$('#channel-creation-form').on('submit', function(e) { 
+			me.on_create_channel();
+			e.preventDefault();
 		});
 
 		me.init_templates();
@@ -79,7 +86,7 @@ MF.Controller = {
 
 		$('.code').addClass('disabled');
 		var editor = ace.edit("codeditor");
-		editor.setReadonly(true);
+		editor.setReadOnly(true);
 	},
 
 	show_help_overlay: function() {
@@ -210,6 +217,7 @@ MF.Controller = {
 				$('#dialog-channel-selection').modal();
 			} else {
 				$('#dialog-channel-creation').modal();
+				Function.defer(1000, function () { $('#channel_name').focus(); });
 			}
 		} else {
 			MF.Client.select_channel(channelId);
@@ -297,7 +305,9 @@ MF.Controller = {
 
 		me.set_game_status(data.status);
 
-		me.on_game_started();
+		if (!me.gameIsRunning) {
+			me.on_game_started();
+		}
 	},
 
 	request_error: function(data) {
@@ -365,7 +375,7 @@ MF.Controller = {
 			editor.selectAll();
 			$('#mana-count').text(0);
 		} else {
-			$('.code .tab-content').append(me.Templates.alert_error({ text: "Code not valid: " + validationResult.error.message }));
+			$('.code .tab-content').append(me.Templates.alert_error({ text: "Code not valid: " + (validationResult.error.message ||validationResult.error) }));
 		}
 
 		me.set_codeditor_loading(false);

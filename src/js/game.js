@@ -13,6 +13,9 @@ MF.Textures = {
 
 MF.Game = {
 
+	_idCounter: 0,
+	_idRegistry: {},
+
 	width: 300,
 	height: 400,
 	stage: null,
@@ -85,6 +88,14 @@ MF.Game = {
 		me.showCoordinates = Function.buffer(100, me.showCoordinates.bind(me));
 		me.hideCoordinates = Function.buffer(100, me.hideCoordinates.bind(me));
 		$(me.gameContainer).on('mouseleave', me.hideCoordinates.bind(me));
+	},
+
+	create_id: function(element) {
+		var me = this;
+		var result = me._idCounter++;
+		me._idRegistry[result] = element;
+
+		return result;
 	},
 
 	createGrid: function() {
@@ -229,10 +240,12 @@ MF.Game = {
 
 	remove_projectile: function(projectileSprite) {
 		var me = this;
+
+		var projectileList = me._projectileSprites[projectileSprite.playerId];
 		
-		if (me._projectileSprites[projectileSprite.playerId]) {
-			var index = me._projectileSprites[projectileSprite.playerId].indexOf(projectileSprite);
-			delete me._projectileSprites[projectileSprite.playerId][index];
+		if (projectileList) {
+			var index = projectileList.indexOf(projectileSprite);
+			delete projectileList[index];
 
 			if (projectileSprite.sprite) {
 				me.levelContainer.removeChild(projectileSprite.sprite);
@@ -246,6 +259,8 @@ MF.Game = {
 			}
 
 			projectileSprite.isAlive = false;
+
+			delete me._idRegistry[projectileSprite._id];
 		}
 	},
 
@@ -299,6 +314,7 @@ MF.Game = {
 			}
 			delete me._wizardSprites[playerId];
 			delete me._commandQueue[playerId];
+			delete me._idRegistry[wizard._id];
 
 			me._grid[wizard.tilePosition.x][wizard.tilePosition.y] = null;
 
@@ -346,6 +362,12 @@ MF.Game = {
 		}
 
 		return result;
+	},
+
+	get_element_by_id: function(id) {
+		var me = this;
+
+		return me._idRegistry[id];
 	},
 
 	get_projectile_data: function() {

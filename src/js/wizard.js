@@ -12,7 +12,7 @@ if (!MF.Wizard.__proto__) { MF.Wizard.__proto__ = {}; }
 
 MF.Wizard._create_magic_callback = function(magic_name) {
 	return function() {
-		this.magic[magic_name].apply(this.magic, arguments);
+		return this.magic[magic_name].apply(this.magic, arguments);
 	};
 }
 
@@ -41,3 +41,6 @@ MF.Wizard._set_mapping(["say", "talk", "speak", "blurt", "brabble", "schwätz", 
 
 MF.Wizard._set_mapping(["fireball", "throwFireball"],
 		'throw_fireball');
+
+MF.Wizard._set_mapping(["look", "lookAt", "see", "discover", "scry", "search", "get", "investigate"],
+		'look_at');

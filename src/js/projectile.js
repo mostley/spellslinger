@@ -13,7 +13,9 @@ MF.Projectile = function(playerId, tPos, type)
 {
     var me = this;
 
+    me._id = MF.Game.create_id(me);
     me._type = "projectile";
+    me._magicElementType = MF.MagicElementType.Fireball;
 
     me.playerId = playerId;
     me.tilePosition = tPos;
@@ -35,6 +37,15 @@ MF.Projectile = function(playerId, tPos, type)
 };
 
 MF.Projectile.constructor = MF.Projectile;
+
+MF.Creature.prototype.move = function (dirX, dirY) {
+    var me = this;
+
+    dirX = dirX == 0 ? 0 : ( dirX > 0 ? 1 : -1 );
+    dirY = dirY == 0 ? 0 : ( dirY > 0 ? 1 : -1 );
+
+    me._set_tile_position(VMath.add(me.tilePosition, new PIXI.Point(dirX,dirY)));
+};
 
 MF.Projectile.prototype.set_direction = function (direction) {
     var me = this;
