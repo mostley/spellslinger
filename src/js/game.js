@@ -43,6 +43,8 @@ MF.Game = {
 	_wizards: [],
 	_wizardSprites: {},
 	_projectileSprites: {},
+	_creepSprites: {},
+	_objectSprites: {},
 	levelContainer: null,
 
 	_grid: {},
@@ -167,10 +169,12 @@ MF.Game = {
 		for (var playerId in me._commandQueue) {
 			var commandList = me._commandQueue[playerId];
 			if (commandList.length > 0) {
-				var command = commandList.pop();
 				var wizard = me._wizardSprites[playerId];
+				if (wizard) {
+					var command = commandList.pop();
 
-				wizard[command.name].apply(wizard, command.parameters);
+					wizard[command.name].apply(wizard, command.parameters);
+				}
 			}
 		}
 	},

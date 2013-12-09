@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"contain",
+				"levelContainer"
+			],
+			[
 				"pre",
 				"prefix"
 			],
@@ -510,28 +514,16 @@
 			[
 				"vecto",
 				"vector_add"
-			],
-			[
-				"touchst",
-				"touchstartPos"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/index.html",
-			"settings":
-			{
-				"buffer_size": 14204,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "src/js/main.js",
 			"settings":
 			{
-				"buffer_size": 12560,
+				"buffer_size": 12892,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,79 +531,15 @@
 			"file": "src/js/game.js",
 			"settings":
 			{
-				"buffer_size": 11425,
+				"buffer_size": 12882,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/Sven Hecht/Downloads/ace-builds-master/ace-builds-master/src/ext-language_tools.js",
+			"file": "src/js/vmath.js",
 			"settings":
 			{
-				"buffer_size": 56516,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/css/style.css",
-			"settings":
-			{
-				"buffer_size": 6872,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/wizard.js",
-			"settings":
-			{
-				"buffer_size": 1137,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 13331,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/libs/ace/ext-language_tools.js",
-			"settings":
-			{
-				"buffer_size": 27380,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/js/libs/ace/snippets/javascript.js",
-			"settings":
-			{
-				"buffer_size": 4276,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/libs/ace/mode-javascript.js",
-			"settings":
-			{
-				"buffer_size": 39702,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/repo/3D/logo_cookie_cutter.scad",
-			"settings":
-			{
-				"buffer_size": 6778,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
-			"settings":
-			{
-				"buffer_size": 1638,
+				"buffer_size": 741,
 				"line_ending": "Windows"
 			}
 		}
@@ -812,6 +740,19 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Sven Hecht/Desktop/New Text Document.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/repo/3D/logo_cookie_cutter.scad",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
+		"/C/Users/Sven Hecht/Downloads/ace-builds-master/ace-builds-master/src/ext-language_tools.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/app.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/ace/ext-language_tools.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/ace/snippets/javascript.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/ace/mode-javascript.js",
+		"/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/creature.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/projectile.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
@@ -821,17 +762,10 @@
 		"/C/Users/Sven Hecht/Downloads/ace-builds-master/ace-builds-master/src/snippets/javascript.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/jquery.cookie.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/executor.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/app.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/extensions.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/css/main.css",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/DangerBert/js/game.js",
 		"/C/Users/Sven Hecht/.ssh/id_rsa.pub",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/.git/config",
@@ -858,7 +792,6 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/rainbow-theme-monokai.css",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/procfile",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/package.json",
-		"/C/Users/Sven Hecht/Desktop/New Text Document.txt",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/server.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/node_modules/ws/examples/fileapi/server.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/node_modules/ws/index.js",
@@ -934,12 +867,7 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Didgeridoo Mount/DidgeridooMount.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/sites/SHDev/index.html",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/TrackingServer/gitignore",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/INSTALL",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/index.html",
-		"/F/INSTRUCTIONS-README.txt",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/RpiTracker/Makefile",
-		"/C/Users/Sven Hecht/Downloads/create_mail/create_mail.php"
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/boost_1_49_0/Jamroot"
 	],
 	"find":
 	{
@@ -960,6 +888,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"get_w",
+			"_cameraTaget",
+			"get_w",
+			"isDragging",
+			"gameIsRunning",
+			"on_game_started",
+			"get_game_status",
+			"_commandQueue",
 			"gatherCompletions",
 			"FilteredList",
 			"all",
@@ -1079,15 +1015,7 @@
 			"remove_client_from_channel",
 			"remove",
 			"base64",
-			"add_client_to_channel",
-			"get_channel_by_id",
-			"add_client_to_channel",
-			"_channelsId",
-			"channelCollection",
-			"socket.send(",
-			"window.",
-			"set_channel",
-			"hide"
+			"add_client_to_channel"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1233,50 +1161,50 @@
 	"groups":
 	[
 		{
-			"selected": 11,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/index.html",
+					"file": "src/js/main.js",
 					"settings":
 					{
-						"buffer_size": 14204,
+						"buffer_size": 12892,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4551,
-								4551
+								1040,
+								1040
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4945.0,
+						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/js/main.js",
+					"file": "src/js/game.js",
 					"settings":
 					{
-						"buffer_size": 12560,
+						"buffer_size": 12882,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9968,
-								9968
+								614,
+								614
 							]
 						],
 						"settings":
@@ -1285,52 +1213,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6871.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/js/game.js",
+					"file": "src/js/vmath.js",
 					"settings":
 					{
-						"buffer_size": 11425,
+						"buffer_size": 741,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5827,
-								5829
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4009.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/Sven Hecht/Downloads/ace-builds-master/ace-builds-master/src/ext-language_tools.js",
-					"settings":
-					{
-						"buffer_size": 56516,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2250,
-								2250
+								99,
+								108
 							]
 						],
 						"settings":
@@ -1340,224 +1241,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/css/style.css",
-					"settings":
-					{
-						"buffer_size": 6872,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4765,
-								4765
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3919.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/js/wizard.js",
-					"settings":
-					{
-						"buffer_size": 1137,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1113,
-								1100
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app.js",
-					"settings":
-					{
-						"buffer_size": 13331,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11466,
-								11466
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4467.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/js/libs/ace/ext-language_tools.js",
-					"settings":
-					{
-						"buffer_size": 27380,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1764,
-								1776
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/js/libs/ace/snippets/javascript.js",
-					"settings":
-					{
-						"buffer_size": 4276,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								596,
-								596
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "src/js/libs/ace/mode-javascript.js",
-					"settings":
-					{
-						"buffer_size": 39702,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6572,
-								6572
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2091.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/repo/3D/logo_cookie_cutter.scad",
-					"settings":
-					{
-						"buffer_size": 6778,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5868,
-								5868
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/OpenSCAD/Syntaxes/OpenSCAD.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
-					"settings":
-					{
-						"buffer_size": 1638,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1638,
-								1601
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 972.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
