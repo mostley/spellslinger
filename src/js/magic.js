@@ -72,6 +72,10 @@ MF.MockMagic.prototype.get_total = function() {
 			parametersRequired: 1,
 			manaCost: 1
 		}, 
+		'look_at': {
+			parametersRequired: 2,
+			manaCost: 0
+		}, 
 		'throw_fireball': {
 			parametersRequired: 2,
 			manaCost: 1
@@ -81,6 +85,17 @@ MF.MockMagic.prototype.get_total = function() {
 			manaCost: 1
 		}
 	};
+
+	function s4() {
+	    return Math.floor((1 + Math.random()) * 0x10000)
+	               .toString(16)
+	               .substring(1);
+	};
+
+	function guid() {
+		return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+			   s4() + '-' + s4() + s4() + s4();
+	}
 
 	function _cloneArray(args) {
 		var result = [];
@@ -119,14 +134,6 @@ MF.MockMagic.prototype.get_total = function() {
 		};
 	}
 
-	for (var name in _methods) {
-		var method = _methods[name];
-
-		MF.Magic.prototype[name] = _createPushCommandDelegate(name, method);
-
-		MF.MockMagic.prototype[name] = _createMockDelegate(name, method);
-	}
-
 	MF.MagicElement.prototype.move = function(x, y) {
 		var me = this;
 		if (me.type != MF.MagicElementType.Nothing) {
@@ -157,6 +164,53 @@ MF.MockMagic.prototype.get_total = function() {
 		}
 		return new MF.MagicElement(this, id, x, y, type);
 	};
+
+	MF.Magic.prototype.throw_fireball = function(dirX, dirY) {
+		var id = guid();
+
+	    dirX = dirX == 0 ? 0 : ( dirX > 0 ? 1 : -1 );
+	    dirY = dirY == 0 ? 0 : ( dirY > 0 ? 1 : -1 );
+
+		var wizard = MF.Game.get_wizard_sprite(me._playerId);
+
+		var x = dirX + wizard.tilePosition.x;
+		var y = dirY + wizard.tilePosition.y;
+
+		me._commands.push({
+			name: 'throw_fireball',
+			parameters: [0+dirX, 0+dirY, id]
+		});
+
+		return new MF.MagicElement(this, id, x, y, MF.MagicElementType.Fireball);
+	};
+	MF.MockMagic.prototype.throw_fireball = function(x, y) {
+		var id = guid();
+
+	    dirX = dirX == 0 ? 0 : ( dirX > 0 ? 1 : -1 );
+	    dirY = dirY == 0 ? 0 : ( dirY > 0 ? 1 : -1 );
+
+		var wizard = MF.Game.get_wizard_sprite(me._playerId);
+
+		var x = dirX + wizard.tilePosition.x;
+		var y = dirY + wizard.tilePosition.y;
+
+		this.mana += 1;
+
+		return new MF.MagicElement(this, id, x, y, MF.MagicElementType.Fireball);
+	};
+
+
+	for (var name in _methods) {
+		var method = _methods[name];
+
+		if (!MF.Magic.prototype[name]) {
+			MF.Magic.prototype[name] = _createPushCommandDelegate(name, method);
+		}
+
+		if (!MF.MockMagic.prototype[name]) {
+			MF.MockMagic.prototype[name] = _createMockDelegate(name, method);
+		}
+	}
 	
 
 })();

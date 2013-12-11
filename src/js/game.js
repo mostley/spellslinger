@@ -222,11 +222,11 @@ MF.Game = {
 		return new PIXI.Point(x,y);
 	},
 
-	add_projectile: function(playerId, position, type) {
+	add_projectile: function(playerId, position, type, id) {
 		var me = this;
 		console.log("add_projectile",playerId, position, type);
 
-		var projectile = new MF.Projectile(playerId, position, type);
+		var projectile = new MF.Projectile(playerId, position, type, id);
 
 		if (!me._projectileSprites[playerId]) {
 			me._projectileSprites[playerId] = [];

@@ -9,11 +9,11 @@ MF.ProjectileTypes = {
     }
 };
 
-MF.Projectile = function(playerId, tPos, type)
+MF.Projectile = function(playerId, tPos, type, id)
 {
     var me = this;
 
-    me._id = MF.Game.create_id(me);
+    me._id = id || MF.Game.create_id(me);
     me._type = "projectile";
     me._magicElementType = MF.MagicElementType.Fireball;
 
