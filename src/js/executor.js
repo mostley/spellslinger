@@ -36,7 +36,7 @@ MF.Executor = {
 		var wizard = new MF.Wizard(magic);
 
 		if (wizard) {
-			var wizardSprite = me.get_wizard_sprite(playerId)
+			var wizardSprite = MF.Game.get_wizard_sprite(playerId)
 			wizard.x = wizardSprite.tilePosition.x;
 			wizard.y = wizardSprite.tilePosition.y;
 		}
