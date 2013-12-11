@@ -17,7 +17,7 @@ MF.Executor = {
 	calculate_mana_cost: function(code) {
 		var me = this;
 
-		var magic = new MF.MockMagic();
+		var magic = new MF.MockMagic(MF.Client.userId);
 		var wizard = new MF.Wizard(magic);
 
 		me._execute_code(wizard, code);
@@ -30,7 +30,7 @@ MF.Executor = {
 
 		var result = { success: true, error: null };
 
-		var magic = new MF.MockMagic();
+		var magic = new MF.MockMagic(MF.Client.userId);
 		var wizard = new MF.Wizard(magic);
 
 		result.error = me._execute_code(wizard, code);

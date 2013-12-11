@@ -11,9 +11,10 @@ MF.Magic = function(playerId) {
 	me._playerId = playerId;
 	me._commands = [];
 };
-MF.MockMagic = function() {
+MF.MockMagic = function(playerId) {
 	var me = this;
 
+	me._playerId = playerId;
 	me.mana = 0;
 };
 MF.MagicElementType = {
