@@ -177,7 +177,7 @@ MF.Creature.prototype.doSay = function (speech) {
 
 	me.currentSpeech = speech
     me.currentSpeech.endTime = MF.Game.time + me.currentSpeech.duration;
-	me.currentSpeech.sprite = new PIXI.Text(speech.text, {
+	me.currentSpeech.sprite = new PIXI.Text(speech.text+"", {
 		align: 'center',
 		font: '12pt Arial',
 		fill: 'white'
