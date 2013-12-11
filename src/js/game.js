@@ -328,8 +328,16 @@ MF.Game = {
 
 	get_wizard: function(playerId) {
 		var me = this;
+
+		var result = me._wizards[playerId];
+
+		if (result) {
+			var wizardSprite = me.get_wizard_sprite(playerId)
+			result.x = wizardSprite.tilePosition.x;
+			result.y = wizardSprite.tilePosition.y;
+		}
 		
-		return me._wizards[playerId];
+		return result;
 	},
 
 	get_wizard_sprite: function(playerId) {

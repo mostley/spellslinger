@@ -6,6 +6,8 @@ MF.Wizard = function(magic) {
 	var me = this;
 
 	me.magic = magic;
+	me.x = null;
+	me.y = null;
 };
 
 if (!MF.Wizard.__proto__) { MF.Wizard.__proto__ = {}; }

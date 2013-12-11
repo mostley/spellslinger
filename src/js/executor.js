@@ -30,8 +30,16 @@ MF.Executor = {
 
 		var result = { success: true, error: null };
 
-		var magic = new MF.MockMagic(MF.Client.userId);
+		var playerId = MF.Client.userId;
+
+		var magic = new MF.MockMagic(playerId);
 		var wizard = new MF.Wizard(magic);
+
+		if (wizard) {
+			var wizardSprite = me.get_wizard_sprite(playerId)
+			wizard.x = wizardSprite.tilePosition.x;
+			wizard.y = wizardSprite.tilePosition.y;
+		}
 
 		result.error = me._execute_code(wizard, code);
 		result.success = result.error == null;
