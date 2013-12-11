@@ -166,6 +166,8 @@ MF.MockMagic.prototype.get_total = function() {
 	};
 
 	MF.Magic.prototype.throw_fireball = function(dirX, dirY) {
+		var me = this;
+
 		var id = guid();
 
 	    dirX = dirX == 0 ? 0 : ( dirX > 0 ? 1 : -1 );
@@ -181,9 +183,11 @@ MF.MockMagic.prototype.get_total = function() {
 			parameters: [0+dirX, 0+dirY, id]
 		});
 
-		return new MF.MagicElement(this, id, x, y, MF.MagicElementType.Fireball);
+		return new MF.MagicElement(me, id, x, y, MF.MagicElementType.Fireball);
 	};
 	MF.MockMagic.prototype.throw_fireball = function(dirX, dirY) {
+		var me = this;
+
 		var id = guid();
 
 	    dirX = dirX == 0 ? 0 : ( dirX > 0 ? 1 : -1 );
@@ -194,9 +198,9 @@ MF.MockMagic.prototype.get_total = function() {
 		var x = dirX + wizard.tilePosition.x;
 		var y = dirY + wizard.tilePosition.y;
 
-		this.mana += 1;
+		me.mana += 1;
 
-		return new MF.MagicElement(this, id, x, y, MF.MagicElementType.Fireball);
+		return new MF.MagicElement(me, id, x, y, MF.MagicElementType.Fireball);
 	};
 
 
