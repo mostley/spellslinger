@@ -45,6 +45,7 @@ MF.Projectile.prototype.move = function (dirX, dirY) {
     dirY = dirY == 0 ? 0 : ( dirY > 0 ? 1 : -1 );
 
     me._set_tile_position(VMath.add(me.tilePosition, new PIXI.Point(dirX,dirY)));
+    me.set_direction(new PIXI.Point(dirX,dirY));
 };
 
 MF.Projectile.prototype.set_direction = function (direction) {
