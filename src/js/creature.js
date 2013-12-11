@@ -147,7 +147,7 @@ MF.Creature.prototype.move_down = function () {
     }
 };
 
-MF.Creature.prototype.throw_fireball = function (x, y) {
+MF.Creature.prototype.throw_fireball = function (x, y, id) {
     var me = this;
 
     var direction = { x: x, y: y };
@@ -157,7 +157,7 @@ MF.Creature.prototype.throw_fireball = function (x, y) {
     
     var pos = VMath.add(me.tilePosition, new PIXI.Point(dirX, dirY));
 
-    var projectile = MF.Game.add_projectile(me.playerId, pos, MF.ProjectileTypes.Fireball);
+    var projectile = MF.Game.add_projectile(me.playerId, pos, MF.ProjectileTypes.Fireball, id);
     projectile.set_direction(direction);
 };
 
