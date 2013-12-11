@@ -183,7 +183,7 @@ MF.MockMagic.prototype.get_total = function() {
 
 		return new MF.MagicElement(this, id, x, y, MF.MagicElementType.Fireball);
 	};
-	MF.MockMagic.prototype.throw_fireball = function(x, y) {
+	MF.MockMagic.prototype.throw_fireball = function(dirX, dirY) {
 		var id = guid();
 
 	    dirX = dirX == 0 ? 0 : ( dirX > 0 ? 1 : -1 );
