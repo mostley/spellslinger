@@ -38,7 +38,7 @@ MF.Projectile = function(playerId, tPos, type)
 
 MF.Projectile.constructor = MF.Projectile;
 
-MF.Creature.prototype.move = function (dirX, dirY) {
+MF.Projectile.prototype.move = function (dirX, dirY) {
     var me = this;
 
     dirX = dirX == 0 ? 0 : ( dirX > 0 ? 1 : -1 );
