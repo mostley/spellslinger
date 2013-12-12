@@ -33,6 +33,12 @@ MF.Creature = function(playerId, sprite, tPos)
     me.speeches = [];
 
     me.isAlive = true;
+
+    me.healthbar = new PIXI.Graphics();
+    me.healthbar.beginFill(0x00FF00);
+    me.healthbar.drawRect(0, 0, MF.Game.tileWidth, 1);
+    me.healthbar.endFill();
+    me.sprite.addChild(me.healthbar);
 };
 
 MF.Creature.constructor = MF.Creature;
@@ -64,6 +70,8 @@ MF.Creature.prototype.damageWith = function (shot) {
 
     me.health -= shot.damage;
 
+    me.healthbar.scale.x = me.health/100.0;
+
     if (me.health <= 0 && me.isAlive) {
         console.log("wizard was killed by",shot);
         //TODO log message
@@ -92,7 +100,7 @@ MF.Creature.prototype.move = function (dirX, dirY) {
 
     me._set_tile_position(VMath.add(me.tilePosition, new PIXI.Point(dirX,dirY)));
 
-    if (dirX > 0) {
+    if (dirX < 0) {
         me.sprite.scale.x = 1;
     } else if (dirX < 0) {
         me.sprite.scale.x = -1;

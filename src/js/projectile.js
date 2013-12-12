@@ -5,7 +5,7 @@
 MF.ProjectileTypes = {
     Fireball: {
         name: 'fireball',
-        damage: 100
+        damage: 20
     }
 };
 

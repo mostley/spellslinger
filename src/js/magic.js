@@ -87,7 +87,7 @@ MF.MockMagic.prototype.get_total = function() {
 		}, 
 		'skip_round': {
 			parametersRequired: 0,
-			manaCost: -1
+			manaCost: 0
 		}
 	};
 
