@@ -46,3 +46,6 @@ MF.Wizard._set_mapping(["fireball", "throwFireball"],
 
 MF.Wizard._set_mapping(["look", "lookAt", "see", "discover", "scry", "search", "get", "investigate"],
 		'look_at');
+
+MF.Wizard._set_mapping(["meditate", "wait", "idle", "skip", "stay", "chill", "relax", "nap"],
+		'skip_round');

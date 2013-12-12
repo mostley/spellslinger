@@ -172,6 +172,11 @@ MF.Creature.prototype.say_something = function (text, duration) {
     });
 };
 
+MF.Creature.prototype.skip_round = function () {
+    // nothing
+};
+
+
 MF.Creature.prototype.doSay = function (speech) {
     var me = this;
 

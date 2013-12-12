@@ -84,6 +84,10 @@ MF.MockMagic.prototype.get_total = function() {
 		'move_element': {
 			parametersRequired: 3,
 			manaCost: 1
+		}, 
+		'skip_round': {
+			parametersRequired: 0,
+			manaCost: -1
 		}
 	};
 
@@ -119,7 +123,8 @@ MF.MockMagic.prototype.get_total = function() {
 				var args = _cloneArray(arguments);
 				me._commands.push({
 					name: name,
-					parameters: args
+					parameters: args,
+					manaCost: method.manaCost
 				});
 			}
 		};
@@ -181,7 +186,8 @@ MF.MockMagic.prototype.get_total = function() {
 
 		me._commands.push({
 			name: 'throw_fireball',
-			parameters: [0+dirX, 0+dirY, id]
+			parameters: [0+dirX, 0+dirY, id],
+			manaCost: 1
 		});
 
 		return new MF.MagicElement(me, id, x, y, MF.MagicElementType.Fireball);

@@ -45,6 +45,7 @@ MF.Game = {
 
 	_wizards: [],
 	_wizardSprites: {},
+	_manaList: {},
 	_projectileSprites: {},
 	_creepSprites: {},
 	_objectSprites: {},
@@ -178,13 +179,27 @@ MF.Game = {
 		me.collectCommands();
 
 		for (var playerId in me._commandQueue) {
-			var commandList = me._commandQueue[playerId];
-			if (commandList.length > 0) {
-				var wizard = me._wizardSprites[playerId];
-				if (wizard) {
-					var command = commandList.pop();
+			me._manaList[playerId] += 1;
 
-					wizard[command.name].apply(wizard, command.parameters);
+			var commandList = me._commandQueue[playerId];
+			while (me._manaList[playerId] > 0) {
+				if (commandList.length > 0) {
+					var wizard = me._wizardSprites[playerId];
+					if (wizard) {
+						var command = commandList.pop();
+
+						wizard[command.name].apply(wizard, command.parameters);
+						me._manaList[playerId] -= command.manaCost;
+
+						if (command.name == "skip_round") {
+							break;
+						}
+					} else {
+						break;
+					}
+				} else {
+					me._manaList[playerId] = 0;
+					break;
 				}
 			}
 		}
@@ -286,6 +301,7 @@ MF.Game = {
 		var tPos = me.get_random_grid_position();
 		var wizardSprite = new MF.Creature(playerId, sprite, tPos);
 		me._wizardSprites[playerId] = wizardSprite;
+		me._manaList[playerId] = 0;
 		me.levelContainer.addChild(wizardSprite.sprite);
 
 		return wizard;
@@ -315,6 +331,7 @@ MF.Game = {
 			delete me._wizardSprites[playerId];
 			delete me._commandQueue[playerId];
 			delete me._idRegistry[wizard._id];
+			delete me._manaList[playerId];
 
 			me._grid[wizard.tilePosition.x][wizard.tilePosition.y] = null;
 
