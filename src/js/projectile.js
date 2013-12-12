@@ -66,7 +66,7 @@ MF.Projectile.prototype._set_tile_position = function (tPos) {
     var me = this;
     var result = MF.Game.set_element_tile_position(me, tPos);
     if (!result) {
-        me.explode();
+        me.explode(tPos);
     }
     return result;
 };
@@ -87,10 +87,10 @@ MF.Projectile.prototype.update = function (dt) {
 MF.Projectile.prototype.damageWith = function (damagingElement) {
     var me = this;
 
-    me.explode();
+    me.explode(damagingElement.tilePosition);
 };
 
-MF.Projectile.prototype.explode = function () {
+MF.Projectile.prototype.explode = function (tPos) {
     var me = this;
 
     if (me.isAlive) {
@@ -98,7 +98,8 @@ MF.Projectile.prototype.explode = function () {
 
         me.isAlive = false;
         
-        MF.Game.add_explosion(me.tilePosition);
+        tPos = tPos || me.tilePosition;
+        MF.Game.add_explosion(tPos);
     }
 };
 
@@ -107,5 +108,5 @@ MF.Projectile.prototype.onCollision = function (collidedElement) {
 
     collidedElement.damageWith(me);
 
-    me.explode();
+    me.explode(collidedElement.tilePosition);
 };
