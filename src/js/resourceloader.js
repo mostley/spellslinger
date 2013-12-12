@@ -32,10 +32,10 @@ MF.ResourceLoader = {
 		for (var y=0; y<tileset.rowCount; y++) {
 			for (var x=0; x<tileset.colCount; x++) {
 				PIXI.TextureCache[index] = new PIXI.Texture(texture, {
-					x: (x * tileset.tilewidth) + (x * tileset.spacing) + tileset.margin+1 + tileset.offset.x,
-					y: (y * tileset.tileheight) + (y * tileset.spacing) + tileset.margin+1 + tileset.offset.y,
-					width: tileset.tilewidth-2,
-					height: tileset.tileheight-2,
+					x: (x * tileset.tilewidth) + (x * tileset.spacing) + tileset.margin + tileset.offset.x,
+					y: (y * tileset.tileheight) + (y * tileset.spacing) + tileset.margin + tileset.offset.y,
+					width: tileset.tilewidth,
+					height: tileset.tileheight,
 					tileoffset: tileset.tileoffset
 				});
 

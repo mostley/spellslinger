@@ -4,10 +4,14 @@ if (typeof(MF) === "undefined") {
 
 MF.Textures = {
 	Ground: 5,
+	Border: 1,
 	Wizard_Novice: 5189,
 	Wizard_Me: 5187,
 	Projectiles: {
 		'fireball': 5598
+	},
+	Animations: {
+		Explosion: [5658, 5659]
 	}
 };
 
@@ -28,8 +32,8 @@ MF.Game = {
 	startTime: 0,
 	lastTick: null,
 	time: 0,
-	tileWidth: 22,
-	tileHeight: 22,
+	tileWidth: 24,
+	tileHeight: 23,
 
 	gridCols: 32,
 	gridRows: 32,
@@ -50,6 +54,8 @@ MF.Game = {
 	_creepSprites: {},
 	_objectSprites: {},
 	levelContainer: null,
+
+	_animations: [],
 
 	_grid: {},
 
@@ -126,6 +132,56 @@ MF.Game = {
 	        	me.levelContainer.addChild(sprite);
 	    	}
 	    }
+
+	    for (var x=0; x<me.gridCols; x++) {
+
+    		var texture = PIXI.TextureCache[MF.Textures.Border]
+            var sprite = new PIXI.Sprite(texture);
+            sprite.position = new PIXI.Point(x * me.tileWidth, -me.tileHeight);
+
+	        if (texture.frame.tileoffset) {
+	            sprite.position.x += texture.frame.tileoffset.x;
+	            sprite.position.y -= texture.frame.tileoffset.y;
+	        }
+
+        	me.levelContainer.addChild(sprite);
+
+    		var texture = PIXI.TextureCache[MF.Textures.Border]
+            var sprite = new PIXI.Sprite(texture);
+            sprite.position = new PIXI.Point(x * me.tileWidth, me.gridRows * me.tileHeight);
+
+	        if (texture.frame.tileoffset) {
+	            sprite.position.x += texture.frame.tileoffset.x;
+	            sprite.position.y -= texture.frame.tileoffset.y;
+	        }
+
+        	me.levelContainer.addChild(sprite);
+	    }
+
+	    for (var y=-1; y<me.gridRows+1; y++) {
+
+    		var texture = PIXI.TextureCache[MF.Textures.Border]
+            var sprite = new PIXI.Sprite(texture);
+            sprite.position = new PIXI.Point(-me.tileWidth, y * me.tileHeight);
+
+	        if (texture.frame.tileoffset) {
+	            sprite.position.x += texture.frame.tileoffset.x;
+	            sprite.position.y -= texture.frame.tileoffset.y;
+	        }
+
+        	me.levelContainer.addChild(sprite);
+
+    		var texture = PIXI.TextureCache[MF.Textures.Border]
+            var sprite = new PIXI.Sprite(texture);
+            sprite.position = new PIXI.Point(me.gridCols * me.tileWidth, y * me.tileHeight);
+
+	        if (texture.frame.tileoffset) {
+	            sprite.position.x += texture.frame.tileoffset.x;
+	            sprite.position.y -= texture.frame.tileoffset.y;
+	        }
+
+        	me.levelContainer.addChild(sprite);
+	    }
 	},
 
 	playSound: function (sound, volume) {
@@ -155,6 +211,15 @@ MF.Game = {
 				me.levelContainer.position = VMath.add(me.levelContainer.position, delta);
 			} else {
 				me._cameraTaget = null;
+			}
+		}
+
+		for (var i in me._animations) {
+			var animation = me._animations[i];
+			animation.update();
+
+			if (!animation.isAlive) {
+				me.remove_animation(animation);
 			}
 		}
 		
@@ -267,8 +332,8 @@ MF.Game = {
 				projectileSprite.sprite = null;
 			}
 
-			if (projectileSprite.tilePosition.x > 0 && projectileSprite.tilePosition.x < me.gridCols &&
-				projectileSprite.tilePosition.y > 0 && projectileSprite.tilePosition.y < me.gridRows) {
+			if (projectileSprite.tilePosition.x >= 0 && projectileSprite.tilePosition.x < me.gridCols &&
+				projectileSprite.tilePosition.y >= 0 && projectileSprite.tilePosition.y < me.gridRows) {
 				
 				me._grid[projectileSprite.tilePosition.x][projectileSprite.tilePosition.y] = null;
 			}
@@ -530,7 +595,7 @@ MF.Game = {
 	    var existing_element = me.get_element_at(tPos.x, tPos.y);
 
 	    if (existing_element == element) {
-	    	return true;
+	    	existing_element = null;
 	    }
 
 	    if (existing_element) {
@@ -547,12 +612,34 @@ MF.Game = {
 
 			me._grid[tPos.x][tPos.y] = element;
 
-			console.log("set_element_tile_position", element._type, element, tPos);
+			//console.log("set_element_tile_position", element._type, element, tPos);
 
 	        result = true;
 	    }
 
 	    return result;
+	},
+
+	add_explosion: function(tPos) {
+		var me = this;
+
+		var animation = new MF.Animation(tPos, MF.Textures.Animations.Explosion);
+		me.levelContainer.addChild(animation.sprite);
+		me._animations.push(animation);
+	},
+
+	remove_animation: function(animation){
+		var me = this;
+
+		var index = me._animations.indexOf(animation);
+		if (index != -1) {
+			me._animations.splice(index, 1);
+		}
+
+		if (animation.sprite) {
+			me.levelContainer.removeChild(animation.sprite);
+			animation.sprite = null;
+		}
 	},
 
 	// Events

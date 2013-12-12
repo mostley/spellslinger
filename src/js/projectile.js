@@ -98,7 +98,7 @@ MF.Projectile.prototype.explode = function () {
 
         me.isAlive = false;
         
-        //TODO add explosion animation
+        MF.Game.add_explosion(me.tilePosition);
     }
 };
 
