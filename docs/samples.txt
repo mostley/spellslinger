@@ -1,0 +1,92 @@
+wizard.meditate();
+wizard.meditate();
+wizard.meditate();
+
+wizard.meditate();
+wizard.meditate();
+wizard.meditate();
+wizard.meditate();
+
+wizard.fireball(1,0);
+wizard.fireball(0,1);
+wizard.fireball(-1,0);
+wizard.fireball(0,-1);
+
+wizard.fireball(1,1);
+wizard.fireball(-1,1);
+wizard.fireball(-1,-1);
+wizard.fireball(1,-1);
+
+
+
+
+wizard.meditate();
+wizard.meditate();
+wizard.meditate();
+wizard.meditate();
+var fireball = wizard.fireball(1,0);
+wizard.meditate();
+wizard.meditate();
+wizard.meditate();
+wizard.meditate();
+wizard.meditate();
+fireball.move(0,-1);
+fireball.move(0,-1);
+fireball.move(0,-1);
+fireball.move(0,-1);
+fireball.move(0,-1);
+fireball.move(0,-1);
+fireball.move(0,-1);
+fireball.move(0,-1);
+fireball.move(0,-1);
+fireball.move(0,-1);
+
+
+
+
+
+function shield(width, height) {
+    for (var x=wizard.x-width; x<wizard.x+width+1; x++) {
+        for (var y=wizard.y-height; y<wizard.y+height+1; y++) {
+            if (x == wizard.x && y == wizard.y) {
+                continue;
+            }
+            
+            var elem = wizard.look(x,y);
+            console.log(elem.type);
+            if (elem.type == 'Fireball') {
+                var dx = elem.x - wizard.x;
+                var dy = elem.y - wizard.y;
+                elem.move(dx,dy);
+            }
+        }
+    }
+}
+
+shield(2,2);
+
+
+function goTo(x,y) {
+    var dx = x-wizard.x;
+    var dy = y-wizard.y;
+    for (var ix=0;ix<Math.abs(dx); ix++) {
+        wizard.move(dx,0);
+    }
+    for (var iy=0;iy<Math.abs(dy); iy++) {
+        wizard.move(0,dy);
+    }
+}
+goTo(0,0);
+
+
+function firewall(height,dirX,dirY) {
+	for (var i=0; i<height; i++) {
+		wizard.fireball(dirX,dirY);
+		wizard.goDown();
+	}
+}
+function meditate(amount) {
+	for (var i=0; i<amount; i++) {
+		wizard.meditate();
+	}
+}

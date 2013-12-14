@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"an",
+				"animation"
+			],
+			[
+				"anima",
+				"_animations"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"tile",
+				"tileWidth"
+			],
+			[
 				"_mag",
 				"_magicElementType"
 			],
@@ -70,10 +86,6 @@
 			[
 				"wiz",
 				"wizardSprite"
-			],
-			[
-				"tile",
-				"tilePosition"
 			],
 			[
 				"mana",
@@ -502,79 +514,11 @@
 			[
 				"config",
 				"configOverwrite"
-			],
-			[
-				"target",
-				"targetPos"
-			],
-			[
-				"vec",
-				"vector_dist"
-			],
-			[
-				"foreg",
-				"foregroundGroup"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "src/js/main.js",
-			"settings":
-			{
-				"buffer_size": 13242,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/js/game.js",
-			"settings":
-			{
-				"buffer_size": 13421,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/vmath.js",
-			"settings":
-			{
-				"buffer_size": 741,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/magic.js",
-			"settings":
-			{
-				"buffer_size": 4512,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/wizard.js",
-			"settings":
-			{
-				"buffer_size": 1289,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/creature.js",
-			"settings":
-			{
-				"buffer_size": 4934,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/projectile.js",
-			"settings":
-			{
-				"buffer_size": 2561,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "Packages/User/compileBat.sublime-build",
 	"command_palette":
@@ -772,30 +716,35 @@
 	},
 	"file_history":
 	[
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/docs/samples.txt",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/animation.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/projectile.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/vmath.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/creature.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/pixi_dev.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/executor.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/resourceloader.js",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/pixi.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Jewelry/hearts.scad",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Jewelry/hearts",
 		"/C/Users/Sven Hecht/Desktop/New Text Document.txt",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/FabLabLogo/repo/3D/logo_cookie_cutter.scad",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
 		"/C/Users/Sven Hecht/Downloads/ace-builds-master/ace-builds-master/src/ext-language_tools.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/css/style.css",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/wizard.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/app.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/ace/ext-language_tools.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/ace/snippets/javascript.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/ace/mode-javascript.js",
 		"/D/Lokale Daten/DropBox/Dropbox/FabLabAccountData.txt",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/creature.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/projectile.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/magic.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/resourceloader.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/tilesets.js",
 		"/C/Users/Sven Hecht/Downloads/ace-builds-master/ace-builds-master/src/mode-javascript.js",
 		"/C/Users/Sven Hecht/Downloads/ace-builds-master/ace-builds-master/src/snippets/javascript.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/jquery.cookie.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/executor.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/client.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/extensions.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/FabLabKarlsruhe/index.html",
@@ -894,12 +843,7 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/scripts/controllers/analysis.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/.gitignore",
 		"/Z/tracker/Readme.txt",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/S3Mount/s3mount.scad",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/README.md",
-		"/C/Chocolatey/lib/XSockets.Windows.Service.2.7.6/tools/XSockets.Windows.Service.exe.config",
-		"/D/Program Files (x86)/Microsoft/XSockets.2.0.1.Service.Installer/XSockets.NET.Hosting.Service.exe.config",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Didgeridoo Mount/DidgeridooMount.scad",
-		"/D/Lokale Daten/DropBox/Dropbox/sites/SHDev/index.html"
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/S3Mount/s3mount.scad"
 	],
 	"find":
 	{
@@ -920,6 +864,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tileWidth",
+			"set_e",
+			"_grid",
+			"set_e",
+			"_anima",
+			"explode",
+			"set_e",
+			"manal",
+			"_wizardSprites",
+			"execute",
+			", \n		'move_element': {\n			parametersRequired: 3,\n			manaCost: 1\n		}",
 			"not",
 			"modal()",
 			"modal-backdrop",
@@ -1036,18 +991,7 @@
 			"\\/",
 			"assetsLoaded",
 			"createLayer",
-			"update",
-			"Mf.",
-			"get_channel_list",
-			"private",
-			">\n",
-			",\n",
-			"DMath",
-			"DangerBert",
-			"add_wizard",
-			"add_player",
-			"amount",
-			"_on_text_entered"
+			"update"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1193,201 +1137,8 @@
 	"groups":
 	[
 		{
-			"selected": 4,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/js/main.js",
-					"settings":
-					{
-						"buffer_size": 13242,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5964,
-								5964
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3577.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/js/game.js",
-					"settings":
-					{
-						"buffer_size": 13421,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3996.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/js/vmath.js",
-					"settings":
-					{
-						"buffer_size": 741,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								99,
-								108
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/js/magic.js",
-					"settings":
-					{
-						"buffer_size": 4512,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2322.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/js/wizard.js",
-					"settings":
-					{
-						"buffer_size": 1289,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								99,
-								99
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/js/creature.js",
-					"settings":
-					{
-						"buffer_size": 4934,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 972.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/js/projectile.js",
-					"settings":
-					{
-						"buffer_size": 2561,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 486.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
