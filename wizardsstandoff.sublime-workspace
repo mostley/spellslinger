@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"vo",
+				"velocity"
+			],
+			[
 				"an",
 				"animation"
 			],
@@ -510,10 +514,6 @@
 			[
 				"graphi",
 				"graphicFile"
-			],
-			[
-				"config",
-				"configOverwrite"
 			]
 		]
 	},
@@ -523,16 +523,32 @@
 	"build_system": "Packages/User/compileBat.sublime-build",
 	"command_palette":
 	{
-		"height": 58.0,
+		"height": 357.0,
 		"selected_items":
 		[
 			[
-				"remove",
-				"Package Control: Remove Package"
+				"hex",
+				"Hex Viewer: Toggle Hex View"
+			],
+			[
+				"tog",
+				"Hex Viewer: Toggle Hex View"
+			],
+			[
+				"toggle",
+				"Hex Viewer: Toggle Hex View"
+			],
+			[
+				"edit",
+				"Hex Viewer: Show Hex Edit Panel"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
 			],
 			[
 				"form",
@@ -699,7 +715,7 @@
 				"Package Control: Discover Packages"
 			]
 		],
-		"width": 416.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -716,6 +732,17 @@
 	},
 	"file_history":
 	[
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/KillMyThing/.gitignore",
+		"/D/Program File/Steam/steamapps/common/Starbound/starbound.config",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Unity/Shuhter/Assets/Scripts/ShotDriver.cs",
+		"/D/Program File/Steam/steamapps/common/Starbound/player/48eefdf8674a08fdfdcd08738439ee08.player",
+		"/D/Program File/Steam/steamapps/common/Starbound/player/48eefdf8674a08fdfdcd08738439ee08.metadata",
+		"/D/Program File/Steam/steamapps/common/Starbound/assets/default_configuration.config",
+		"/D/Program File/Steam/steamapps/common/Starbound/assets/server.config",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
+		"/D/Lokale Daten/DropBox/Dropbox/projects/Unity/Shuhter/Assets/Scripts/CharacterController.cs",
+		"/D/Program File/Steam/steamapps/common/Starbound/universe/accesscontrol.config",
+		"/D/Program File/Steam/steamapps/common/Starbound/player/48eefdf8674a08fdfdcd08738439ee08.shipworld",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/docs/samples.txt",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/main.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/game.js",
@@ -727,7 +754,6 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/creature.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/pixi_dev.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/executor.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/index.html",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/resourceloader.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/web/WizardsStandoff/src/js/libs/pixi.js",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/Jewelry/hearts.scad",
@@ -833,17 +859,7 @@
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/.slugignore",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/.travis.yml",
 		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/.travis.yml",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/bower.json",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/linnovate-mean-390c9c9/bower.json",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/linnovate-mean-390c9c9/pax_global_header",
-		"/C/Users/Sven Hecht/Downloads/mongodb-win32-x86_64-2008plus-2.4.8/mongodb-win32-x86_64-2008plus-2.4.8/README",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/index.html",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/scripts/controllers/main.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/scripts/controllers/training.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/app/scripts/controllers/analysis.js",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/.gitignore",
-		"/Z/tracker/Readme.txt",
-		"/D/Lokale Daten/DropBox/Dropbox/projects/Models/S3Mount/s3mount.scad"
+		"/D/Lokale Daten/DropBox/Dropbox/projects/dotnet/MovementTracker/trackingapp/bower.json"
 	],
 	"find":
 	{
@@ -864,6 +880,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ShotSpeed",
 			"tileWidth",
 			"set_e",
 			"_grid",
@@ -990,8 +1007,7 @@
 			"../img/",
 			"\\/",
 			"assetsLoaded",
-			"createLayer",
-			"update"
+			"createLayer"
 		],
 		"highlight": true,
 		"in_selection": false,

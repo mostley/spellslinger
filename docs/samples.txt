@@ -76,8 +76,6 @@ function goTo(x,y) {
         wizard.move(0,dy);
     }
 }
-goTo(0,0);
-
 
 function firewall(height,dirX,dirY) {
 	for (var i=0; i<height; i++) {
@@ -90,3 +88,7 @@ function meditate(amount) {
 		wizard.meditate();
 	}
 }
+
+goTo(0,0);
+meditate(31);
+firewall(16,1,0);
