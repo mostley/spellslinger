@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "ws" : "*",
-    "ecstatic" : "~0.4.5",
+    "ecstatic" : "~2.0.0",
     "mongojs" : "*"
   },
   "engines": {
